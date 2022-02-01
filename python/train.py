@@ -42,7 +42,7 @@ def train_net(net,
     val_loader = DataLoader(val_set, shuffle=False, drop_last=True, **loader_args)
 
     # (Initialize logging)
-    experiment = wandb.init(project="U-Net", entity="michelleappel")
+    experiment = wandb.init(project=args.project_name, name=args.run_name, entity="michelleappel")
     experiment.config.update(dict(epochs=epochs, batch_size=batch_size, learning_rate=learning_rate,
                                   val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale,
                                   amp=amp))
@@ -149,6 +149,8 @@ def get_args():
     parser.add_argument('--validation', '-v', dest='val', type=float, default=10.0,
                         help='Percent of the data that is used as validation (0-100)')
     parser.add_argument('--amp', action='store_true', default=False, help='Use mixed precision')
+    parser.add_argument('--run_name', default=None, help='Wandb run name')
+    parser.add_argument('--project_name', default=None, help='Wandb project name')
 
     return parser.parse_args()
 
