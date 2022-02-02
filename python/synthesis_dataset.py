@@ -18,10 +18,14 @@ class SynthesisDataset(Dataset):
     """The dataset for the ArchVizPro data
 
     """
-    def __init__(self, root_dir, extension='.png'):
+    def __init__(self, root_dir, scale=1.0, extension='.png'):
 
         # file locations
         self.root_dir = root_dir # file path of the image dataset
+        
+        assert 0 < scale <= 1, 'Scale must be between 0 and 1'
+        self.scale = scale
+
         self.extension = extension
         self.file_list = os.listdir(self.root_dir) # gets all files in the directory
         self.img_list = [file for file in self.file_list if "img" in file] # only the images
@@ -50,6 +54,13 @@ class SynthesisDataset(Dataset):
 
         return dictionary
 
+    @classmethod
+    def preprocess(cls, pil_img, scale, is_mask):
+        w, h = pil_img.size
+        newW, newH = int(scale * w), int(scale * h)
+        assert newW > 0 and newH > 0, 'Scale is too small, resized images would have no pixel'
+        return pil_img.resize((newW, newH), resample=Image.NEAREST if is_mask else Image.BICUBIC)
+
     def __len__(self):
         return len(self.img_list)
 
@@ -61,8 +72,10 @@ class SynthesisDataset(Dataset):
 
         key = self.keys[idx]
         for mod in self.modalities:
-            images_dict[mod] = self.toTensor(self.open_file(os.path.join(
-                self.root_dir, self.dictionary[key][mod])))
+            file = self.open_file(os.path.join(self.root_dir, self.dictionary[key][mod]))
+            if self.scale != 1.0:
+                file = self.preprocess(file, scale=self.scale, is_mask=mod!='img')
+            images_dict[mod] = self.toTensor(file)
 
         return images_dict
 
