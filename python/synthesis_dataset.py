@@ -33,7 +33,8 @@ class SynthesisDataset(Dataset):
         self.dictionary = self.files_to_dict() # makes a dictionary out of image paths
         self.keys = list(self.dictionary.keys()) # all image sets (one image set contains multiple ground truths)
         self.meta_file = [file for file in self.file_list if "meta" in file]
-        self.meta = self.load_json()
+        if len(self.meta_file) > 0:
+            self.meta = self.load_json()
 
         # transformations
         self.toTensor = transforms.ToTensor() # from PIL image to Tensor
