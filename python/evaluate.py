@@ -5,14 +5,14 @@ from tqdm import tqdm
 from dice_score import multiclass_dice_coeff, dice_coeff
 
 
-def evaluate(net, dataloader, device):
+def evaluate(net, dataloader, device, modality):
     net.eval()
     num_val_batches = len(dataloader)
     dice_score = 0
 
     # iterate over the validation set
     for batch in tqdm(dataloader, total=num_val_batches, desc='Validation round', unit='batch', leave=False):
-        image, mask_true = batch['img'], batch['outlines'][:, 0, :, :]
+        image, mask_true = batch['img'], batch[modality][:, 0, :, :]
         # move images and labels to correct device and type
         image = image.to(device=device, dtype=torch.float32)
         mask_true = mask_true.to(device=device, dtype=torch.long)

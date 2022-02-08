@@ -30,8 +30,8 @@ def train_net(net,
               img_scale: float = 1.0,
               amp: bool = False):
     # 1. Create dataset
-    dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_256", scale=args.scale, extension='.png')
-    dataset.modalities = ['img', 'outlines']
+    dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_128", scale=args.scale, extension='.png')
+    dataset.modalities = ['img', args.modality]
 
     # 2. Split into train / validation partitions
     n_val = int(len(dataset) * val_percent)
@@ -75,7 +75,7 @@ def train_net(net,
         with tqdm(total=n_train, desc=f'Epoch {epoch + 1}/{epochs}', unit='img') as pbar:
             for batch in train_loader:
                 images = batch['img']
-                true_masks = batch['outlines'][:, 0, :, :]
+                true_masks = batch[args.modality][:, 0, :, :]
 
                 assert images.shape[1] == net.n_channels, \
                     f'Network has been defined with {net.n_channels} input channels, ' \
@@ -117,8 +117,17 @@ def train_net(net,
                             histograms['Weights/' + tag] = wandb.Histogram(value.data.cpu())
                             histograms['Gradients/' + tag] = wandb.Histogram(value.grad.data.cpu())
 
-                        val_score = evaluate(net, val_loader, device)
+                        val_score = evaluate(net, val_loader, device, args.modality)
                         scheduler.step(val_score)
+
+                        if args.modality == 'class':
+                            true = dataset.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
+                            pred = dataset.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
+                            conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
+                        else:
+                            true = true_masks[0].float().cpu()
+                            pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
+                            conf = 1-torch.softmax(masks_pred, dim=1)[0].float().cpu()
 
                         logging.info('Validation Dice score: {}'.format(val_score))
                         experiment.log({
@@ -126,8 +135,9 @@ def train_net(net,
                             'validation Dice': val_score,
                             'images': wandb.Image(images[0].cpu()),
                             'masks': {
-                                'true': wandb.Image(true_masks[0].float().cpu()),
-                                'pred': wandb.Image(torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()),
+                                'true': wandb.Image(true),
+                                'pred': wandb.Image(pred),
+                                'conf': wandb.Image(conf)
                             },
                             'step': global_step,
                             'epoch': epoch,
@@ -153,6 +163,9 @@ def get_args():
     parser.add_argument('--amp', action='store_true', default=False, help='Use mixed precision')
     parser.add_argument('--run_name', default=None, help='Wandb run name')
     parser.add_argument('--project_name', default=None, help='Wandb project name')
+    parser.add_argument('--modality', default='outlines', help='Modalities to predict, e.g. outlines or class')
+    parser.add_argument('--n_classes', type=int, default=2, help='Number of classes')
+
 
     return parser.parse_args()
 
@@ -167,7 +180,7 @@ if __name__ == '__main__':
     # Change here to adapt to your data
     # n_channels=3 for RGB images
     # n_classes is the number of probabilities you want to get per pixel
-    net = UNet(n_channels=3, n_classes=2, bilinear=True)
+    net = UNet(n_channels=3, n_classes=args.n_classes, bilinear=True)
 
     logging.info(f'Network:\n'
                  f'\t{net.n_channels} input channels\n'
