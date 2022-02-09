@@ -45,7 +45,7 @@ class SynthesisDataset(Dataset):
         self.id_grouping = id_grouping
         if self.id_grouping:
             self.id_to_class = {}
-            self.id_to_class_dict(os.path.join(self.root_dir, 'classes_simple.csv'))
+            self.id_to_class_dict(os.path.join(self.root_dir, '../classes_53.csv'))
             self.add_class_to_meta()
             self.n_classes = len(self.id_to_class)
     
@@ -127,7 +127,6 @@ class SynthesisDataset(Dataset):
                         object['classid'] = classid
                         object['classcategory'] = classes
                         break
-                    break
 
     def image_to_class(self, batch):
         classimg = torch.clone(batch)
