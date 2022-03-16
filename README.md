@@ -1,3 +1,3 @@
 # Image synthesis
 
-https://wandb.ai/michelleappel/U-Net?workspace=user-michelleappel
+https://wandb.ai/michelleappel/image_segmentation?workspace=user-michelleappel
