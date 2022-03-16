@@ -11,6 +11,8 @@ from torch.utils.data import Dataset
 from torchvision import transforms
 from torchvision.utils import make_grid
 
+from models import networks
+
 from PIL import Image
 
 import numpy as np
@@ -23,7 +25,7 @@ class SynthesisDataset(Dataset):
     """The dataset for the ArchVizPro data
 
     """
-    def __init__(self, root_dir, scale=1.0, extension='.png', id_grouping=True):
+    def __init__(self, root_dir, scale=1.0, extension='.png', id_grouping=True, do_domain_transfer=True):
 
         # file locations
         self.root_dir = root_dir # file path of the image dataset
@@ -48,10 +50,28 @@ class SynthesisDataset(Dataset):
             self.id_to_class_dict(os.path.join(self.root_dir, '../classes_53.csv'))
             self.add_class_to_meta()
             self.n_classes = len(self.id_to_class)
+
+        self.do_domain_transfer = do_domain_transfer
+        if self.do_domain_transfer:
+            self.netG_B = networks.define_G(3, 3, 16, 'resnet_9blocks', 'instance',
+                                        False, 'normal', 0.02)
+
+            load_path = os.path.join("python", "models", "latest_net_G_A.pth")
+
+            device = torch.device('cuda:{}'.format(0))
+            state_dict = torch.load(load_path, map_location=str(device))
+
+            # for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
+            #     self.__patch_instance_norm_state_dict(state_dict, net, key.split('.'))
+
+            self.netG_B.load_state_dict(state_dict)
+            self.netG_B.eval()
+                        
     
         # transformations
         self.toTensor = transforms.ToTensor() # from PIL image to Tensor
         self.toPilImage = transforms.ToPILImage() # Tensor to Pil Image
+        self.normalize = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 
     def get_modalities(self):
         first_char = self.file_list[0][0]
@@ -94,6 +114,8 @@ class SynthesisDataset(Dataset):
             images_dict[mod] = self.toTensor(file)
             if mod == 'indexid' and self.id_grouping:
                 images_dict['class'] = self.image_to_class(images_dict['indexid'])
+            if mod == 'img' and self.do_domain_transfer:
+                images_dict['img'] = self.domain_transfer(self.normalize((images_dict['img'])))      
 
         return images_dict
 
@@ -148,3 +170,8 @@ class SynthesisDataset(Dataset):
                 colorimg[:, i, :, :][batch[:, 0, :, :] == value] = torch.Tensor(ColorHash(value).rgb)[i]
 
         return colorimg
+
+    def domain_transfer(self, batch):
+        with torch.no_grad():
+            output_batch = self.netG_B(batch.unsqueeze(0)).detach()
+        return output_batch.squeeze(0)

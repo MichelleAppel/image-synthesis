@@ -191,6 +191,10 @@ def get_args():
     parser.add_argument('--n_classes', type=int, default=2, help='Number of classes')
     parser.add_argument('--regression', type=bool, default=False, help='Regression or classification')
 
+    parser.add_argument('--name', type=str, default='experiment_name', help='name of the experiment. It decides where to store samples and models')
+    # parser.add_argument('--use_wandb', action='store_true', help='use wandb')
+    parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+    parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
 
     return parser.parse_args()
 
