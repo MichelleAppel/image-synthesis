@@ -6,10 +6,13 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import wandb
 from torch import optim
 from torch.utils.data import DataLoader, random_split
+import torchmetrics
+
 from tqdm import tqdm
+
+import wandb
 
 from synthesis_dataset import SynthesisDataset
 from dice_score import dice_loss
@@ -31,7 +34,7 @@ def train_net(net,
               img_scale: float = 1.0,
               amp: bool = False):
     # 1. Create dataset
-    dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_128rot", scale=args.scale, extension='.png')
+    dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_128rot", scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer)
     dataset.modalities = ['img', args.modality]
 
     # 2. Split into train / validation partitions
@@ -173,9 +176,99 @@ def train_net(net,
             torch.save(net.state_dict(), str(dir_checkpoint / 'checkpoint_epoch{}.pth'.format(epoch + 1)))
             logging.info(f'Checkpoint {epoch + 1} saved!')
 
+def test_net(net,
+              device,
+              batch_size: int = 1,
+              save_checkpoint: bool = True,
+              img_scale: float = 1.0,
+              amp: bool = False):
+
+    print('testing...')
+    if args.modality == 'outlines':
+        AP = torchmetrics.AveragePrecision(num_classes=2)
+
+    if args.regression:
+        criterion = nn.MSELoss()
+        type=torch.float32
+    else:
+        criterion = nn.CrossEntropyLoss()
+        type = torch.long
+
+    dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_128rot", scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer)
+    dataset.modalities = ['img', args.modality]
+
+    loader_args = dict(batch_size=batch_size, num_workers=4, pin_memory=True)
+    test_loader = DataLoader(dataset, shuffle=False, **loader_args)
+
+    # (Initialize logging)
+    experiment = wandb.init(project=args.project_name, name=args.run_name+'_test', entity="michelleappel")
+    experiment.config.update(dict(batch_size=batch_size, save_checkpoint=save_checkpoint, img_scale=img_scale,
+                                  amp=amp))
+
+    net.eval()
+    with tqdm(total=len(dataset), unit='img') as pbar:
+        for step, batch in enumerate(test_loader):
+            images = batch['img']
+            true_masks = batch[args.modality]
+            if args.modality in ['outlines', 'class']:
+                true_masks = true_masks[:, 0, :, :]
+            if args.modality == 'depth':
+                true_masks = true_masks / 35000
+
+            assert images.shape[1] == net.n_channels, \
+                f'Network has been defined with {net.n_channels} input channels, ' \
+                f'but loaded images have {images.shape[1]} channels. Please check that ' \
+                'the images are loaded correctly.'
+
+            images = images.to(device=device, dtype=torch.float32)
+            true_masks = true_masks.to(device=device, dtype=type)
+
+
+            with torch.cuda.amp.autocast(enabled=amp):
+                masks_pred = net(images).detach()
+                    
+                if args.modality == 'class':
+                    true = dataset.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
+                    pred = dataset.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
+                    conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
+                elif args.modality == 'normals' or args.modality == 'depth':
+                    true = true_masks[0].float().cpu()
+                    pred = masks_pred[0].float().cpu()
+                    conf = masks_pred[0].float().cpu()
+                else:
+                    true = true_masks[0].float().cpu()
+                    pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
+                    conf = 1-torch.softmax(masks_pred, dim=1)[0].float().cpu()
+
+                experiment.log({
+                    'images': wandb.Image(images[0].cpu()),
+                    'masks': {
+                        'true': wandb.Image(true),
+                        'pred': wandb.Image(pred),
+                        'conf': wandb.Image(conf)
+                    }
+                })
+
+                if args.modality in ['normals', 'depth']:
+                    # appropriate metrics: MSE?
+                    pass
+                else:
+                    ap = AP(masks_pred, true_masks)
+                    experiment.log({'AP': ap})
+                    # appropriate metrics: ODF, OIF, AP, IOU
+
+            if step > 3:
+                break
+    
+
+
+def 
 
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
+    parser.add_argument('--mode', '-m', type=str, default='train', help='test or train')
+    parser.add_argument('--domain_transfer', '-d', type=bool, default=False, help='domain transfer from fake to real')
+
     parser.add_argument('--epochs', '-e', metavar='E', type=int, default=5, help='Number of epochs')
     parser.add_argument('--batch_size', '-b', dest='batch_size', metavar='B', type=int, default=1, help='Batch size')
     parser.add_argument('--learning_rate', '-l', metavar='LR', type=float, default=0.00001,
@@ -220,17 +313,32 @@ if __name__ == '__main__':
         net.load_state_dict(torch.load(args.load, map_location=device))
         logging.info(f'Model loaded from {args.load}')
 
+    print('DT', args.domain_transfer)
+
     net.to(device=device)
-    try:
-        train_net(net=net,
-                  epochs=args.epochs,
-                  batch_size=args.batch_size,
-                  learning_rate=args.lr,
-                  device=device,
-                  img_scale=args.scale,
-                  val_percent=args.val / 100,
-                  amp=args.amp)
-    except KeyboardInterrupt:
-        torch.save(net.state_dict(), 'INTERRUPTED.pth')
-        logging.info('Saved interrupt')
-        sys.exit(0)
+    if args.mode == 'train':
+        try:
+            train_net(net=net,
+                    epochs=args.epochs,
+                    batch_size=args.batch_size,
+                    learning_rate=args.lr,
+                    device=device,
+                    img_scale=args.scale,
+                    val_percent=args.val / 100,
+                    amp=args.amp)
+        except KeyboardInterrupt:
+            torch.save(net.state_dict(), 'INTERRUPTED.pth')
+            logging.info('Saved interrupt')
+            sys.exit(0)
+    else:
+        try:
+            test_net(net=net,
+                    batch_size=args.batch_size,
+                    device=device,
+                    img_scale=args.scale,
+                    amp=args.amp)
+        except KeyboardInterrupt:
+            torch.save(net.state_dict(), 'INTERRUPTED.pth')
+            logging.info('Saved interrupt')
+            sys.exit(0)
+
