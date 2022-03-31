@@ -19,6 +19,8 @@ from dice_score import dice_loss
 from evaluate import evaluate
 from unet import UNet
 
+from utils import AP, IOU
+
 torch.manual_seed(42)
 torch.cuda.manual_seed(42)
 
@@ -183,9 +185,10 @@ def test_net(net,
               img_scale: float = 1.0,
               amp: bool = False):
 
+
     print('testing...')
     if args.modality == 'outlines':
-        AP = torchmetrics.AveragePrecision(num_classes=2)
+        pass
 
     if args.regression:
         criterion = nn.MSELoss()
@@ -205,64 +208,100 @@ def test_net(net,
     experiment.config.update(dict(batch_size=batch_size, save_checkpoint=save_checkpoint, img_scale=img_scale,
                                   amp=amp))
 
+    # store metrics
     net.eval()
-    with tqdm(total=len(dataset), unit='img') as pbar:
-        for step, batch in enumerate(test_loader):
-            images = batch['img']
-            true_masks = batch[args.modality]
-            if args.modality in ['outlines', 'class']:
-                true_masks = true_masks[:, 0, :, :]
-            if args.modality == 'depth':
-                true_masks = true_masks / 35000
 
-            assert images.shape[1] == net.n_channels, \
-                f'Network has been defined with {net.n_channels} input channels, ' \
-                f'but loaded images have {images.shape[1]} channels. Please check that ' \
-                'the images are loaded correctly.'
+    for step, batch in tqdm(enumerate(test_loader)):
+        images = batch['img']
+        true_masks = batch[args.modality]
+        if args.modality in ['outlines', 'class']:
+            true_masks = true_masks[:, 0, :, :]
+        if args.modality == 'depth':
+            true_masks = true_masks / 35000
 
-            images = images.to(device=device, dtype=torch.float32)
-            true_masks = true_masks.to(device=device, dtype=type)
+        assert images.shape[1] == net.n_channels, \
+            f'Network has been defined with {net.n_channels} input channels, ' \
+            f'but loaded images have {images.shape[1]} channels. Please check that ' \
+            'the images are loaded correctly.'
 
+        images = images.to(device=device, dtype=torch.float32)
+        true_masks = true_masks.to(device=device, dtype=type)
 
-            with torch.cuda.amp.autocast(enabled=amp):
-                masks_pred = net(images).detach()
-                    
-                if args.modality == 'class':
-                    true = dataset.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
-                    pred = dataset.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
-                    conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
-                elif args.modality == 'normals' or args.modality == 'depth':
-                    true = true_masks[0].float().cpu()
-                    pred = masks_pred[0].float().cpu()
-                    conf = masks_pred[0].float().cpu()
-                else:
-                    true = true_masks[0].float().cpu()
-                    pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
-                    conf = 1-torch.softmax(masks_pred, dim=1)[0].float().cpu()
+        aps1 = []
+        aps3 = []
+        aps6 = []
 
-                experiment.log({
-                    'images': wandb.Image(images[0].cpu()),
-                    'masks': {
-                        'true': wandb.Image(true),
-                        'pred': wandb.Image(pred),
-                        'conf': wandb.Image(conf)
-                    }
-                })
+        F1_1s = []
+        F1_3s = []
+        F1_6s = []
 
-                if args.modality in ['normals', 'depth']:
-                    # appropriate metrics: MSE?
-                    pass
-                else:
-                    ap = AP(masks_pred, true_masks)
-                    experiment.log({'AP': ap})
-                    # appropriate metrics: ODF, OIF, AP, IOU
+        with torch.cuda.amp.autocast(enabled=amp):
+            masks_pred = net(images).detach()
+                
+            if args.modality == 'class':
+                true = dataset.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
+                pred = dataset.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
+                conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
+            elif args.modality == 'normals' or args.modality == 'depth':
+                true = true_masks[0].float().cpu()
+                pred = masks_pred[0].float().cpu()
+                conf = masks_pred[0].float().cpu()
+            else:
+                true = true_masks[0].float().cpu()
+                pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
+                conf = 1-torch.softmax(masks_pred, dim=1)[0].float().cpu()
 
-            if step > 3:
-                break
-    
+            experiment.log({
+                'images': wandb.Image(images[0].cpu()),
+                'masks': {
+                    'true': wandb.Image(true),
+                    'pred': wandb.Image(pred),
+                    'conf': wandb.Image(conf)
+                }
+            })
 
+            if args.modality in ['normals', 'depth']:
+                # appropriate metrics: MSE?
+                pass
+            elif args.modality == 'outlines':
+                ap1, F1_1 = AP(pred, true_masks, pos_label=1, matching_distance=1)
+                ap3, F1_3 = AP(pred, true_masks, pos_label=1, matching_distance=3)
+                ap6, F1_6 = AP(pred, true_masks, pos_label=1, matching_distance=6)
 
-def 
+                aps1 += [ap1]
+                aps3 += [ap3]
+                aps6 += [ap6]
+
+                F1_1s += [F1_1]
+                F1_3s += [F1_3]
+                F1_6s += [F1_6]
+
+                experiment.log({'AP 1': ap1})
+                experiment.log({'AP 3': ap3})
+                experiment.log({'AP 6': ap6})
+
+                experiment.log({'F1 1': F1_1})
+                experiment.log({'F1 3': F1_3})
+                experiment.log({'F1 6': F1_6})
+                
+                # appropriate metrics: ODF, OIF, AP, IOU
+            else:
+                # IOU
+                pass
+
+        if step > 10:
+            break
+
+        if args.modality == 'outlines':
+            wandb.run.summary["AP total 1"] = sum(aps1)/len(aps1)
+            wandb.run.summary["AP total 3"] = sum(aps3)/len(aps3)
+            wandb.run.summary["AP total 6"] = sum(aps6)/len(aps6)
+            
+            wandb.run.summary["F1 total 1"] = sum(F1_1s)/len(F1_1s)
+            wandb.run.summary["F1 total 3"] = sum(F1_3s)/len(F1_3s)
+            wandb.run.summary["F1 total 6"] = sum(F1_6s)/len(F1_6s)
+        elif args.modality == ''
+
 
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
