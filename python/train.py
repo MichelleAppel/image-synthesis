@@ -153,8 +153,8 @@ def train_net(net,
                             conf = masks_pred[0].float().cpu()
                         else:
                             true = true_masks[0].float().cpu()
-                            pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
-                            conf = 1-torch.softmax(masks_pred, dim=1)[0].float().cpu()
+                            pred = torch.softmax(masks_pred[0], dim=0)[1].float().cpu()
+                            conf = torch.softmax(masks_pred[0], dim=0)[1].float().cpu()
 
                         logging.info('Validation Dice score: {}'.format(val_score))
                         experiment.log({
@@ -174,7 +174,7 @@ def train_net(net,
         if save_checkpoint:
             if not os.path.exists(dir_checkpoint):
                 os.makedirs(dir_checkpoint) # make it
-            torch.save(net.state_dict(), str(dir_checkpoint / 'checkpoint_epoch{}.pth'.format(epoch + 1)))
+            torch.save(net.state_dict(), os.path.join(dir_checkpoint, 'checkpoint_epoch{}.pth'.format(epoch + 1)))
             logging.info(f'Checkpoint {epoch + 1} saved!')
 
 def test_net(net,
@@ -270,8 +270,8 @@ def get_args():
     parser.add_argument('--name', type=str, default='experiment_name', help='name of the experiment. It decides where to store samples and models')
     # parser.add_argument('--use_wandb', action='store_true', help='use wandb')
     parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
-    parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
-    parser.add_argument('--save_path', type=str, default='./output', help='dir to save the images to')
+    parser.add_argument('--checkpoints_dir', type=str, default='.\checkpoints', help='models are saved here')
+    parser.add_argument('--save_path', type=str, default='.\output', help='dir to save the images to')
     parser.add_argument('--save_n_images', type=int, default=64, help='Number of images to save')
 
     return parser.parse_args()
@@ -279,6 +279,7 @@ def get_args():
 
 if __name__ == '__main__':
     args = get_args()
+    print(args.checkpoints_dir, args.run_name)
     dir_checkpoint = os.path.join(args.checkpoints_dir, args.run_name)
 
     logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
