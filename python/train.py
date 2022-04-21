@@ -1,3 +1,5 @@
+import os
+
 import argparse
 import logging
 import sys
@@ -9,6 +11,9 @@ import torch.nn.functional as F
 from torch import optim
 from torch.utils.data import DataLoader, random_split
 import torchmetrics
+from torchvision.utils import save_image
+
+from sklearn.metrics import precision_recall_curve, f1_score, accuracy_score, roc_auc_score, confusion_matrix
 
 from tqdm import tqdm
 
@@ -183,8 +188,9 @@ def test_net(net,
               batch_size: int = 1,
               save_checkpoint: bool = True,
               img_scale: float = 1.0,
-              amp: bool = False):
-
+              amp: bool = False,
+              save_imgs = True,
+              save_path='.\output'):
 
     print('testing...')
     if args.modality == 'outlines':
@@ -227,14 +233,6 @@ def test_net(net,
         images = images.to(device=device, dtype=torch.float32)
         true_masks = true_masks.to(device=device, dtype=type)
 
-        aps1 = []
-        aps3 = []
-        aps6 = []
-
-        F1_1s = []
-        F1_3s = []
-        F1_6s = []
-
         with torch.cuda.amp.autocast(enabled=amp):
             masks_pred = net(images).detach()
                 
@@ -249,7 +247,7 @@ def test_net(net,
             else:
                 true = true_masks[0].float().cpu()
                 pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
-                conf = 1-torch.softmax(masks_pred, dim=1)[0].float().cpu()
+                conf = 1-torch.softmax(masks_pred, dim=1)[0][0].float().cpu()
 
             experiment.log({
                 'images': wandb.Image(images[0].cpu()),
@@ -260,47 +258,10 @@ def test_net(net,
                 }
             })
 
-            if args.modality in ['normals', 'depth']:
-                # appropriate metrics: MSE?
-                pass
-            elif args.modality == 'outlines':
-                ap1, F1_1 = AP(pred, true_masks, pos_label=1, matching_distance=1)
-                ap3, F1_3 = AP(pred, true_masks, pos_label=1, matching_distance=3)
-                ap6, F1_6 = AP(pred, true_masks, pos_label=1, matching_distance=6)
-
-                aps1 += [ap1]
-                aps3 += [ap3]
-                aps6 += [ap6]
-
-                F1_1s += [F1_1]
-                F1_3s += [F1_3]
-                F1_6s += [F1_6]
-
-                experiment.log({'AP 1': ap1})
-                experiment.log({'AP 3': ap3})
-                experiment.log({'AP 6': ap6})
-
-                experiment.log({'F1 1': F1_1})
-                experiment.log({'F1 3': F1_3})
-                experiment.log({'F1 6': F1_6})
-                
-                # appropriate metrics: ODF, OIF, AP, IOU
-            else:
-                # IOU
-                pass
-
-        if step > 10:
-            break
-
-        if args.modality == 'outlines':
-            wandb.run.summary["AP total 1"] = sum(aps1)/len(aps1)
-            wandb.run.summary["AP total 3"] = sum(aps3)/len(aps3)
-            wandb.run.summary["AP total 6"] = sum(aps6)/len(aps6)
-            
-            wandb.run.summary["F1 total 1"] = sum(F1_1s)/len(F1_1s)
-            wandb.run.summary["F1 total 3"] = sum(F1_3s)/len(F1_3s)
-            wandb.run.summary["F1 total 6"] = sum(F1_6s)/len(F1_6s)
-        elif args.modality == ''
+        for i in range(len(images)):
+            save_image(images[i], os.path.join(save_path,'{}-{}_img.png'.format(step, i)))
+            save_image(true_masks[i].float(), os.path.join(save_path,'{}-{}_truemask.png'.format(step, i)))
+            save_image(torch.softmax(masks_pred[i], dim=0)[1], os.path.join(save_path,'{}-{}_predmask.png'.format(step, i)))
 
 
 def get_args():
@@ -369,7 +330,7 @@ if __name__ == '__main__':
             torch.save(net.state_dict(), 'INTERRUPTED.pth')
             logging.info('Saved interrupt')
             sys.exit(0)
-    else:
+    elif args.mode == 'test':
         try:
             test_net(net=net,
                     batch_size=args.batch_size,
@@ -380,4 +341,3 @@ if __name__ == '__main__':
             torch.save(net.state_dict(), 'INTERRUPTED.pth')
             logging.info('Saved interrupt')
             sys.exit(0)
-

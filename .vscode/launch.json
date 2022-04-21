@@ -1,0 +1,18 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["--project_name", "image_segmentation_debug", "--run_name", "dataset_128_outlines", "--batch_size", "4", "--modality", "outlines", "--n_classes", "2", "--mode", "test", "--load", "./checkpoints/checkpoint_epoch5.pth", "--domain_transfer", "True"]
+             
+        }
+    ]
+}

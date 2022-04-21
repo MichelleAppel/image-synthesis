@@ -1,42 +1,100 @@
 import torch
-import matplotlib.pyplot as plt
+
+from sklearn.metrics import (PrecisionRecallDisplay, accuracy_score,
+                             confusion_matrix, f1_score,
+                             precision_recall_curve, roc_auc_score)
+
+import numpy as np
 
 
-# Average precision
-def AP(pred, mask, pos_label=None, matching_distance=1):
-    pred = pred.cuda()
+def calc_f1(p_and_r):
+    p, r = p_and_r
+    return (2*p*r)/(p+r)
 
-    if pred.shape[1] == 2: # binary case
-        pred = pred[:, pos_label]
+def print_model_metrics_ODF(y_test, y_test_prob, matching_distance = 1, verbose = True, return_metrics = True, plot = False):
 
     if matching_distance > 1:
-        kernel = torch.ones(1, matching_distance, matching_distance).cuda()
-        mask = torch.nn.functional.conv2d(mask.unsqueeze(1).float(), kernel.unsqueeze(1), padding='same')
-        mask = torch.clip(mask, 0, 1).squeeze(1)
+        kernel = torch.ones(1, matching_distance, matching_distance)
+        y_test = torch.nn.functional.conv2d(y_test.float(), kernel.unsqueeze(1), padding='same')
+        y_test = torch.clip(y_test, 0, 1)
 
-    TP = ((pred == 1) & (mask == 1)).sum()
-    FP = ((pred == 1) & (mask == 0)).sum()
-    FN = ((pred == 0) & (mask == 1)).sum()
-    TN = ((pred == 0) & (mask == 0)).sum()
+    y_test = y_test.flatten()
+    y_test_prob = y_test_prob.flatten()
 
-    precision   = TP / (TP+FP)
-    recall      = TP / (TP + FN)
-    F1          = (precision * recall) / (precision + recall)
-    return precision, F1
+    precision, recall, threshold = precision_recall_curve(y_test, y_test_prob, pos_label = 1)
+    
+    #Find the threshold value that gives the best F1 Score
+    best_f1_index = np.argmax([calc_f1(p_r) for p_r in zip(precision, recall)])
+    best_threshold, best_precision, best_recall = threshold[best_f1_index], precision[best_f1_index], recall[best_f1_index]
+    
+    # Calulcate predictions based on the threshold value
+    y_test_pred = np.where(y_test_prob > best_threshold, 1, 0)
+    
+    # Calculate all metrics
+    f1 = f1_score(y_test, y_test_pred, pos_label = 1, average = 'binary')
+    roc_auc = roc_auc_score(y_test, y_test_prob)
+    acc = accuracy_score(y_test, y_test_pred)
+        
+    if verbose:
+        print('F1: {:.3f} | Pr: {:.3f} | Re: {:.3f} | AUC: {:.3f} | Accuracy: {:.3f} | Best threshold: {:.3f} \
+            n'.format(f1, best_precision, best_recall, roc_auc, acc, best_threshold))
 
-SMOOTH = 1e-6
+    if plot:
+        pr_display = PrecisionRecallDisplay(precision=precision, recall=recall).plot()
+    
+    if return_metrics:
+        return np.array([f1, best_precision, best_recall, roc_auc, acc, best_threshold])
 
-def IOU(outputs: torch.Tensor, labels: torch.Tensor):
-    # You can comment out this line if you are passing tensors of equal shape
-    # But if you are passing output from UNet or something it will most probably
-    # be with the BATCH x 1 x H x W shape
-    outputs = outputs.squeeze(1)  # BATCH x 1 x H x W => BATCH x H x W
+        
+def print_model_metrics_OIF(y_tests, y_test_probs, matching_distance = 1, verbose = True, return_metrics = True):
+
+    f1s = []
+    best_precisions = []
+    best_recalls = []
+    # roc_aucs = []
+    accs = []
+    best_thresholds = []
+
+    for y_test, y_test_prob in zip(y_tests, y_test_probs):
+        if matching_distance > 1:
+            kernel = torch.ones(1, matching_distance, matching_distance)
+            y_test = torch.nn.functional.conv2d(y_test.float().unsqueeze(1), kernel.unsqueeze(1), padding='same')
+            y_test = torch.clip(y_test, 0, 1).squeeze(1)
+
+        y_test = y_test.flatten()
+        y_test_prob = y_test_prob.flatten()
+
+        precision, recall, threshold = precision_recall_curve(y_test, y_test_prob, pos_label = 1)
+        
+        #Find the threshold value that gives the best F1 Score
+        best_f1_index = np.argmax([calc_f1(p_r) for p_r in zip(precision, recall)])
+        best_threshold, best_precision, best_recall = threshold[best_f1_index], precision[best_f1_index], recall[best_f1_index]
+        
+        # Calulcate predictions based on the threshold value
+        y_test_pred = np.where(y_test_prob > best_threshold, 1, 0)
+        
+        # Calculate all metrics
+        f1 = f1_score(y_test, y_test_pred, pos_label = 1, average = 'binary', zero_division=0)
+        # roc_auc = roc_auc_score(y_test, y_test_prob)
+        acc = accuracy_score(y_test, y_test_pred)
+        
+        f1s += [f1]
+        best_precisions += [best_precision]
+        best_recalls += [best_recall]
+        # roc_aucs += [roc_auc]
+        accs += [acc]
+        best_thresholds += [best_threshold]
+        
+    f1 = np.mean(f1)
+    best_precision = np.mean(best_precision)
+    best_recall = np.mean(best_recall)
+    # roc_auc = np.mean(roc_auc)
+    acc = np.mean(acc)
+    best_threshold = np.mean(best_threshold)
+
+    if verbose:
+        print('F1: {:.3f} | Pr: {:.3f} | Re: {:.3f}  | Accuracy: {:.3f} | Best threshold: {:.3f} \
+            n'.format(f1, best_precision, best_recall, acc, best_threshold))
     
-    intersection = (outputs & labels).float().sum((1, 2))  # Will be zero if Truth=0 or Prediction=0
-    union = (outputs | labels).float().sum((1, 2))         # Will be zzero if both are 0
-    
-    iou = (intersection + SMOOTH) / (union + SMOOTH)  # We smooth our devision to avoid 0/0
-    
-    thresholded = torch.clamp(20 * (iou - 0.5), 0, 10).ceil() / 10  # This is equal to comparing with thresolds
-    
-    return thresholded.mean()  # Or thresholded.mean() if you are interested in average across the batch
+    if return_metrics:
+        return np.array([f1, best_precision, best_recall, acc, best_threshold])
