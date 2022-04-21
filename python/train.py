@@ -1,35 +1,28 @@
-import os
-
 import argparse
 import logging
+import os
 import sys
 from pathlib import Path
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torchmetrics
+import wandb
+from sklearn.metrics import (accuracy_score, confusion_matrix, f1_score,
+                             precision_recall_curve, roc_auc_score)
 from torch import optim
 from torch.utils.data import DataLoader, random_split
-import torchmetrics
 from torchvision.utils import save_image
-
-from sklearn.metrics import precision_recall_curve, f1_score, accuracy_score, roc_auc_score, confusion_matrix
-
 from tqdm import tqdm
 
-import wandb
-
-from synthesis_dataset import SynthesisDataset
 from dice_score import dice_loss
 from evaluate import evaluate
+from synthesis_dataset import SynthesisDataset
 from unet import UNet
-
-from utils import AP, IOU
 
 torch.manual_seed(42)
 torch.cuda.manual_seed(42)
-
-dir_checkpoint = Path('./checkpoints/')
 
 def train_net(net,
               device,
@@ -179,7 +172,8 @@ def train_net(net,
                         })
 
         if save_checkpoint:
-            Path(dir_checkpoint).mkdir(parents=True, exist_ok=True)
+            if not os.path.exists(dir_checkpoint):
+                os.makedirs(dir_checkpoint) # make it
             torch.save(net.state_dict(), str(dir_checkpoint / 'checkpoint_epoch{}.pth'.format(epoch + 1)))
             logging.info(f'Checkpoint {epoch + 1} saved!')
 
@@ -191,16 +185,15 @@ def test_net(net,
               amp: bool = False,
               save_imgs = True,
               save_path='.\output'):
-
     print('testing...')
-    if args.modality == 'outlines':
-        pass
+
+    # if the output directory doesn't exist yet
+    if not os.path.exists(save_path):
+        os.makedirs(save_path) # make it
 
     if args.regression:
-        criterion = nn.MSELoss()
         type=torch.float32
     else:
-        criterion = nn.CrossEntropyLoss()
         type = torch.long
 
     dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_128rot", scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer)
@@ -209,14 +202,10 @@ def test_net(net,
     loader_args = dict(batch_size=batch_size, num_workers=4, pin_memory=True)
     test_loader = DataLoader(dataset, shuffle=False, **loader_args)
 
-    # (Initialize logging)
-    experiment = wandb.init(project=args.project_name, name=args.run_name+'_test', entity="michelleappel")
-    experiment.config.update(dict(batch_size=batch_size, save_checkpoint=save_checkpoint, img_scale=img_scale,
-                                  amp=amp))
-
     # store metrics
     net.eval()
 
+    count = 0
     for step, batch in tqdm(enumerate(test_loader)):
         images = batch['img']
         true_masks = batch[args.modality]
@@ -249,20 +238,14 @@ def test_net(net,
                 pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
                 conf = 1-torch.softmax(masks_pred, dim=1)[0][0].float().cpu()
 
-            experiment.log({
-                'images': wandb.Image(images[0].cpu()),
-                'masks': {
-                    'true': wandb.Image(true),
-                    'pred': wandb.Image(pred),
-                    'conf': wandb.Image(conf)
-                }
-            })
-
         for i in range(len(images)):
+            count += 1
             save_image(images[i], os.path.join(save_path,'{}-{}_img.png'.format(step, i)))
             save_image(true_masks[i].float(), os.path.join(save_path,'{}-{}_truemask.png'.format(step, i)))
             save_image(torch.softmax(masks_pred[i], dim=0)[1], os.path.join(save_path,'{}-{}_predmask.png'.format(step, i)))
-
+        
+        if count > args.save_n_images:
+            break
 
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
@@ -288,12 +271,15 @@ def get_args():
     # parser.add_argument('--use_wandb', action='store_true', help='use wandb')
     parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
     parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
+    parser.add_argument('--save_path', type=str, default='./output', help='dir to save the images to')
+    parser.add_argument('--save_n_images', type=int, default=64, help='Number of images to save')
 
     return parser.parse_args()
 
 
 if __name__ == '__main__':
     args = get_args()
+    dir_checkpoint = os.path.join(args.checkpoints_dir, args.run_name)
 
     logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -336,7 +322,8 @@ if __name__ == '__main__':
                     batch_size=args.batch_size,
                     device=device,
                     img_scale=args.scale,
-                    amp=args.amp)
+                    amp=args.amp,
+                    save_path=args.save_path)
         except KeyboardInterrupt:
             torch.save(net.state_dict(), 'INTERRUPTED.pth')
             logging.info('Saved interrupt')
