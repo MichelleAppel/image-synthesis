@@ -1,4 +1,4 @@
 conda activate ML
-python .\python\train.py --project_name pipeline_test --run_name dataset_128_outlines --batch_size 4 --modality outlines --n_classes 2 --mode train
-python .\python\train.py --project_name pipeline_test --run_name dataset_128_outlines --batch_size 4 --modality outlines --n_classes 2 --mode test --load ./checkpoints/dataset_128_outlines/checkpoint_epoch5.pth --save_path .\output\dataset_128_outlines\
-python .\python\test.py  --project_name pipeline_test --run_name dataset_128_outlines --n_images 64 --root ./output/dataset_128_outlines
+python .\python\train.py --project_name pipeline_test --run_name dataset_128_outlines_cycleGAN --batch_size 4 --modality outlines --n_classes 2 --mode train --domain_transfer
+python .\python\train.py --project_name pipeline_test --run_name dataset_128_outlines_cycleGAN --batch_size 4 --modality outlines --n_classes 2 --mode test --load ./checkpoints/dataset_128_outlines/checkpoint_epoch5.pth --save_path .\output\dataset_128_outlines_dt\ --domain_transfer
+python .\python\test.py  --project_name pipeline_test --run_name dataset_128_outlines_cycleGAN --n_images 64 --root ./output/dataset_128_outlines_dt

@@ -34,7 +34,7 @@ def train_net(net,
               img_scale: float = 1.0,
               amp: bool = False):
     # 1. Create dataset
-    dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_128rot", scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer)
+    dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_128_train", scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer)
     dataset.modalities = ['img', args.modality]
 
     # 2. Split into train / validation partitions
@@ -48,7 +48,7 @@ def train_net(net,
     val_loader = DataLoader(val_set, shuffle=False, drop_last=True, **loader_args)
 
     # (Initialize logging)
-    experiment = wandb.init(project=args.project_name, name=args.run_name, entity="michelleappel")
+    experiment = wandb.init(project=args.project_name, name=args.run_name, entity="michelleappel", id=args.run_name)
     experiment.config.update(dict(epochs=epochs, batch_size=batch_size, learning_rate=learning_rate,
                                   val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale,
                                   amp=amp))
@@ -196,7 +196,7 @@ def test_net(net,
     else:
         type = torch.long
 
-    dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_128rot", scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer)
+    dataset = SynthesisDataset("..\simulation-synthesis\output\MLDataset_128_test", scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer)
     dataset.modalities = ['img', args.modality]
 
     loader_args = dict(batch_size=batch_size, num_workers=4, pin_memory=True)

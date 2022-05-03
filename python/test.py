@@ -34,7 +34,7 @@ if __name__ == '__main__':
         m6_OIF = print_model_metrics_OIF(batch['truemask'], batch['predmask'], matching_distance=6)
         break
 
-    wandb.init(project=args.project_name, name=args.run_name, entity="michelleappel", reinit=True)
+    wandb.init(project=args.project_name, name=args.run_name, entity="michelleappel", id=args.run_name, resume=True)
 
     i = 1
     data = [[x, y] for (x, y) in zip([1,3,6], [m1_ODF[i], m3_ODF[i], m6_ODF[i]])]
