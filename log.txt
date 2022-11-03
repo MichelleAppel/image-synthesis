@@ -1,0 +1,1710 @@
+2022-09-22 13:48:47 - 23708 - main - 189: - ********************************************************************************
+2022-09-22 13:48:47 - 23708 - main - 190: - the args are the below
+2022-09-22 13:48:47 - 23708 - main - 191: - ********************************************************************************
+2022-09-22 13:48:47 - 23708 - main - 193: - dataset,ArchVizPro
+2022-09-22 13:48:47 - 23708 - main - 193: - param_dir,params
+2022-09-22 13:48:47 - 23708 - main - 193: - base_lr,1e-06
+2022-09-22 13:48:47 - 23708 - main - 193: - momentum,0.9
+2022-09-22 13:48:47 - 23708 - main - 193: - cuda,True
+2022-09-22 13:48:47 - 23708 - main - 193: - gpu,0,1,2,3,4,5,6,7,8,9,10,11,12
+2022-09-22 13:48:47 - 23708 - main - 193: - weight_decay,0.0002
+2022-09-22 13:48:47 - 23708 - main - 193: - resume,None
+2022-09-22 13:48:47 - 23708 - main - 193: - pretrain,None
+2022-09-22 13:48:47 - 23708 - main - 193: - max_iter,40000
+2022-09-22 13:48:47 - 23708 - main - 193: - iter_size,10
+2022-09-22 13:48:47 - 23708 - main - 193: - average_loss,50
+2022-09-22 13:48:47 - 23708 - main - 193: - snapshots,500
+2022-09-22 13:48:47 - 23708 - main - 193: - step_size,10000
+2022-09-22 13:48:47 - 23708 - main - 193: - display,5
+2022-09-22 13:48:47 - 23708 - main - 193: - balance,1.1
+2022-09-22 13:48:47 - 23708 - main - 193: - log,log.txt
+2022-09-22 13:48:47 - 23708 - main - 193: - k,1
+2022-09-22 13:48:47 - 23708 - main - 193: - batch_size,2
+2022-09-22 13:48:47 - 23708 - main - 193: - crop_size,None
+2022-09-22 13:48:47 - 23708 - main - 193: - yita,None
+2022-09-22 13:48:47 - 23708 - main - 193: - complete_pretrain,.\params\bdcn_pretrained_on_nyudv2_rgb.pth
+2022-09-22 13:48:47 - 23708 - main - 193: - side_weight,0.5
+2022-09-22 13:48:47 - 23708 - main - 193: - fuse_weight,1.1
+2022-09-22 13:48:47 - 23708 - main - 193: - gamma,0.1
+2022-09-22 13:48:47 - 23708 - main - 193: - domain_transfer,True
+2022-09-22 13:48:47 - 23708 - main - 193: - logger,<Logger bdcn (DEBUG)>
+2022-09-22 13:48:47 - 23708 - main - 194: - {'data_root': 'C:\\Users\\appel\\Documents\\Project\\simulation-synthesis\\output\\448\\labeled_fake', 'mean_bgr': [104.00699, 116.66877, 122.67892], 'yita': 0.5}
+2022-09-22 13:48:47 - 23708 - main - 195: - ********************************************************************************
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:47 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 94: - init the weights of Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2)) from mean 0, std 0.01 gaussian distribution
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv1_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv1_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv1_2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv1_2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv2_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv2_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv2_2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv2_2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv3_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv3_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv3_2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv3_2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv3_3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv3_3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv4_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv4_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv4_2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv4_2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv4_3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv4_3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv5_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv5_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv5_2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv5_2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv5_3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params features.conv5_3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_1.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_1.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_1.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_1.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_1.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_1.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_1.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_1.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_2.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_2.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_2.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_2.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_2.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_2.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_2.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock1_2.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv1_1_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv1_1_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv1_2_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv1_2_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn1_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn1_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_1.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_1.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_1.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_1.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_1.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_1.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_1.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_1.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_2.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_2.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_2.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_2.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_2.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_2.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_2.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock2_2.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv2_1_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv2_1_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv2_2_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv2_2_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn2_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn2_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_1.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_1.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_1.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_1.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_1.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_1.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_1.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_1.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_2.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_2.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_2.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_2.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_2.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_2.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_2.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_2.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_3.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_3.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_3.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_3.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_3.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_3.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_3.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock3_3.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv3_1_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv3_1_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv3_2_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv3_2_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv3_3_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv3_3_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn3_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn3_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_1.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_1.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_1.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_1.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_1.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_1.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_1.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_1.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_2.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_2.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_2.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_2.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_2.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_2.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_2.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_2.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_3.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_3.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_3.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_3.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_3.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_3.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_3.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock4_3.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv4_1_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv4_1_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv4_2_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv4_2_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv4_3_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv4_3_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn4.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn4.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn4_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn4_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_1.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_1.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_1.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_1.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_1.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_1.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_1.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_1.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_2.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_2.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_2.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_2.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_2.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_2.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_2.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_2.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_3.conv.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_3.conv.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_3.conv1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_3.conv1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_3.conv2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_3.conv2.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_3.conv3.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params msblock5_3.conv3.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv5_1_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv5_1_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv5_2_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv5_2_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv5_3_down.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params conv5_3_down.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn5.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn5.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn5_1.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 202: - init params score_dsn5_1.bias 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 190: - init upsamle layer upsample_2.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 190: - init upsamle layer upsample_4.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 190: - init upsamle layer upsample_8.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 190: - init upsamle layer upsample_8_5.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 195: - init params fuse.weight 
+2022-09-22 13:48:48 - 23708 - _initialize_weights - 195: - init params fuse.bias 
+2022-09-22 13:48:48 - 23708 - main - 203: - BDCN(
+  (features): VGG16_C(
+    (conv1_1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu1_1): ReLU(inplace=True)
+    (conv1_2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu1_2): ReLU(inplace=True)
+    (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+    (conv2_1): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu2_1): ReLU(inplace=True)
+    (conv2_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu2_2): ReLU(inplace=True)
+    (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+    (conv3_1): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu3_1): ReLU(inplace=True)
+    (conv3_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu3_2): ReLU(inplace=True)
+    (conv3_3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu3_3): ReLU(inplace=True)
+    (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+    (conv4_1): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu4_1): ReLU(inplace=True)
+    (conv4_2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu4_2): ReLU(inplace=True)
+    (conv4_3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu4_3): ReLU(inplace=True)
+    (pool4): MaxPool2d(kernel_size=2, stride=1, padding=0, dilation=1, ceil_mode=True)
+    (conv5_1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+    (relu5_1): ReLU(inplace=True)
+    (conv5_2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+    (relu5_2): ReLU(inplace=True)
+    (conv5_3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+    (relu5_3): ReLU(inplace=True)
+  )
+  (msblock1_1): MSBlock(
+    (conv): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (msblock1_2): MSBlock(
+    (conv): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (conv1_1_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (conv1_2_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn1): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn1_1): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (msblock2_1): MSBlock(
+    (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (msblock2_2): MSBlock(
+    (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (conv2_1_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (conv2_2_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn2): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn2_1): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (msblock3_1): MSBlock(
+    (conv): Conv2d(256, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (msblock3_2): MSBlock(
+    (conv): Conv2d(256, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (msblock3_3): MSBlock(
+    (conv): Conv2d(256, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (conv3_1_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (conv3_2_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (conv3_3_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn3): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn3_1): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (msblock4_1): MSBlock(
+    (conv): Conv2d(512, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (msblock4_2): MSBlock(
+    (conv): Conv2d(512, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (msblock4_3): MSBlock(
+    (conv): Conv2d(512, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (conv4_1_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (conv4_2_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (conv4_3_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn4): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn4_1): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (msblock5_1): MSBlock(
+    (conv): Conv2d(512, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (msblock5_2): MSBlock(
+    (conv): Conv2d(512, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (msblock5_3): MSBlock(
+    (conv): Conv2d(512, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): ReLU(inplace=True)
+    (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+    (relu1): ReLU(inplace=True)
+    (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+    (relu2): ReLU(inplace=True)
+    (conv3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12))
+    (relu3): ReLU(inplace=True)
+  )
+  (conv5_1_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (conv5_2_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (conv5_3_down): Conv2d(32, 21, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn5): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (score_dsn5_1): Conv2d(21, 1, kernel_size=(1, 1), stride=(1, 1))
+  (upsample_2): ConvTranspose2d(1, 1, kernel_size=(4, 4), stride=(2, 2), bias=False)
+  (upsample_4): ConvTranspose2d(1, 1, kernel_size=(8, 8), stride=(4, 4), bias=False)
+  (upsample_8): ConvTranspose2d(1, 1, kernel_size=(16, 16), stride=(8, 8), bias=False)
+  (upsample_8_5): ConvTranspose2d(1, 1, kernel_size=(16, 16), stride=(8, 8), bias=False)
+  (fuse): Conv2d(10, 1, kernel_size=(1, 1), stride=(1, 1))
+)
+2022-09-22 13:49:09 - 23708 - train - 114: - ****************************************
+2022-09-22 13:49:09 - 23708 - train - 115: - train images in all are 676 
+2022-09-22 13:49:09 - 23708 - train - 116: - ****************************************
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv1_1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv1_1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv1_2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv1_2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv2_1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv2_1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv2_2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv2_2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv3_1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv3_1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv3_2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv3_2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv3_3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv3_3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv4_1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv4_1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv4_2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv4_2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv4_3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv4_3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv5_1.weight: 9.999999999999999e-05
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv5_1.bias: 0.00019999999999999998
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv5_2.weight: 9.999999999999999e-05
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv5_2.bias: 0.00019999999999999998
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv5_3.weight: 9.999999999999999e-05
+2022-09-22 13:49:09 - 23708 - train - 119: - features.conv5_3.bias: 0.00019999999999999998
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_1.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_1.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_1.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_1.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_1.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_1.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_1.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_1.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_2.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_2.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_2.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_2.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_2.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_2.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_2.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock1_2.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - conv1_1_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv1_1_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv1_2_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv1_2_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn1.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn1.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn1_1.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn1_1.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_1.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_1.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_1.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_1.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_1.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_1.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_1.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_1.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_2.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_2.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_2.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_2.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_2.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_2.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_2.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock2_2.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - conv2_1_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv2_1_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv2_2_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv2_2_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn2.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn2.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn2_1.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn2_1.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_1.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_1.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_1.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_1.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_1.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_1.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_1.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_1.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_2.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_2.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_2.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_2.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_2.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_2.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_2.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_2.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_3.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_3.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_3.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_3.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_3.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_3.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_3.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock3_3.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - conv3_1_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv3_1_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv3_2_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv3_2_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv3_3_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv3_3_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn3.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn3.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn3_1.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn3_1.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_1.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_1.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_1.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_1.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_1.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_1.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_1.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_1.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_2.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_2.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_2.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_2.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_2.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_2.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_2.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_2.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_3.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_3.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_3.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_3.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_3.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_3.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_3.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock4_3.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - conv4_1_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv4_1_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv4_2_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv4_2_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv4_3_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv4_3_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn4.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn4.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn4_1.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn4_1.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_1.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_1.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_1.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_1.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_1.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_1.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_1.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_1.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_2.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_2.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_2.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_2.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_2.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_2.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_2.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_2.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_3.conv.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_3.conv.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_3.conv1.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_3.conv1.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_3.conv2.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_3.conv2.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_3.conv3.weight: 1e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - msblock5_3.conv3.bias: 2e-06
+2022-09-22 13:49:09 - 23708 - train - 119: - conv5_1_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv5_1_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv5_2_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv5_2_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv5_3_down.weight: 1e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - conv5_3_down.bias: 2e-07
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn5.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn5.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn5_1.weight: 1e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - score_dsn5_1.bias: 2e-08
+2022-09-22 13:49:09 - 23708 - train - 119: - upsample_2.weight: 0.0
+2022-09-22 13:49:09 - 23708 - train - 119: - upsample_4.weight: 0.0
+2022-09-22 13:49:09 - 23708 - train - 119: - upsample_8.weight: 0.0
+2022-09-22 13:49:09 - 23708 - train - 119: - upsample_8_5.weight: 0.0
+2022-09-22 13:49:09 - 23708 - train - 119: - fuse.weight: 1e-09
+2022-09-22 13:49:09 - 23708 - train - 119: - fuse.bias: 2e-09
+2022-09-22 13:50:42 - 23708 - train - 170: - iter: 5, lr: 1.000000e-06, loss: 75567.488037, time using: 92.502844(18.500569s/iter)
+2022-09-22 13:52:02 - 23708 - train - 170: - iter: 10, lr: 1.000000e-06, loss: 79744.680737, time using: 80.033642(16.006728s/iter)
+2022-09-22 13:53:21 - 23708 - train - 170: - iter: 15, lr: 1.000000e-06, loss: 78547.631657, time using: 78.996500(15.799300s/iter)
+2022-09-22 13:54:40 - 23708 - train - 170: - iter: 20, lr: 1.000000e-06, loss: 77516.226813, time using: 79.772115(15.954423s/iter)
+2022-09-22 13:56:01 - 23708 - train - 170: - iter: 25, lr: 1.000000e-06, loss: 75439.595435, time using: 80.413835(16.082767s/iter)
+2022-09-22 13:57:20 - 23708 - train - 170: - iter: 30, lr: 1.000000e-06, loss: 74103.798629, time using: 78.743284(15.748657s/iter)
+2022-09-22 13:58:38 - 23708 - train - 170: - iter: 35, lr: 1.000000e-06, loss: 72658.374690, time using: 78.376740(15.675348s/iter)
+2022-09-22 13:59:57 - 23708 - train - 170: - iter: 40, lr: 1.000000e-06, loss: 70983.441495, time using: 78.667428(15.733486s/iter)
+2022-09-22 14:01:15 - 23708 - train - 170: - iter: 45, lr: 1.000000e-06, loss: 70714.760346, time using: 78.705134(15.741027s/iter)
+2022-09-22 14:02:34 - 23708 - train - 170: - iter: 50, lr: 1.000000e-06, loss: 69496.068403, time using: 78.289106(15.657821s/iter)
+2022-09-22 14:03:52 - 23708 - train - 170: - iter: 55, lr: 1.000000e-06, loss: 68921.987397, time using: 78.782842(15.756568s/iter)
+2022-09-22 14:05:11 - 23708 - train - 170: - iter: 60, lr: 1.000000e-06, loss: 66516.560486, time using: 78.560719(15.712144s/iter)
+2022-09-22 14:06:30 - 23708 - train - 170: - iter: 65, lr: 1.000000e-06, loss: 65147.705409, time using: 78.818064(15.763613s/iter)
+2022-09-22 14:08:07 - 23708 - train - 170: - iter: 70, lr: 1.000000e-06, loss: 64033.980641, time using: 97.711121(19.542224s/iter)
+2022-09-22 14:09:26 - 23708 - train - 170: - iter: 75, lr: 1.000000e-06, loss: 63847.309662, time using: 78.205867(15.641173s/iter)
+2022-09-22 14:10:44 - 23708 - train - 170: - iter: 80, lr: 1.000000e-06, loss: 62985.802245, time using: 77.929516(15.585903s/iter)
+2022-09-22 14:12:03 - 23708 - train - 170: - iter: 85, lr: 1.000000e-06, loss: 63302.162235, time using: 79.464890(15.892978s/iter)
+2022-09-22 14:13:21 - 23708 - train - 170: - iter: 90, lr: 1.000000e-06, loss: 63732.086964, time using: 78.359015(15.671803s/iter)
+2022-09-22 14:14:40 - 23708 - train - 170: - iter: 95, lr: 1.000000e-06, loss: 62946.828398, time using: 78.691567(15.738313s/iter)
+2022-09-22 14:15:59 - 23708 - train - 170: - iter: 100, lr: 1.000000e-06, loss: 62765.441715, time using: 78.533745(15.706749s/iter)
+2022-09-22 14:17:17 - 23708 - train - 170: - iter: 105, lr: 1.000000e-06, loss: 61836.742926, time using: 78.635019(15.727004s/iter)
+2022-09-22 14:18:36 - 23708 - train - 170: - iter: 110, lr: 1.000000e-06, loss: 61389.606672, time using: 78.478757(15.695751s/iter)
+2022-09-22 14:19:54 - 23708 - train - 170: - iter: 115, lr: 1.000000e-06, loss: 61010.270347, time using: 78.480988(15.696198s/iter)
+2022-09-22 14:21:13 - 23708 - train - 170: - iter: 120, lr: 1.000000e-06, loss: 60595.609619, time using: 78.340686(15.668137s/iter)
+2022-09-22 14:22:31 - 23708 - train - 170: - iter: 125, lr: 1.000000e-06, loss: 60138.737249, time using: 78.311720(15.662344s/iter)
+2022-09-22 14:23:55 - 23708 - train - 170: - iter: 130, lr: 1.000000e-06, loss: 60690.279388, time using: 84.059749(16.811950s/iter)
+2022-09-22 14:25:19 - 23708 - train - 170: - iter: 135, lr: 1.000000e-06, loss: 59677.155181, time using: 83.992153(16.798431s/iter)
+2022-09-22 14:27:07 - 23708 - train - 170: - iter: 140, lr: 1.000000e-06, loss: 59718.475906, time using: 107.575988(21.515198s/iter)
+2022-09-22 14:28:31 - 23708 - train - 170: - iter: 145, lr: 1.000000e-06, loss: 59292.925874, time using: 84.124621(16.824924s/iter)
+2022-09-22 14:29:53 - 23708 - train - 170: - iter: 150, lr: 1.000000e-06, loss: 60588.551717, time using: 82.348611(16.469722s/iter)
+2022-09-22 14:31:19 - 23708 - train - 170: - iter: 155, lr: 1.000000e-06, loss: 59973.957803, time using: 85.755911(17.151182s/iter)
+2022-09-22 14:32:40 - 23708 - train - 170: - iter: 160, lr: 1.000000e-06, loss: 60848.063853, time using: 80.990304(16.198061s/iter)
+2022-09-22 14:34:01 - 23708 - train - 170: - iter: 165, lr: 1.000000e-06, loss: 60807.509456, time using: 81.119005(16.223801s/iter)
+2022-09-22 14:35:22 - 23708 - train - 170: - iter: 170, lr: 1.000000e-06, loss: 60362.481018, time using: 80.792375(16.158475s/iter)
+2022-09-22 14:36:43 - 23708 - train - 170: - iter: 175, lr: 1.000000e-06, loss: 59600.260588, time using: 81.809308(16.361862s/iter)
+2022-09-22 14:38:05 - 23708 - train - 170: - iter: 180, lr: 1.000000e-06, loss: 58636.084222, time using: 81.383374(16.276675s/iter)
+2022-09-22 14:39:27 - 23708 - train - 170: - iter: 185, lr: 1.000000e-06, loss: 58189.749066, time using: 82.344591(16.468918s/iter)
+2022-09-22 14:40:50 - 23708 - train - 170: - iter: 190, lr: 1.000000e-06, loss: 58424.045699, time using: 83.232750(16.646550s/iter)
+2022-09-22 14:42:14 - 23708 - train - 170: - iter: 195, lr: 1.000000e-06, loss: 58910.796371, time using: 83.390590(16.678118s/iter)
+2022-09-22 14:43:33 - 23708 - train - 170: - iter: 200, lr: 1.000000e-06, loss: 57702.765870, time using: 78.978270(15.795654s/iter)
+2022-09-22 14:45:13 - 23708 - train - 170: - iter: 205, lr: 1.000000e-06, loss: 57697.240389, time using: 100.166625(20.033325s/iter)
+2022-09-22 14:46:35 - 23708 - train - 170: - iter: 210, lr: 1.000000e-06, loss: 57062.463514, time using: 81.896054(16.379211s/iter)
+2022-09-22 14:47:58 - 23708 - train - 170: - iter: 215, lr: 1.000000e-06, loss: 57203.709161, time using: 83.343596(16.668719s/iter)
+2022-09-22 14:49:22 - 23708 - train - 170: - iter: 220, lr: 1.000000e-06, loss: 57388.665491, time using: 83.827179(16.765436s/iter)
+2022-09-22 14:50:44 - 23708 - train - 170: - iter: 225, lr: 1.000000e-06, loss: 58010.010496, time using: 82.086123(16.417225s/iter)
+2022-09-22 14:52:04 - 23708 - train - 170: - iter: 230, lr: 1.000000e-06, loss: 58216.766215, time using: 79.552906(15.910581s/iter)
+2022-09-22 14:53:24 - 23708 - train - 170: - iter: 235, lr: 1.000000e-06, loss: 58346.278207, time using: 80.631424(16.126285s/iter)
+2022-09-22 14:54:47 - 23708 - train - 170: - iter: 240, lr: 1.000000e-06, loss: 57083.061865, time using: 82.668504(16.533701s/iter)
+2022-09-22 14:56:08 - 23708 - train - 170: - iter: 245, lr: 1.000000e-06, loss: 56800.526603, time using: 80.948807(16.189761s/iter)
+2022-09-22 14:57:29 - 23708 - train - 170: - iter: 250, lr: 1.000000e-06, loss: 56259.470988, time using: 81.068399(16.213680s/iter)
+2022-09-22 14:58:49 - 23708 - train - 170: - iter: 255, lr: 1.000000e-06, loss: 56788.401623, time using: 80.273176(16.054635s/iter)
+2022-09-22 15:00:11 - 23708 - train - 170: - iter: 260, lr: 1.000000e-06, loss: 56929.255671, time using: 81.597447(16.319489s/iter)
+2022-09-22 15:01:34 - 23708 - train - 170: - iter: 265, lr: 1.000000e-06, loss: 56387.125442, time using: 83.291750(16.658350s/iter)
+2022-09-22 15:02:57 - 23708 - train - 170: - iter: 270, lr: 1.000000e-06, loss: 56702.515347, time using: 82.649458(16.529892s/iter)
+2022-09-22 15:04:41 - 23708 - train - 170: - iter: 275, lr: 1.000000e-06, loss: 56242.601003, time using: 103.901890(20.780378s/iter)
+2022-09-22 15:06:02 - 23708 - train - 170: - iter: 280, lr: 1.000000e-06, loss: 57070.435649, time using: 81.443623(16.288725s/iter)
+2022-09-22 15:07:24 - 23708 - train - 170: - iter: 285, lr: 1.000000e-06, loss: 57671.910564, time using: 81.442768(16.288554s/iter)
+2022-09-22 15:08:44 - 23708 - train - 170: - iter: 290, lr: 1.000000e-06, loss: 58071.856914, time using: 80.867807(16.173561s/iter)
+2022-09-22 15:10:05 - 23708 - train - 170: - iter: 295, lr: 1.000000e-06, loss: 57471.805999, time using: 80.414702(16.082940s/iter)
+2022-09-22 15:11:27 - 23708 - train - 170: - iter: 300, lr: 1.000000e-06, loss: 57388.504741, time using: 82.249479(16.449896s/iter)
+2022-09-22 15:12:47 - 23708 - train - 170: - iter: 305, lr: 1.000000e-06, loss: 57291.530037, time using: 79.965009(15.993002s/iter)
+2022-09-22 15:14:08 - 23708 - train - 170: - iter: 310, lr: 1.000000e-06, loss: 56524.742856, time using: 80.741013(16.148203s/iter)
+2022-09-22 15:15:30 - 23708 - train - 170: - iter: 315, lr: 1.000000e-06, loss: 56732.769141, time using: 81.859774(16.371955s/iter)
+2022-09-22 15:16:53 - 23708 - train - 170: - iter: 320, lr: 1.000000e-06, loss: 55758.220011, time using: 82.856462(16.571292s/iter)
+2022-09-22 15:18:11 - 23708 - train - 170: - iter: 325, lr: 1.000000e-06, loss: 56072.625116, time using: 78.431041(15.686208s/iter)
+2022-09-22 15:19:30 - 23708 - train - 170: - iter: 330, lr: 1.000000e-06, loss: 54713.824386, time using: 78.479069(15.695814s/iter)
+2022-09-22 15:20:48 - 23708 - train - 170: - iter: 335, lr: 1.000000e-06, loss: 54085.035687, time using: 78.311161(15.662232s/iter)
+2022-09-22 15:22:25 - 23708 - train - 170: - iter: 340, lr: 1.000000e-06, loss: 53923.962325, time using: 96.940572(19.388114s/iter)
+2022-09-22 15:23:43 - 23708 - train - 170: - iter: 345, lr: 1.000000e-06, loss: 53469.900487, time using: 78.334846(15.666969s/iter)
+2022-09-22 15:25:02 - 23708 - train - 170: - iter: 350, lr: 1.000000e-06, loss: 54439.914357, time using: 78.410075(15.682015s/iter)
+2022-09-22 15:26:20 - 23708 - train - 170: - iter: 355, lr: 1.000000e-06, loss: 53902.095085, time using: 78.118400(15.623680s/iter)
+2022-09-22 15:27:38 - 23708 - train - 170: - iter: 360, lr: 1.000000e-06, loss: 54131.627190, time using: 78.260674(15.652135s/iter)
+2022-09-22 15:28:56 - 23708 - train - 170: - iter: 365, lr: 1.000000e-06, loss: 54264.554155, time using: 78.167659(15.633532s/iter)
+2022-09-22 15:30:14 - 23708 - train - 170: - iter: 370, lr: 1.000000e-06, loss: 54208.296166, time using: 78.319808(15.663962s/iter)
+2022-09-22 15:31:32 - 23708 - train - 170: - iter: 375, lr: 1.000000e-06, loss: 53724.499161, time using: 78.123849(15.624770s/iter)
+2022-09-22 15:32:54 - 23708 - train - 170: - iter: 380, lr: 1.000000e-06, loss: 54220.418146, time using: 81.752600(16.350520s/iter)
+2022-09-22 15:34:16 - 23708 - train - 170: - iter: 385, lr: 1.000000e-06, loss: 54716.438849, time using: 82.098959(16.419792s/iter)
+2022-09-22 15:35:37 - 23708 - train - 170: - iter: 390, lr: 1.000000e-06, loss: 54176.453344, time using: 80.826285(16.165257s/iter)
+2022-09-22 15:36:59 - 23708 - train - 170: - iter: 395, lr: 1.000000e-06, loss: 54617.127550, time using: 81.391972(16.278394s/iter)
+2022-09-22 15:38:19 - 23708 - train - 170: - iter: 400, lr: 1.000000e-06, loss: 54217.482921, time using: 80.745111(16.149022s/iter)
+2022-09-22 15:39:40 - 23708 - train - 170: - iter: 405, lr: 1.000000e-06, loss: 54128.253582, time using: 80.380017(16.076003s/iter)
+2022-09-22 15:41:27 - 23708 - train - 170: - iter: 410, lr: 1.000000e-06, loss: 54464.417319, time using: 107.695889(21.539178s/iter)
+2022-09-22 15:42:51 - 23708 - train - 170: - iter: 415, lr: 1.000000e-06, loss: 53841.980144, time using: 83.489995(16.697999s/iter)
+2022-09-22 15:44:15 - 23708 - train - 170: - iter: 420, lr: 1.000000e-06, loss: 54306.422334, time using: 84.600466(16.920093s/iter)
+2022-09-22 15:45:39 - 23708 - train - 170: - iter: 425, lr: 1.000000e-06, loss: 53926.011414, time using: 83.361152(16.672230s/iter)
+2022-09-22 15:47:02 - 23708 - train - 170: - iter: 430, lr: 1.000000e-06, loss: 53837.927539, time using: 82.784920(16.556984s/iter)
+2022-09-22 15:48:24 - 23708 - train - 170: - iter: 435, lr: 1.000000e-06, loss: 53128.276793, time using: 82.041327(16.408265s/iter)
+2022-09-22 15:49:44 - 23708 - train - 170: - iter: 440, lr: 1.000000e-06, loss: 53064.192692, time using: 80.106459(16.021292s/iter)
+2022-09-22 15:51:05 - 23708 - train - 170: - iter: 445, lr: 1.000000e-06, loss: 53050.395208, time using: 80.863389(16.172678s/iter)
+2022-09-22 15:52:27 - 23708 - train - 170: - iter: 450, lr: 1.000000e-06, loss: 52787.993060, time using: 82.546615(16.509323s/iter)
+2022-09-22 15:53:49 - 23708 - train - 170: - iter: 455, lr: 1.000000e-06, loss: 53609.800233, time using: 82.240914(16.448183s/iter)
+2022-09-22 15:55:10 - 23708 - train - 170: - iter: 460, lr: 1.000000e-06, loss: 53469.202886, time using: 80.537039(16.107408s/iter)
+2022-09-22 15:56:31 - 23708 - train - 170: - iter: 465, lr: 1.000000e-06, loss: 53044.595057, time using: 80.866315(16.173263s/iter)
+2022-09-22 15:57:51 - 23708 - train - 170: - iter: 470, lr: 1.000000e-06, loss: 52553.947696, time using: 80.560702(16.112140s/iter)
+2022-09-22 15:59:32 - 23708 - train - 170: - iter: 475, lr: 1.000000e-06, loss: 52967.542208, time using: 100.708276(20.141655s/iter)
+2022-09-22 16:00:53 - 23708 - train - 170: - iter: 480, lr: 1.000000e-06, loss: 52606.107935, time using: 80.656080(16.131216s/iter)
+2022-09-22 16:02:14 - 23708 - train - 170: - iter: 485, lr: 1.000000e-06, loss: 52791.646733, time using: 81.722730(16.344546s/iter)
+2022-09-22 16:03:37 - 23708 - train - 170: - iter: 490, lr: 1.000000e-06, loss: 52924.230114, time using: 82.347960(16.469592s/iter)
+2022-09-22 16:04:59 - 23708 - train - 170: - iter: 495, lr: 1.000000e-06, loss: 52879.539048, time using: 81.772588(16.354518s/iter)
+2022-09-22 16:06:22 - 23708 - train - 170: - iter: 500, lr: 1.000000e-06, loss: 52866.440554, time using: 83.645204(16.729041s/iter)
+2022-09-22 16:07:46 - 23708 - train - 170: - iter: 505, lr: 1.000000e-06, loss: 51642.049626, time using: 83.801528(16.760306s/iter)
+2022-09-22 16:09:06 - 23708 - train - 170: - iter: 510, lr: 1.000000e-06, loss: 51228.196389, time using: 79.938051(15.987610s/iter)
+2022-09-22 16:10:30 - 23708 - train - 170: - iter: 515, lr: 1.000000e-06, loss: 51748.059325, time using: 84.093647(16.818729s/iter)
+2022-09-22 16:11:54 - 23708 - train - 170: - iter: 520, lr: 1.000000e-06, loss: 51525.088104, time using: 84.068398(16.813680s/iter)
+2022-09-22 16:13:19 - 23708 - train - 170: - iter: 525, lr: 1.000000e-06, loss: 52002.141022, time using: 84.933436(16.986687s/iter)
+2022-09-22 16:14:40 - 23708 - train - 170: - iter: 530, lr: 1.000000e-06, loss: 52183.067284, time using: 80.409099(16.081820s/iter)
+2022-09-22 16:16:00 - 23708 - train - 170: - iter: 535, lr: 1.000000e-06, loss: 52306.915714, time using: 80.759315(16.151863s/iter)
+2022-09-22 16:17:28 - 23708 - train - 170: - iter: 540, lr: 1.000000e-06, loss: 51640.909757, time using: 87.748697(17.549739s/iter)
+2022-09-22 16:19:19 - 23708 - train - 170: - iter: 545, lr: 1.000000e-06, loss: 51242.469464, time using: 110.891850(22.178370s/iter)
+2022-09-22 16:20:41 - 23708 - train - 170: - iter: 550, lr: 1.000000e-06, loss: 51486.412389, time using: 81.721996(16.344399s/iter)
+2022-09-22 16:22:04 - 23708 - train - 170: - iter: 555, lr: 1.000000e-06, loss: 52400.252928, time using: 83.000661(16.600132s/iter)
+2022-09-22 16:23:26 - 23708 - train - 170: - iter: 560, lr: 1.000000e-06, loss: 52477.140746, time using: 82.262654(16.452531s/iter)
+2022-09-22 16:24:47 - 23708 - train - 170: - iter: 565, lr: 1.000000e-06, loss: 52530.785492, time using: 81.030243(16.206049s/iter)
+2022-09-22 16:26:06 - 23708 - train - 170: - iter: 570, lr: 1.000000e-06, loss: 52849.565926, time using: 78.636668(15.727334s/iter)
+2022-09-22 16:27:25 - 23708 - train - 170: - iter: 575, lr: 1.000000e-06, loss: 52459.665525, time using: 79.061658(15.812332s/iter)
+2022-09-22 16:28:43 - 23708 - train - 170: - iter: 580, lr: 1.000000e-06, loss: 51743.984716, time using: 78.636917(15.727383s/iter)
+2022-09-22 16:30:03 - 23708 - train - 170: - iter: 585, lr: 1.000000e-06, loss: 51103.553476, time using: 79.292282(15.858456s/iter)
+2022-09-22 16:31:24 - 23708 - train - 170: - iter: 590, lr: 1.000000e-06, loss: 51055.522050, time using: 81.494662(16.298932s/iter)
+2022-09-22 16:32:45 - 23708 - train - 170: - iter: 595, lr: 1.000000e-06, loss: 51650.857986, time using: 81.394700(16.278940s/iter)
+2022-09-22 16:34:07 - 23708 - train - 170: - iter: 600, lr: 1.000000e-06, loss: 51089.902686, time using: 81.242243(16.248449s/iter)
+2022-09-22 16:35:31 - 23708 - train - 170: - iter: 605, lr: 1.000000e-06, loss: 50409.358533, time using: 84.420152(16.884030s/iter)
+2022-09-22 16:37:16 - 23708 - train - 170: - iter: 610, lr: 1.000000e-06, loss: 50438.202991, time using: 105.178745(21.035749s/iter)
+2022-09-22 16:38:39 - 23708 - train - 170: - iter: 615, lr: 1.000000e-06, loss: 51062.998793, time using: 82.419995(16.483999s/iter)
+2022-09-22 16:40:00 - 23708 - train - 170: - iter: 620, lr: 1.000000e-06, loss: 50750.973729, time using: 81.751478(16.350296s/iter)
+2022-09-22 16:41:21 - 23708 - train - 170: - iter: 625, lr: 1.000000e-06, loss: 50571.728391, time using: 80.538318(16.107664s/iter)
+2022-09-22 16:42:40 - 23708 - train - 170: - iter: 630, lr: 1.000000e-06, loss: 50779.502722, time using: 78.661144(15.732229s/iter)
+2022-09-22 16:43:58 - 23708 - train - 170: - iter: 635, lr: 1.000000e-06, loss: 51124.147506, time using: 77.874376(15.574875s/iter)
+2022-09-22 16:45:16 - 23708 - train - 170: - iter: 640, lr: 1.000000e-06, loss: 51644.926493, time using: 78.212102(15.642420s/iter)
+2022-09-22 16:46:40 - 23708 - train - 170: - iter: 645, lr: 1.000000e-06, loss: 50871.031659, time using: 83.754307(16.750861s/iter)
+2022-09-22 16:48:01 - 23708 - train - 170: - iter: 650, lr: 1.000000e-06, loss: 50567.308151, time using: 81.679656(16.335931s/iter)
+2022-09-22 16:49:21 - 23708 - train - 170: - iter: 655, lr: 1.000000e-06, loss: 49768.953407, time using: 80.263399(16.052680s/iter)
+2022-09-22 16:50:42 - 23708 - train - 170: - iter: 660, lr: 1.000000e-06, loss: 49662.317382, time using: 80.642267(16.128453s/iter)
+2022-09-22 16:52:03 - 23708 - train - 170: - iter: 665, lr: 1.000000e-06, loss: 48770.835343, time using: 80.972499(16.194500s/iter)
+2022-09-22 16:53:23 - 23708 - train - 170: - iter: 670, lr: 1.000000e-06, loss: 49540.470578, time using: 80.196410(16.039282s/iter)
+2022-09-22 16:54:44 - 23708 - train - 170: - iter: 675, lr: 1.000000e-06, loss: 48829.283236, time using: 81.036941(16.207388s/iter)
+2022-09-22 16:56:27 - 23708 - train - 170: - iter: 680, lr: 1.000000e-06, loss: 48755.907646, time using: 102.900265(20.580053s/iter)
+2022-09-22 16:57:53 - 23708 - train - 170: - iter: 685, lr: 1.000000e-06, loss: 48205.135677, time using: 86.126857(17.225371s/iter)
+2022-09-22 16:59:18 - 23708 - train - 170: - iter: 690, lr: 1.000000e-06, loss: 48205.687308, time using: 84.182427(16.836485s/iter)
+2022-09-22 17:00:38 - 23708 - train - 170: - iter: 695, lr: 1.000000e-06, loss: 48397.736913, time using: 80.896691(16.179338s/iter)
+2022-09-22 17:01:57 - 23708 - train - 170: - iter: 700, lr: 1.000000e-06, loss: 48683.367745, time using: 78.640106(15.728021s/iter)
+2022-09-22 17:03:18 - 23708 - train - 170: - iter: 705, lr: 1.000000e-06, loss: 48830.167760, time using: 80.697409(16.139482s/iter)
+2022-09-22 17:04:39 - 23708 - train - 170: - iter: 710, lr: 1.000000e-06, loss: 48537.487822, time using: 80.817635(16.163527s/iter)
+2022-09-22 17:05:58 - 23708 - train - 170: - iter: 715, lr: 1.000000e-06, loss: 47961.301655, time using: 79.051302(15.810260s/iter)
+2022-09-22 17:07:16 - 23708 - train - 170: - iter: 720, lr: 1.000000e-06, loss: 47235.845963, time using: 78.714213(15.742843s/iter)
+2022-09-22 17:08:36 - 23708 - train - 170: - iter: 725, lr: 1.000000e-06, loss: 47404.293397, time using: 79.985134(15.997027s/iter)
+2022-09-22 17:09:58 - 23708 - train - 170: - iter: 730, lr: 1.000000e-06, loss: 47893.421455, time using: 81.763763(16.352753s/iter)
+2022-09-22 17:11:21 - 23708 - train - 170: - iter: 735, lr: 1.000000e-06, loss: 48188.162346, time using: 83.221479(16.644296s/iter)
+2022-09-22 17:12:45 - 23708 - train - 170: - iter: 740, lr: 1.000000e-06, loss: 49155.535901, time using: 83.783813(16.756763s/iter)
+2022-09-22 17:14:24 - 23708 - train - 170: - iter: 745, lr: 1.000000e-06, loss: 49538.620935, time using: 98.747173(19.749435s/iter)
+2022-09-22 17:15:45 - 23708 - train - 170: - iter: 750, lr: 1.000000e-06, loss: 49407.634663, time using: 81.367413(16.273483s/iter)
+2022-09-22 17:17:06 - 23708 - train - 170: - iter: 755, lr: 1.000000e-06, loss: 50697.758115, time using: 80.845156(16.169031s/iter)
+2022-09-22 17:18:25 - 23708 - train - 170: - iter: 760, lr: 1.000000e-06, loss: 50377.597853, time using: 78.488448(15.697690s/iter)
+2022-09-22 17:19:43 - 23708 - train - 170: - iter: 765, lr: 1.000000e-06, loss: 50412.608856, time using: 78.868377(15.773675s/iter)
+2022-09-22 17:21:03 - 23708 - train - 170: - iter: 770, lr: 1.000000e-06, loss: 50373.737317, time using: 79.153798(15.830760s/iter)
+2022-09-22 17:22:22 - 23708 - train - 170: - iter: 775, lr: 1.000000e-06, loss: 50699.250950, time using: 79.352626(15.870525s/iter)
+2022-09-22 17:23:41 - 23708 - train - 170: - iter: 780, lr: 1.000000e-06, loss: 50488.964572, time using: 78.788811(15.757762s/iter)
+2022-09-22 17:25:00 - 23708 - train - 170: - iter: 785, lr: 1.000000e-06, loss: 51078.541074, time using: 79.157339(15.831468s/iter)
+2022-09-22 17:26:19 - 23708 - train - 170: - iter: 790, lr: 1.000000e-06, loss: 50006.310759, time using: 78.929362(15.785872s/iter)
+2022-09-22 17:27:41 - 23708 - train - 170: - iter: 795, lr: 1.000000e-06, loss: 49623.892268, time using: 81.933836(16.386767s/iter)
+2022-09-22 17:29:00 - 23708 - train - 170: - iter: 800, lr: 1.000000e-06, loss: 49247.958691, time using: 79.322700(15.864540s/iter)
+2022-09-22 17:30:18 - 23708 - train - 170: - iter: 805, lr: 1.000000e-06, loss: 47981.556975, time using: 78.207012(15.641402s/iter)
+2022-09-22 17:31:31 - 23708 - train - 170: - iter: 810, lr: 1.000000e-06, loss: 47634.687124, time using: 72.462268(14.492454s/iter)
+2022-09-22 17:32:52 - 23708 - train - 170: - iter: 815, lr: 1.000000e-06, loss: 48090.711412, time using: 81.349769(16.269954s/iter)
+2022-09-22 17:34:01 - 23708 - train - 170: - iter: 820, lr: 1.000000e-06, loss: 48038.823688, time using: 68.486365(13.697273s/iter)
+2022-09-22 17:35:09 - 23708 - train - 170: - iter: 825, lr: 1.000000e-06, loss: 47813.587101, time using: 68.359196(13.671839s/iter)
+2022-09-22 17:36:17 - 23708 - train - 170: - iter: 830, lr: 1.000000e-06, loss: 47327.532677, time using: 68.382353(13.676471s/iter)
+2022-09-22 17:37:26 - 23708 - train - 170: - iter: 835, lr: 1.000000e-06, loss: 45998.206071, time using: 68.321299(13.664260s/iter)
+2022-09-22 17:38:34 - 23708 - train - 170: - iter: 840, lr: 1.000000e-06, loss: 46034.414794, time using: 68.311913(13.662383s/iter)
+2022-09-22 17:39:42 - 23708 - train - 170: - iter: 845, lr: 1.000000e-06, loss: 45947.368602, time using: 68.225555(13.645111s/iter)
+2022-09-22 17:40:50 - 23708 - train - 170: - iter: 850, lr: 1.000000e-06, loss: 46273.836151, time using: 68.225149(13.645030s/iter)
+2022-09-22 17:41:59 - 23708 - train - 170: - iter: 855, lr: 1.000000e-06, loss: 46968.243397, time using: 68.196633(13.639327s/iter)
+2022-09-22 17:43:07 - 23708 - train - 170: - iter: 860, lr: 1.000000e-06, loss: 47394.581720, time using: 68.262457(13.652491s/iter)
+2022-09-22 17:44:15 - 23708 - train - 170: - iter: 865, lr: 1.000000e-06, loss: 47483.533950, time using: 68.222564(13.644513s/iter)
+2022-09-22 17:45:23 - 23708 - train - 170: - iter: 870, lr: 1.000000e-06, loss: 47829.287939, time using: 68.179811(13.635962s/iter)
+2022-09-22 17:46:32 - 23708 - train - 170: - iter: 875, lr: 1.000000e-06, loss: 48280.137349, time using: 68.201210(13.640242s/iter)
+2022-09-22 17:47:53 - 23708 - train - 170: - iter: 880, lr: 1.000000e-06, loss: 48743.420526, time using: 81.321599(16.264320s/iter)
+2022-09-22 17:49:01 - 23708 - train - 170: - iter: 885, lr: 1.000000e-06, loss: 49144.978813, time using: 68.189651(13.637930s/iter)
+2022-09-22 17:50:09 - 23708 - train - 170: - iter: 890, lr: 1.000000e-06, loss: 48813.174580, time using: 68.274426(13.654885s/iter)
+2022-09-22 17:51:18 - 23708 - train - 170: - iter: 895, lr: 1.000000e-06, loss: 48850.688855, time using: 68.236524(13.647305s/iter)
+2022-09-22 17:52:26 - 23708 - train - 170: - iter: 900, lr: 1.000000e-06, loss: 48170.269121, time using: 68.270436(13.654087s/iter)
+2022-09-22 17:53:34 - 23708 - train - 170: - iter: 905, lr: 1.000000e-06, loss: 47499.266672, time using: 68.202615(13.640523s/iter)
+2022-09-22 17:54:42 - 23708 - train - 170: - iter: 910, lr: 1.000000e-06, loss: 47979.247509, time using: 68.156739(13.631348s/iter)
+2022-09-22 17:55:50 - 23708 - train - 170: - iter: 915, lr: 1.000000e-06, loss: 47747.775498, time using: 68.314320(13.662864s/iter)
+2022-09-22 17:56:59 - 23708 - train - 170: - iter: 920, lr: 1.000000e-06, loss: 47820.306590, time using: 68.153748(13.630750s/iter)
+2022-09-22 17:58:07 - 23708 - train - 170: - iter: 925, lr: 1.000000e-06, loss: 47462.593906, time using: 68.265447(13.653089s/iter)
+2022-09-22 17:59:15 - 23708 - train - 170: - iter: 930, lr: 1.000000e-06, loss: 46649.920150, time using: 68.261459(13.652292s/iter)
+2022-09-22 18:00:23 - 23708 - train - 170: - iter: 935, lr: 1.000000e-06, loss: 46605.534148, time using: 68.064196(13.612839s/iter)
+2022-09-22 18:01:31 - 23708 - train - 170: - iter: 940, lr: 1.000000e-06, loss: 46536.883655, time using: 68.202617(13.640523s/iter)
+2022-09-22 18:02:40 - 23708 - train - 170: - iter: 945, lr: 1.000000e-06, loss: 46691.869695, time using: 68.209603(13.641921s/iter)
+2022-09-22 18:04:01 - 23708 - train - 170: - iter: 950, lr: 1.000000e-06, loss: 46190.693564, time using: 81.098082(16.219616s/iter)
+2022-09-22 18:05:09 - 23708 - train - 170: - iter: 955, lr: 1.000000e-06, loss: 46708.379385, time using: 68.224598(13.644920s/iter)
+2022-09-22 18:06:17 - 23708 - train - 170: - iter: 960, lr: 1.000000e-06, loss: 46317.275562, time using: 68.203573(13.640715s/iter)
+2022-09-22 18:07:25 - 23708 - train - 170: - iter: 965, lr: 1.000000e-06, loss: 46596.809829, time using: 68.146795(13.629359s/iter)
+2022-09-22 18:08:33 - 23708 - train - 170: - iter: 970, lr: 1.000000e-06, loss: 46624.911908, time using: 68.009165(13.601833s/iter)
+2022-09-22 18:09:42 - 23708 - train - 170: - iter: 975, lr: 1.000000e-06, loss: 46187.574536, time using: 68.173691(13.634738s/iter)
+2022-09-22 18:10:50 - 23708 - train - 170: - iter: 980, lr: 1.000000e-06, loss: 46753.763787, time using: 68.024135(13.604827s/iter)
+2022-09-22 18:11:58 - 23708 - train - 170: - iter: 985, lr: 1.000000e-06, loss: 46911.294192, time using: 68.156694(13.631339s/iter)
+2022-09-22 18:13:06 - 23708 - train - 170: - iter: 990, lr: 1.000000e-06, loss: 46571.834880, time using: 68.112855(13.622571s/iter)
+2022-09-22 18:14:14 - 23708 - train - 170: - iter: 995, lr: 1.000000e-06, loss: 46127.676309, time using: 68.095944(13.619189s/iter)
+2022-09-22 18:15:22 - 23708 - train - 170: - iter: 1000, lr: 1.000000e-06, loss: 46744.616392, time using: 68.424051(13.684810s/iter)
+2022-09-22 18:16:30 - 23708 - train - 170: - iter: 1005, lr: 1.000000e-06, loss: 45862.222255, time using: 68.048006(13.609601s/iter)
+2022-09-22 18:17:38 - 23708 - train - 170: - iter: 1010, lr: 1.000000e-06, loss: 46216.349513, time using: 68.025093(13.605019s/iter)
+2022-09-22 18:18:59 - 23708 - train - 170: - iter: 1015, lr: 1.000000e-06, loss: 45699.875043, time using: 81.060628(16.212126s/iter)
+2022-09-22 18:20:07 - 23708 - train - 170: - iter: 1020, lr: 1.000000e-06, loss: 45239.286635, time using: 67.850601(13.570120s/iter)
+2022-09-22 18:21:15 - 23708 - train - 170: - iter: 1025, lr: 1.000000e-06, loss: 45277.872086, time using: 68.020141(13.604028s/iter)
+2022-09-22 18:22:23 - 23708 - train - 170: - iter: 1030, lr: 1.000000e-06, loss: 45227.780929, time using: 67.732915(13.546583s/iter)
+2022-09-22 18:23:31 - 23708 - train - 170: - iter: 1035, lr: 1.000000e-06, loss: 44722.202377, time using: 67.782790(13.556558s/iter)
+2022-09-22 18:24:39 - 23708 - train - 170: - iter: 1040, lr: 1.000000e-06, loss: 45033.128336, time using: 67.793751(13.558750s/iter)
+2022-09-22 18:25:46 - 23708 - train - 170: - iter: 1045, lr: 1.000000e-06, loss: 46080.447705, time using: 67.691991(13.538398s/iter)
+2022-09-22 18:26:54 - 23708 - train - 170: - iter: 1050, lr: 1.000000e-06, loss: 46578.453445, time using: 67.849558(13.569912s/iter)
+2022-09-22 18:28:02 - 23708 - train - 170: - iter: 1055, lr: 1.000000e-06, loss: 47463.181110, time using: 67.772770(13.554554s/iter)
+2022-09-22 18:29:10 - 23708 - train - 170: - iter: 1060, lr: 1.000000e-06, loss: 46955.429891, time using: 67.894396(13.578879s/iter)
+2022-09-22 18:30:18 - 23708 - train - 170: - iter: 1065, lr: 1.000000e-06, loss: 46250.533329, time using: 67.879509(13.575902s/iter)
+2022-09-22 18:31:26 - 23708 - train - 170: - iter: 1070, lr: 1.000000e-06, loss: 46051.134623, time using: 67.859573(13.571915s/iter)
+2022-09-22 18:32:33 - 23708 - train - 170: - iter: 1075, lr: 1.000000e-06, loss: 46032.774171, time using: 67.886422(13.577284s/iter)
+2022-09-22 18:33:41 - 23708 - train - 170: - iter: 1080, lr: 1.000000e-06, loss: 45829.911463, time using: 67.920630(13.584126s/iter)
+2022-09-22 18:35:03 - 23708 - train - 170: - iter: 1085, lr: 1.000000e-06, loss: 46096.090428, time using: 81.108108(16.221622s/iter)
+2022-09-22 18:36:11 - 23708 - train - 170: - iter: 1090, lr: 1.000000e-06, loss: 46250.786675, time using: 68.281447(13.656289s/iter)
+2022-09-22 18:37:19 - 23708 - train - 170: - iter: 1095, lr: 1.000000e-06, loss: 45461.298947, time using: 68.274430(13.654886s/iter)
+2022-09-22 18:38:27 - 23708 - train - 170: - iter: 1100, lr: 1.000000e-06, loss: 44383.555266, time using: 68.100913(13.620183s/iter)
+2022-09-22 18:39:35 - 23708 - train - 170: - iter: 1105, lr: 1.000000e-06, loss: 43617.883090, time using: 68.312364(13.662473s/iter)
+2022-09-22 18:40:44 - 23708 - train - 170: - iter: 1110, lr: 1.000000e-06, loss: 43491.182348, time using: 68.203572(13.640714s/iter)
+2022-09-22 18:41:52 - 23708 - train - 170: - iter: 1115, lr: 1.000000e-06, loss: 44296.012799, time using: 68.210596(13.642119s/iter)
+2022-09-22 18:43:00 - 23708 - train - 170: - iter: 1120, lr: 1.000000e-06, loss: 44224.198842, time using: 68.188655(13.637731s/iter)
+2022-09-22 18:44:08 - 23708 - train - 170: - iter: 1125, lr: 1.000000e-06, loss: 43912.129304, time using: 68.143814(13.628763s/iter)
+2022-09-22 18:45:16 - 23708 - train - 170: - iter: 1130, lr: 1.000000e-06, loss: 45120.727902, time using: 68.208590(13.641718s/iter)
+2022-09-22 18:46:25 - 23708 - train - 170: - iter: 1135, lr: 1.000000e-06, loss: 45809.849111, time using: 68.346320(13.669264s/iter)
+2022-09-22 18:47:33 - 23708 - train - 170: - iter: 1140, lr: 1.000000e-06, loss: 45388.127075, time using: 68.311325(13.662265s/iter)
+2022-09-22 18:48:41 - 23708 - train - 170: - iter: 1145, lr: 1.000000e-06, loss: 45209.853342, time using: 68.155732(13.631146s/iter)
+2022-09-22 18:50:02 - 23708 - train - 170: - iter: 1150, lr: 1.000000e-06, loss: 46486.161096, time using: 81.170983(16.234197s/iter)
+2022-09-22 18:51:11 - 23708 - train - 170: - iter: 1155, lr: 1.000000e-06, loss: 47307.095670, time using: 68.158735(13.631747s/iter)
+2022-09-22 18:52:19 - 23708 - train - 170: - iter: 1160, lr: 1.000000e-06, loss: 47582.679252, time using: 68.380143(13.676029s/iter)
+2022-09-22 18:53:27 - 23708 - train - 170: - iter: 1165, lr: 1.000000e-06, loss: 47349.495079, time using: 68.052014(13.610403s/iter)
+2022-09-22 18:54:35 - 23708 - train - 170: - iter: 1170, lr: 1.000000e-06, loss: 47518.243190, time using: 68.095903(13.619181s/iter)
+2022-09-22 18:55:43 - 23708 - train - 170: - iter: 1175, lr: 1.000000e-06, loss: 47536.954696, time using: 68.215582(13.643116s/iter)
+2022-09-22 18:56:51 - 23708 - train - 170: - iter: 1180, lr: 1.000000e-06, loss: 46453.787593, time using: 68.138789(13.627758s/iter)
+2022-09-22 18:58:00 - 23708 - train - 170: - iter: 1185, lr: 1.000000e-06, loss: 45317.777742, time using: 68.284397(13.656879s/iter)
+2022-09-22 18:59:08 - 23708 - train - 170: - iter: 1190, lr: 1.000000e-06, loss: 45263.430833, time using: 68.475886(13.695177s/iter)
+2022-09-22 19:00:16 - 23708 - train - 170: - iter: 1195, lr: 1.000000e-06, loss: 45211.445386, time using: 68.159731(13.631946s/iter)
+2022-09-22 19:01:25 - 23708 - train - 170: - iter: 1200, lr: 1.000000e-06, loss: 44411.433911, time using: 68.169706(13.633941s/iter)
+2022-09-22 19:02:33 - 23708 - train - 170: - iter: 1205, lr: 1.000000e-06, loss: 43493.702584, time using: 68.355208(13.671042s/iter)
+2022-09-22 19:03:41 - 23708 - train - 170: - iter: 1210, lr: 1.000000e-06, loss: 42786.324596, time using: 68.185662(13.637132s/iter)
+2022-09-22 19:04:49 - 23708 - train - 170: - iter: 1215, lr: 1.000000e-06, loss: 43312.480323, time using: 68.245490(13.649098s/iter)
+2022-09-22 19:06:11 - 23708 - train - 170: - iter: 1220, lr: 1.000000e-06, loss: 43215.150446, time using: 81.208918(16.241784s/iter)
+2022-09-22 19:07:19 - 23708 - train - 170: - iter: 1225, lr: 1.000000e-06, loss: 44074.661918, time using: 68.169701(13.633940s/iter)
+2022-09-22 19:08:27 - 23708 - train - 170: - iter: 1230, lr: 1.000000e-06, loss: 43936.274514, time using: 68.076586(13.615317s/iter)
+2022-09-22 19:09:35 - 23708 - train - 170: - iter: 1235, lr: 1.000000e-06, loss: 44446.060214, time using: 68.129834(13.625967s/iter)
+2022-09-22 19:10:43 - 23708 - train - 170: - iter: 1240, lr: 1.000000e-06, loss: 45175.301942, time using: 68.288394(13.657679s/iter)
+2022-09-22 19:11:51 - 23708 - train - 170: - iter: 1245, lr: 1.000000e-06, loss: 45228.263221, time using: 68.168706(13.633741s/iter)
+2022-09-22 19:12:59 - 23708 - train - 170: - iter: 1250, lr: 1.000000e-06, loss: 45445.353750, time using: 68.086967(13.617393s/iter)
+2022-09-22 19:14:08 - 23708 - train - 170: - iter: 1255, lr: 1.000000e-06, loss: 45243.857566, time using: 68.133810(13.626762s/iter)
+2022-09-22 19:15:16 - 23708 - train - 170: - iter: 1260, lr: 1.000000e-06, loss: 45720.887007, time using: 67.993217(13.598643s/iter)
+2022-09-22 19:16:24 - 23708 - train - 170: - iter: 1265, lr: 1.000000e-06, loss: 44969.842468, time using: 68.135835(13.627167s/iter)
+2022-09-22 19:17:32 - 23708 - train - 170: - iter: 1270, lr: 1.000000e-06, loss: 44708.524446, time using: 68.136781(13.627356s/iter)
+2022-09-22 19:18:40 - 23708 - train - 170: - iter: 1275, lr: 1.000000e-06, loss: 43877.436784, time using: 68.299400(13.659880s/iter)
+2022-09-22 19:19:48 - 23708 - train - 170: - iter: 1280, lr: 1.000000e-06, loss: 43561.449932, time using: 68.229517(13.645903s/iter)
+2022-09-22 19:21:10 - 23708 - train - 170: - iter: 1285, lr: 1.000000e-06, loss: 43002.060151, time using: 81.131225(16.226245s/iter)
+2022-09-22 19:22:18 - 23708 - train - 170: - iter: 1290, lr: 1.000000e-06, loss: 43216.822139, time using: 68.239523(13.647905s/iter)
+2022-09-22 19:23:26 - 23708 - train - 170: - iter: 1295, lr: 1.000000e-06, loss: 42954.309439, time using: 68.043042(13.608608s/iter)
+2022-09-22 19:24:34 - 23708 - train - 170: - iter: 1300, lr: 1.000000e-06, loss: 42848.821248, time using: 68.065982(13.613196s/iter)
+2022-09-22 19:25:42 - 23708 - train - 170: - iter: 1305, lr: 1.000000e-06, loss: 42854.644545, time using: 68.007139(13.601428s/iter)
+2022-09-22 19:26:50 - 23708 - train - 170: - iter: 1310, lr: 1.000000e-06, loss: 42790.964821, time using: 68.086928(13.617386s/iter)
+2022-09-22 19:27:58 - 23708 - train - 170: - iter: 1315, lr: 1.000000e-06, loss: 43167.606628, time using: 68.153747(13.630749s/iter)
+2022-09-22 19:29:06 - 23708 - train - 170: - iter: 1320, lr: 1.000000e-06, loss: 43376.033786, time using: 68.185663(13.637133s/iter)
+2022-09-22 19:30:14 - 23708 - train - 170: - iter: 1325, lr: 1.000000e-06, loss: 43196.374194, time using: 68.076952(13.615390s/iter)
+2022-09-22 19:31:22 - 23708 - train - 170: - iter: 1330, lr: 1.000000e-06, loss: 43488.822185, time using: 68.006141(13.601228s/iter)
+2022-09-22 19:32:31 - 23708 - train - 170: - iter: 1335, lr: 1.000000e-06, loss: 43816.144263, time using: 68.162724(13.632545s/iter)
+2022-09-22 19:33:39 - 23708 - train - 170: - iter: 1340, lr: 1.000000e-06, loss: 42641.197408, time using: 68.315315(13.663063s/iter)
+2022-09-22 19:34:47 - 23708 - train - 170: - iter: 1345, lr: 1.000000e-06, loss: 43182.351864, time using: 68.214923(13.642985s/iter)
+2022-09-22 19:35:55 - 23708 - train - 170: - iter: 1350, lr: 1.000000e-06, loss: 42791.569858, time using: 68.314309(13.662862s/iter)
+2022-09-22 19:37:17 - 23708 - train - 170: - iter: 1355, lr: 1.000000e-06, loss: 43372.900846, time using: 81.096553(16.219311s/iter)
+2022-09-22 19:38:25 - 23708 - train - 170: - iter: 1360, lr: 1.000000e-06, loss: 43393.012792, time using: 68.138862(13.627772s/iter)
+2022-09-22 19:39:33 - 23708 - train - 170: - iter: 1365, lr: 1.000000e-06, loss: 42811.963029, time using: 68.076947(13.615389s/iter)
+2022-09-22 19:40:41 - 23708 - train - 170: - iter: 1370, lr: 1.000000e-06, loss: 42487.439558, time using: 68.198665(13.639733s/iter)
+2022-09-22 19:41:49 - 23708 - train - 170: - iter: 1375, lr: 1.000000e-06, loss: 42649.538271, time using: 68.225733(13.645147s/iter)
+2022-09-22 19:42:57 - 23708 - train - 170: - iter: 1380, lr: 1.000000e-06, loss: 42311.482698, time using: 68.076953(13.615391s/iter)
+2022-09-22 19:44:05 - 23708 - train - 170: - iter: 1385, lr: 1.000000e-06, loss: 42653.191781, time using: 68.098882(13.619776s/iter)
+2022-09-22 19:45:13 - 23708 - train - 170: - iter: 1390, lr: 1.000000e-06, loss: 42796.197926, time using: 68.054012(13.610802s/iter)
+2022-09-22 19:46:21 - 23708 - train - 170: - iter: 1395, lr: 1.000000e-06, loss: 42059.849275, time using: 67.896477(13.579295s/iter)
+2022-09-22 19:47:29 - 23708 - train - 170: - iter: 1400, lr: 1.000000e-06, loss: 42869.250566, time using: 68.011633(13.602327s/iter)
+2022-09-22 19:48:37 - 23708 - train - 170: - iter: 1405, lr: 1.000000e-06, loss: 42699.560367, time using: 68.090927(13.618185s/iter)
+2022-09-22 19:49:46 - 23708 - train - 170: - iter: 1410, lr: 1.000000e-06, loss: 42788.261465, time using: 68.114705(13.622941s/iter)
+2022-09-22 19:50:54 - 23708 - train - 170: - iter: 1415, lr: 1.000000e-06, loss: 42978.661707, time using: 68.127817(13.625563s/iter)
+2022-09-22 19:52:15 - 23708 - train - 170: - iter: 1420, lr: 1.000000e-06, loss: 43057.205078, time using: 81.160658(16.232132s/iter)
+2022-09-22 19:53:23 - 23708 - train - 170: - iter: 1425, lr: 1.000000e-06, loss: 43885.185904, time using: 68.082977(13.616595s/iter)
+2022-09-22 19:54:31 - 23708 - train - 170: - iter: 1430, lr: 1.000000e-06, loss: 44229.041127, time using: 68.224559(13.644912s/iter)
+2022-09-22 19:55:39 - 23708 - train - 170: - iter: 1435, lr: 1.000000e-06, loss: 43557.814352, time using: 68.206634(13.641327s/iter)
+2022-09-22 19:56:48 - 23708 - train - 170: - iter: 1440, lr: 1.000000e-06, loss: 43962.361524, time using: 68.310300(13.662060s/iter)
+2022-09-22 19:57:56 - 23708 - train - 170: - iter: 1445, lr: 1.000000e-06, loss: 43798.872490, time using: 68.192688(13.638538s/iter)
+2022-09-22 19:59:04 - 23708 - train - 170: - iter: 1450, lr: 1.000000e-06, loss: 43485.196489, time using: 68.178176(13.635635s/iter)
+2022-09-22 20:00:12 - 23708 - train - 170: - iter: 1455, lr: 1.000000e-06, loss: 43439.711632, time using: 68.016162(13.603232s/iter)
+2022-09-22 20:01:20 - 23708 - train - 170: - iter: 1460, lr: 1.000000e-06, loss: 42977.011758, time using: 68.425024(13.685005s/iter)
+2022-09-22 20:02:29 - 23708 - train - 170: - iter: 1465, lr: 1.000000e-06, loss: 43603.762957, time using: 68.083943(13.616789s/iter)
+2022-09-22 20:03:37 - 23708 - train - 170: - iter: 1470, lr: 1.000000e-06, loss: 43941.055964, time using: 68.110851(13.622170s/iter)
+2022-09-22 20:04:45 - 23708 - train - 170: - iter: 1475, lr: 1.000000e-06, loss: 43756.314531, time using: 68.048067(13.609613s/iter)
+2022-09-22 20:05:53 - 23708 - train - 170: - iter: 1480, lr: 1.000000e-06, loss: 43456.667507, time using: 68.141823(13.628365s/iter)
+2022-09-22 20:07:01 - 23708 - train - 170: - iter: 1485, lr: 1.000000e-06, loss: 44320.352703, time using: 68.225745(13.645149s/iter)
+2022-09-22 20:08:22 - 23708 - train - 170: - iter: 1490, lr: 1.000000e-06, loss: 44557.506569, time using: 81.106389(16.221278s/iter)
+2022-09-22 20:09:30 - 23708 - train - 170: - iter: 1495, lr: 1.000000e-06, loss: 44472.027665, time using: 68.239562(13.647912s/iter)
+2022-09-22 20:10:39 - 23708 - train - 170: - iter: 1500, lr: 1.000000e-06, loss: 44231.337651, time using: 68.433026(13.686605s/iter)
+2022-09-22 20:11:47 - 23708 - train - 170: - iter: 1505, lr: 1.000000e-06, loss: 44217.990166, time using: 68.032111(13.606422s/iter)
+2022-09-22 20:12:55 - 23708 - train - 170: - iter: 1510, lr: 1.000000e-06, loss: 44211.615319, time using: 68.081967(13.616393s/iter)
+2022-09-22 20:14:03 - 23708 - train - 170: - iter: 1515, lr: 1.000000e-06, loss: 44095.496461, time using: 68.154704(13.630941s/iter)
+2022-09-22 20:15:11 - 23708 - train - 170: - iter: 1520, lr: 1.000000e-06, loss: 43978.810856, time using: 68.037101(13.607420s/iter)
+2022-09-22 20:16:19 - 23708 - train - 170: - iter: 1525, lr: 1.000000e-06, loss: 43659.368101, time using: 68.037058(13.607412s/iter)
+2022-09-22 20:17:27 - 23708 - train - 170: - iter: 1530, lr: 1.000000e-06, loss: 43039.346886, time using: 67.824669(13.564934s/iter)
+2022-09-22 20:18:35 - 23708 - train - 170: - iter: 1535, lr: 1.000000e-06, loss: 42397.202137, time using: 68.059028(13.611806s/iter)
+2022-09-22 20:19:43 - 23708 - train - 170: - iter: 1540, lr: 1.000000e-06, loss: 41790.219430, time using: 67.921393(13.584279s/iter)
+2022-09-22 20:20:51 - 23708 - train - 170: - iter: 1545, lr: 1.000000e-06, loss: 42840.458551, time using: 68.083975(13.616795s/iter)
+2022-09-22 20:21:59 - 23708 - train - 170: - iter: 1550, lr: 1.000000e-06, loss: 42525.794226, time using: 68.173663(13.634733s/iter)
+2022-09-22 20:23:20 - 23708 - train - 170: - iter: 1555, lr: 1.000000e-06, loss: 42416.798374, time using: 80.850072(16.170014s/iter)
+2022-09-22 20:24:28 - 23708 - train - 170: - iter: 1560, lr: 1.000000e-06, loss: 42383.532488, time using: 67.993175(13.598635s/iter)
+2022-09-22 20:25:36 - 23708 - train - 170: - iter: 1565, lr: 1.000000e-06, loss: 41801.107048, time using: 67.787726(13.557545s/iter)
+2022-09-22 20:26:44 - 23708 - train - 170: - iter: 1570, lr: 1.000000e-06, loss: 42596.061798, time using: 67.660068(13.532014s/iter)
+2022-09-22 20:27:51 - 23708 - train - 170: - iter: 1575, lr: 1.000000e-06, loss: 42657.499735, time using: 67.661051(13.532210s/iter)
+2022-09-22 20:28:59 - 23708 - train - 170: - iter: 1580, lr: 1.000000e-06, loss: 43052.818381, time using: 67.749813(13.549963s/iter)
+2022-09-22 20:30:07 - 23708 - train - 170: - iter: 1585, lr: 1.000000e-06, loss: 43236.753064, time using: 67.680994(13.536199s/iter)
+2022-09-22 20:31:14 - 23708 - train - 170: - iter: 1590, lr: 1.000000e-06, loss: 43800.087242, time using: 67.549408(13.509882s/iter)
+2022-09-22 20:32:22 - 23708 - train - 170: - iter: 1595, lr: 1.000000e-06, loss: 42901.518707, time using: 67.701955(13.540391s/iter)
+2022-09-22 20:33:30 - 23708 - train - 170: - iter: 1600, lr: 1.000000e-06, loss: 43540.599271, time using: 67.797698(13.559540s/iter)
+2022-09-22 20:34:37 - 23708 - train - 170: - iter: 1605, lr: 1.000000e-06, loss: 43515.580245, time using: 67.746407(13.549281s/iter)
+2022-09-22 20:35:45 - 23708 - train - 170: - iter: 1610, lr: 1.000000e-06, loss: 44261.269484, time using: 67.632142(13.526428s/iter)
+2022-09-22 20:36:53 - 23708 - train - 170: - iter: 1615, lr: 1.000000e-06, loss: 44227.979865, time using: 67.554345(13.510869s/iter)
+2022-09-22 20:38:00 - 23708 - train - 170: - iter: 1620, lr: 1.000000e-06, loss: 43005.614888, time using: 67.754814(13.550963s/iter)
+2022-09-22 20:39:21 - 23708 - train - 170: - iter: 1625, lr: 1.000000e-06, loss: 42069.522208, time using: 80.797879(16.159576s/iter)
+2022-09-22 20:40:29 - 23708 - train - 170: - iter: 1630, lr: 1.000000e-06, loss: 42233.178534, time using: 68.127848(13.625570s/iter)
+2022-09-22 20:41:38 - 23708 - train - 170: - iter: 1635, lr: 1.000000e-06, loss: 42159.076130, time using: 68.148804(13.629761s/iter)
+2022-09-22 20:42:46 - 23708 - train - 170: - iter: 1640, lr: 1.000000e-06, loss: 42026.276298, time using: 68.220611(13.644122s/iter)
+2022-09-22 20:43:54 - 23708 - train - 170: - iter: 1645, lr: 1.000000e-06, loss: 41999.145848, time using: 67.996180(13.599236s/iter)
+2022-09-22 20:45:02 - 23708 - train - 170: - iter: 1650, lr: 1.000000e-06, loss: 42074.703490, time using: 68.103872(13.620774s/iter)
+2022-09-22 20:46:10 - 23708 - train - 170: - iter: 1655, lr: 1.000000e-06, loss: 42263.801595, time using: 67.975256(13.595051s/iter)
+2022-09-22 20:47:18 - 23708 - train - 170: - iter: 1660, lr: 1.000000e-06, loss: 41985.022904, time using: 68.116834(13.623367s/iter)
+2022-09-22 20:48:26 - 23708 - train - 170: - iter: 1665, lr: 1.000000e-06, loss: 41923.365043, time using: 68.165756(13.633151s/iter)
+2022-09-22 20:49:34 - 23708 - train - 170: - iter: 1670, lr: 1.000000e-06, loss: 42308.400598, time using: 68.275465(13.655093s/iter)
+2022-09-22 20:50:42 - 23708 - train - 170: - iter: 1675, lr: 1.000000e-06, loss: 43030.548802, time using: 68.108879(13.621776s/iter)
+2022-09-22 20:51:51 - 23708 - train - 170: - iter: 1680, lr: 1.000000e-06, loss: 42927.673257, time using: 68.108878(13.621776s/iter)
+2022-09-22 20:52:59 - 23708 - train - 170: - iter: 1685, lr: 1.000000e-06, loss: 42585.142957, time using: 68.100877(13.620175s/iter)
+2022-09-22 20:54:06 - 23708 - train - 170: - iter: 1690, lr: 1.000000e-06, loss: 42196.015988, time using: 67.302022(13.460404s/iter)
+2022-09-22 20:55:27 - 23708 - train - 170: - iter: 1695, lr: 1.000000e-06, loss: 42557.483334, time using: 81.501847(16.300369s/iter)
+2022-09-22 20:56:35 - 23708 - train - 170: - iter: 1700, lr: 1.000000e-06, loss: 42108.058823, time using: 67.815692(13.563138s/iter)
+2022-09-22 20:57:43 - 23708 - train - 170: - iter: 1705, lr: 1.000000e-06, loss: 41970.945734, time using: 67.738884(13.547777s/iter)
+2022-09-22 20:58:51 - 23708 - train - 170: - iter: 1710, lr: 1.000000e-06, loss: 41846.080048, time using: 67.783776(13.556755s/iter)
+2022-09-22 20:59:59 - 23708 - train - 170: - iter: 1715, lr: 1.000000e-06, loss: 41939.020892, time using: 67.721942(13.544388s/iter)
+2022-09-22 21:01:06 - 23708 - train - 170: - iter: 1720, lr: 1.000000e-06, loss: 41470.051645, time using: 67.801648(13.560330s/iter)
+2022-09-22 21:02:14 - 23708 - train - 170: - iter: 1725, lr: 1.000000e-06, loss: 41398.494697, time using: 67.869508(13.573902s/iter)
+2022-09-22 21:03:22 - 23708 - train - 170: - iter: 1730, lr: 1.000000e-06, loss: 41513.027291, time using: 67.818644(13.563729s/iter)
+2022-09-22 21:04:30 - 23708 - train - 170: - iter: 1735, lr: 1.000000e-06, loss: 41677.069649, time using: 67.608250(13.521650s/iter)
+2022-09-22 21:05:37 - 23708 - train - 170: - iter: 1740, lr: 1.000000e-06, loss: 41314.650182, time using: 67.774799(13.554960s/iter)
+2022-09-22 21:06:45 - 23708 - train - 170: - iter: 1745, lr: 1.000000e-06, loss: 41243.839137, time using: 67.884555(13.576911s/iter)
+2022-09-22 21:07:53 - 23708 - train - 170: - iter: 1750, lr: 1.000000e-06, loss: 40955.283752, time using: 67.714176(13.542835s/iter)
+2022-09-22 21:09:01 - 23708 - train - 170: - iter: 1755, lr: 1.000000e-06, loss: 40830.374806, time using: 67.624166(13.524833s/iter)
+2022-09-22 21:10:22 - 23708 - train - 170: - iter: 1760, lr: 1.000000e-06, loss: 40998.528282, time using: 81.013599(16.202720s/iter)
+2022-09-22 21:11:30 - 23708 - train - 170: - iter: 1765, lr: 1.000000e-06, loss: 40991.672142, time using: 68.314362(13.662872s/iter)
+2022-09-22 21:12:38 - 23708 - train - 170: - iter: 1770, lr: 1.000000e-06, loss: 40928.222662, time using: 68.186659(13.637332s/iter)
+2022-09-22 21:13:47 - 23708 - train - 170: - iter: 1775, lr: 1.000000e-06, loss: 40666.470514, time using: 68.350218(13.670044s/iter)
+2022-09-22 21:14:56 - 23708 - train - 170: - iter: 1780, lr: 1.000000e-06, loss: 40475.765680, time using: 69.064971(13.812994s/iter)
+2022-09-22 21:16:05 - 23708 - train - 170: - iter: 1785, lr: 1.000000e-06, loss: 40387.059867, time using: 68.964819(13.792964s/iter)
+2022-09-22 21:17:13 - 23708 - train - 170: - iter: 1790, lr: 1.000000e-06, loss: 40605.026526, time using: 68.270633(13.654127s/iter)
+2022-09-22 21:18:21 - 23708 - train - 170: - iter: 1795, lr: 1.000000e-06, loss: 41045.016536, time using: 68.262452(13.652490s/iter)
+2022-09-22 21:19:29 - 23708 - train - 170: - iter: 1800, lr: 1.000000e-06, loss: 42027.038031, time using: 68.083934(13.616787s/iter)
+2022-09-22 21:20:37 - 23708 - train - 170: - iter: 1805, lr: 1.000000e-06, loss: 42441.950237, time using: 68.060036(13.612007s/iter)
+2022-09-22 21:21:45 - 23708 - train - 170: - iter: 1810, lr: 1.000000e-06, loss: 42218.025629, time using: 68.060042(13.612008s/iter)
+2022-09-22 21:22:54 - 23708 - train - 170: - iter: 1815, lr: 1.000000e-06, loss: 41815.841212, time using: 68.312353(13.662471s/iter)
+2022-09-22 21:24:02 - 23708 - train - 170: - iter: 1820, lr: 1.000000e-06, loss: 42298.174285, time using: 68.176903(13.635381s/iter)
+2022-09-22 21:25:10 - 23708 - train - 170: - iter: 1825, lr: 1.000000e-06, loss: 42889.061048, time using: 67.903443(13.580689s/iter)
+2022-09-22 21:26:31 - 23708 - train - 170: - iter: 1830, lr: 1.000000e-06, loss: 42451.379991, time using: 81.429897(16.285979s/iter)
+2022-09-22 21:27:39 - 23708 - train - 170: - iter: 1835, lr: 1.000000e-06, loss: 43659.567028, time using: 68.196632(13.639326s/iter)
+2022-09-22 21:28:48 - 23708 - train - 170: - iter: 1840, lr: 1.000000e-06, loss: 44334.179166, time using: 68.358202(13.671640s/iter)
+2022-09-22 21:29:56 - 23708 - train - 170: - iter: 1845, lr: 1.000000e-06, loss: 43615.210773, time using: 68.310326(13.662065s/iter)
+2022-09-22 21:31:04 - 23708 - train - 170: - iter: 1850, lr: 1.000000e-06, loss: 42336.175541, time using: 68.162724(13.632545s/iter)
+2022-09-22 21:32:12 - 23708 - train - 170: - iter: 1855, lr: 1.000000e-06, loss: 41952.206801, time using: 68.249424(13.649885s/iter)
+2022-09-22 21:33:20 - 23708 - train - 170: - iter: 1860, lr: 1.000000e-06, loss: 41793.349242, time using: 67.994172(13.598834s/iter)
+2022-09-22 21:34:29 - 23708 - train - 170: - iter: 1865, lr: 1.000000e-06, loss: 41804.780278, time using: 68.265444(13.653089s/iter)
+2022-09-22 21:35:37 - 23708 - train - 170: - iter: 1870, lr: 1.000000e-06, loss: 41911.105004, time using: 68.185659(13.637132s/iter)
+2022-09-22 21:36:45 - 23708 - train - 170: - iter: 1875, lr: 1.000000e-06, loss: 41181.352592, time using: 68.284400(13.656880s/iter)
+2022-09-22 21:37:53 - 23708 - train - 170: - iter: 1880, lr: 1.000000e-06, loss: 42547.392798, time using: 68.210595(13.642119s/iter)
+2022-09-22 21:39:02 - 23708 - train - 170: - iter: 1885, lr: 1.000000e-06, loss: 40986.143166, time using: 68.315295(13.663059s/iter)
+2022-09-22 21:40:10 - 23708 - train - 170: - iter: 1890, lr: 1.000000e-06, loss: 40377.087150, time using: 68.267950(13.653590s/iter)
+2022-09-22 21:41:31 - 23708 - train - 170: - iter: 1895, lr: 1.000000e-06, loss: 40232.880571, time using: 81.392747(16.278549s/iter)
+2022-09-22 21:42:40 - 23708 - train - 170: - iter: 1900, lr: 1.000000e-06, loss: 40828.356420, time using: 68.277417(13.655483s/iter)
+2022-09-22 21:43:48 - 23708 - train - 170: - iter: 1905, lr: 1.000000e-06, loss: 41092.947875, time using: 68.137790(13.627558s/iter)
+2022-09-22 21:44:56 - 23708 - train - 170: - iter: 1910, lr: 1.000000e-06, loss: 41837.856020, time using: 68.145766(13.629153s/iter)
+2022-09-22 21:46:04 - 23708 - train - 170: - iter: 1915, lr: 1.000000e-06, loss: 42609.573768, time using: 68.113857(13.622771s/iter)
+2022-09-22 21:47:12 - 23708 - train - 170: - iter: 1920, lr: 1.000000e-06, loss: 42107.573710, time using: 68.225555(13.645111s/iter)
+2022-09-22 21:48:20 - 23708 - train - 170: - iter: 1925, lr: 1.000000e-06, loss: 42398.837975, time using: 68.159731(13.631946s/iter)
+2022-09-22 21:49:29 - 23708 - train - 170: - iter: 1930, lr: 1.000000e-06, loss: 41499.440461, time using: 68.256474(13.651295s/iter)
+2022-09-22 21:50:37 - 23708 - train - 170: - iter: 1935, lr: 1.000000e-06, loss: 42180.480047, time using: 68.159732(13.631946s/iter)
+2022-09-22 21:51:45 - 23708 - train - 170: - iter: 1940, lr: 1.000000e-06, loss: 42251.278130, time using: 68.135786(13.627157s/iter)
+2022-09-22 21:52:53 - 23708 - train - 170: - iter: 1945, lr: 1.000000e-06, loss: 42730.670897, time using: 68.164715(13.632943s/iter)
+2022-09-22 21:54:01 - 23708 - train - 170: - iter: 1950, lr: 1.000000e-06, loss: 42851.818298, time using: 68.270434(13.654087s/iter)
+2022-09-22 21:55:10 - 23708 - train - 170: - iter: 1955, lr: 1.000000e-06, loss: 42432.212718, time using: 68.116846(13.623369s/iter)
+2022-09-22 21:56:18 - 23708 - train - 170: - iter: 1960, lr: 1.000000e-06, loss: 41113.509338, time using: 68.051008(13.610202s/iter)
+2022-09-22 21:57:39 - 23708 - train - 170: - iter: 1965, lr: 1.000000e-06, loss: 40419.878190, time using: 81.466995(16.293399s/iter)
+2022-09-22 21:58:47 - 23708 - train - 170: - iter: 1970, lr: 1.000000e-06, loss: 40391.280732, time using: 68.250445(13.650089s/iter)
+2022-09-22 21:59:56 - 23708 - train - 170: - iter: 1975, lr: 1.000000e-06, loss: 40244.737230, time using: 68.316354(13.663271s/iter)
+2022-09-22 22:01:04 - 23708 - train - 170: - iter: 1980, lr: 1.000000e-06, loss: 40600.126156, time using: 68.109881(13.621976s/iter)
+2022-09-22 22:02:12 - 23708 - train - 170: - iter: 1985, lr: 1.000000e-06, loss: 40115.527238, time using: 68.077989(13.615598s/iter)
+2022-09-22 22:03:20 - 23708 - train - 170: - iter: 1990, lr: 1.000000e-06, loss: 40060.120677, time using: 68.042046(13.608409s/iter)
+2022-09-22 22:04:28 - 23708 - train - 170: - iter: 1995, lr: 1.000000e-06, loss: 40117.886979, time using: 68.105920(13.621184s/iter)
+2022-09-22 22:05:36 - 23708 - train - 170: - iter: 2000, lr: 1.000000e-06, loss: 40122.633317, time using: 68.472881(13.694576s/iter)
+2022-09-22 22:06:45 - 23708 - train - 170: - iter: 2005, lr: 1.000000e-06, loss: 40131.875631, time using: 68.096592(13.619318s/iter)
+2022-09-22 22:07:53 - 23708 - train - 170: - iter: 2010, lr: 1.000000e-06, loss: 40629.667746, time using: 68.062033(13.612407s/iter)
+2022-09-22 22:09:01 - 23708 - train - 170: - iter: 2015, lr: 1.000000e-06, loss: 41140.581800, time using: 68.162712(13.632542s/iter)
+2022-09-22 22:10:09 - 23708 - train - 170: - iter: 2020, lr: 1.000000e-06, loss: 42016.505757, time using: 68.034080(13.606816s/iter)
+2022-09-22 22:11:17 - 23708 - train - 170: - iter: 2025, lr: 1.000000e-06, loss: 42222.712743, time using: 68.069971(13.613994s/iter)
+2022-09-22 22:12:38 - 23708 - train - 170: - iter: 2030, lr: 1.000000e-06, loss: 42034.314199, time using: 81.288820(16.257764s/iter)
+2022-09-22 22:13:46 - 23708 - train - 170: - iter: 2035, lr: 1.000000e-06, loss: 42199.621653, time using: 68.305318(13.661064s/iter)
+2022-09-22 22:14:54 - 23708 - train - 170: - iter: 2040, lr: 1.000000e-06, loss: 42354.027888, time using: 68.044021(13.608804s/iter)
+2022-09-22 22:16:03 - 23708 - train - 170: - iter: 2045, lr: 1.000000e-06, loss: 41625.750334, time using: 68.145847(13.629169s/iter)
+2022-09-22 22:17:11 - 23708 - train - 170: - iter: 2050, lr: 1.000000e-06, loss: 41234.654119, time using: 68.133349(13.626670s/iter)
+2022-09-22 22:18:19 - 23708 - train - 170: - iter: 2055, lr: 1.000000e-06, loss: 41276.981971, time using: 68.104878(13.620976s/iter)
+2022-09-22 22:19:27 - 23708 - train - 170: - iter: 2060, lr: 1.000000e-06, loss: 41276.757101, time using: 68.132801(13.626560s/iter)
+2022-09-22 22:20:35 - 23708 - train - 170: - iter: 2065, lr: 1.000000e-06, loss: 40579.945629, time using: 68.238521(13.647704s/iter)
+2022-09-22 22:21:43 - 23708 - train - 170: - iter: 2070, lr: 1.000000e-06, loss: 39859.307807, time using: 68.172691(13.634538s/iter)
+2022-09-22 22:22:52 - 23708 - train - 170: - iter: 2075, lr: 1.000000e-06, loss: 39888.409459, time using: 68.299357(13.659871s/iter)
+2022-09-22 22:24:00 - 23708 - train - 170: - iter: 2080, lr: 1.000000e-06, loss: 40141.610906, time using: 68.277005(13.655401s/iter)
+2022-09-22 22:25:08 - 23708 - train - 170: - iter: 2085, lr: 1.000000e-06, loss: 39870.916058, time using: 68.101119(13.620224s/iter)
+2022-09-22 22:26:16 - 23708 - train - 170: - iter: 2090, lr: 1.000000e-06, loss: 39807.130704, time using: 68.409058(13.681812s/iter)
+2022-09-22 22:27:25 - 23708 - train - 170: - iter: 2095, lr: 1.000000e-06, loss: 40674.104353, time using: 68.099883(13.619977s/iter)
+2022-09-22 22:28:46 - 23708 - train - 170: - iter: 2100, lr: 1.000000e-06, loss: 41315.758702, time using: 80.906076(16.181215s/iter)
+2022-09-22 22:29:53 - 23708 - train - 170: - iter: 2105, lr: 1.000000e-06, loss: 41484.686622, time using: 67.731874(13.546375s/iter)
+2022-09-22 22:31:01 - 23708 - train - 170: - iter: 2110, lr: 1.000000e-06, loss: 41370.992543, time using: 67.764788(13.552958s/iter)
+2022-09-22 22:32:09 - 23708 - train - 170: - iter: 2115, lr: 1.000000e-06, loss: 41511.565152, time using: 67.548368(13.509674s/iter)
+2022-09-22 22:33:16 - 23708 - train - 170: - iter: 2120, lr: 1.000000e-06, loss: 42050.092862, time using: 67.740852(13.548170s/iter)
+2022-09-22 22:34:24 - 23708 - train - 170: - iter: 2125, lr: 1.000000e-06, loss: 41653.690002, time using: 67.741849(13.548370s/iter)
+2022-09-22 22:35:32 - 23708 - train - 170: - iter: 2130, lr: 1.000000e-06, loss: 41072.574908, time using: 67.738858(13.547772s/iter)
+2022-09-22 22:36:40 - 23708 - train - 170: - iter: 2135, lr: 1.000000e-06, loss: 41119.639988, time using: 67.721896(13.544379s/iter)
+2022-09-22 22:37:47 - 23708 - train - 170: - iter: 2140, lr: 1.000000e-06, loss: 40724.006163, time using: 67.761796(13.552359s/iter)
+2022-09-22 22:38:55 - 23708 - train - 170: - iter: 2145, lr: 1.000000e-06, loss: 39961.035012, time using: 67.751823(13.550365s/iter)
+2022-09-22 22:40:03 - 23708 - train - 170: - iter: 2150, lr: 1.000000e-06, loss: 39423.773322, time using: 67.592251(13.518450s/iter)
+2022-09-22 22:41:10 - 23708 - train - 170: - iter: 2155, lr: 1.000000e-06, loss: 39393.848568, time using: 67.811244(13.562249s/iter)
+2022-09-22 22:42:18 - 23708 - train - 170: - iter: 2160, lr: 1.000000e-06, loss: 39651.175138, time using: 67.718909(13.543782s/iter)
+2022-09-22 22:43:39 - 23708 - train - 170: - iter: 2165, lr: 1.000000e-06, loss: 40420.662232, time using: 80.837906(16.167581s/iter)
+2022-09-22 22:44:47 - 23708 - train - 170: - iter: 2170, lr: 1.000000e-06, loss: 39858.649737, time using: 67.869534(13.573907s/iter)
+2022-09-22 22:45:55 - 23708 - train - 170: - iter: 2175, lr: 1.000000e-06, loss: 40641.341170, time using: 67.775815(13.555163s/iter)
+2022-09-22 22:47:02 - 23708 - train - 170: - iter: 2180, lr: 1.000000e-06, loss: 41311.464411, time using: 67.828576(13.565715s/iter)
+2022-09-22 22:48:10 - 23708 - train - 170: - iter: 2185, lr: 1.000000e-06, loss: 41444.618057, time using: 67.893443(13.578689s/iter)
+2022-09-22 22:49:18 - 23708 - train - 170: - iter: 2190, lr: 1.000000e-06, loss: 42129.699576, time using: 67.626199(13.525240s/iter)
+2022-09-22 22:50:26 - 23708 - train - 170: - iter: 2195, lr: 1.000000e-06, loss: 42966.877515, time using: 67.686007(13.537201s/iter)
+2022-09-22 22:51:34 - 23708 - train - 170: - iter: 2200, lr: 1.000000e-06, loss: 42717.240712, time using: 67.871543(13.574309s/iter)
+2022-09-22 22:52:41 - 23708 - train - 170: - iter: 2205, lr: 1.000000e-06, loss: 42842.488550, time using: 67.927354(13.585471s/iter)
+2022-09-22 22:53:49 - 23708 - train - 170: - iter: 2210, lr: 1.000000e-06, loss: 43139.397103, time using: 67.813655(13.562731s/iter)
+2022-09-22 22:54:57 - 23708 - train - 170: - iter: 2215, lr: 1.000000e-06, loss: 42930.485607, time using: 67.761827(13.552365s/iter)
+2022-09-22 22:56:05 - 23708 - train - 170: - iter: 2220, lr: 1.000000e-06, loss: 43094.963113, time using: 67.903431(13.580686s/iter)
+2022-09-22 22:57:13 - 23708 - train - 170: - iter: 2225, lr: 1.000000e-06, loss: 42459.534924, time using: 67.811663(13.562333s/iter)
+2022-09-22 22:58:20 - 23708 - train - 170: - iter: 2230, lr: 1.000000e-06, loss: 41425.004556, time using: 67.727913(13.545583s/iter)
+2022-09-22 22:59:42 - 23708 - train - 170: - iter: 2235, lr: 1.000000e-06, loss: 41780.157231, time using: 81.211026(16.242205s/iter)
+2022-09-22 23:00:50 - 23708 - train - 170: - iter: 2240, lr: 1.000000e-06, loss: 41593.792036, time using: 68.258466(13.651693s/iter)
+2022-09-22 23:01:58 - 23708 - train - 170: - iter: 2245, lr: 1.000000e-06, loss: 41217.358290, time using: 68.100064(13.620013s/iter)
+2022-09-22 23:03:06 - 23708 - train - 170: - iter: 2250, lr: 1.000000e-06, loss: 41480.402429, time using: 68.137789(13.627558s/iter)
+2022-09-22 23:04:14 - 23708 - train - 170: - iter: 2255, lr: 1.000000e-06, loss: 41598.745369, time using: 68.021147(13.604229s/iter)
+2022-09-22 23:05:22 - 23708 - train - 170: - iter: 2260, lr: 1.000000e-06, loss: 40752.987766, time using: 67.966244(13.593249s/iter)
+2022-09-22 23:06:30 - 23708 - train - 170: - iter: 2265, lr: 1.000000e-06, loss: 40538.828876, time using: 68.072007(13.614401s/iter)
+2022-09-22 23:07:38 - 23708 - train - 170: - iter: 2270, lr: 1.000000e-06, loss: 40407.906659, time using: 67.913377(13.582675s/iter)
+2022-09-22 23:08:46 - 23708 - train - 170: - iter: 2275, lr: 1.000000e-06, loss: 40636.445516, time using: 68.229599(13.645920s/iter)
+2022-09-22 23:09:55 - 23708 - train - 170: - iter: 2280, lr: 1.000000e-06, loss: 40954.178900, time using: 68.206553(13.641311s/iter)
+2022-09-22 23:11:03 - 23708 - train - 170: - iter: 2285, lr: 1.000000e-06, loss: 40910.556749, time using: 68.342267(13.668453s/iter)
+2022-09-22 23:12:11 - 23708 - train - 170: - iter: 2290, lr: 1.000000e-06, loss: 40559.435499, time using: 68.128813(13.625763s/iter)
+2022-09-22 23:13:19 - 23708 - train - 170: - iter: 2295, lr: 1.000000e-06, loss: 40104.256725, time using: 68.180722(13.636144s/iter)
+2022-09-22 23:14:40 - 23708 - train - 170: - iter: 2300, lr: 1.000000e-06, loss: 39650.985354, time using: 81.057106(16.211421s/iter)
+2022-09-22 23:15:48 - 23708 - train - 170: - iter: 2305, lr: 1.000000e-06, loss: 38940.676968, time using: 68.162220(13.632444s/iter)
+2022-09-22 23:16:57 - 23708 - train - 170: - iter: 2310, lr: 1.000000e-06, loss: 39406.995674, time using: 68.077991(13.615598s/iter)
+2022-09-22 23:18:05 - 23708 - train - 170: - iter: 2315, lr: 1.000000e-06, loss: 39766.233666, time using: 68.068934(13.613787s/iter)
+2022-09-22 23:19:13 - 23708 - train - 170: - iter: 2320, lr: 1.000000e-06, loss: 39463.100427, time using: 68.016114(13.603223s/iter)
+2022-09-22 23:20:21 - 23708 - train - 170: - iter: 2325, lr: 1.000000e-06, loss: 38904.995427, time using: 68.124871(13.624974s/iter)
+2022-09-22 23:21:29 - 23708 - train - 170: - iter: 2330, lr: 1.000000e-06, loss: 38975.342056, time using: 68.268444(13.653689s/iter)
+2022-09-22 23:22:37 - 23708 - train - 170: - iter: 2335, lr: 1.000000e-06, loss: 38849.112612, time using: 68.114893(13.622979s/iter)
+2022-09-22 23:23:45 - 23708 - train - 170: - iter: 2340, lr: 1.000000e-06, loss: 39320.598598, time using: 68.072816(13.614563s/iter)
+2022-09-22 23:24:53 - 23708 - train - 170: - iter: 2345, lr: 1.000000e-06, loss: 39240.256735, time using: 68.094908(13.618982s/iter)
+2022-09-22 23:26:01 - 23708 - train - 170: - iter: 2350, lr: 1.000000e-06, loss: 39909.277397, time using: 68.168723(13.633745s/iter)
+2022-09-22 23:27:10 - 23708 - train - 170: - iter: 2355, lr: 1.000000e-06, loss: 40301.169374, time using: 68.137790(13.627558s/iter)
+2022-09-22 23:28:18 - 23708 - train - 170: - iter: 2360, lr: 1.000000e-06, loss: 40310.548686, time using: 68.105916(13.621183s/iter)
+2022-09-22 23:29:26 - 23708 - train - 170: - iter: 2365, lr: 1.000000e-06, loss: 39916.158301, time using: 68.098880(13.619776s/iter)
+2022-09-22 23:30:47 - 23708 - train - 170: - iter: 2370, lr: 1.000000e-06, loss: 40620.453465, time using: 81.365428(16.273086s/iter)
+2022-09-22 23:31:55 - 23708 - train - 170: - iter: 2375, lr: 1.000000e-06, loss: 40376.119211, time using: 68.226551(13.645310s/iter)
+2022-09-22 23:33:04 - 23708 - train - 170: - iter: 2380, lr: 1.000000e-06, loss: 40651.617883, time using: 68.271435(13.654287s/iter)
+2022-09-22 23:34:12 - 23708 - train - 170: - iter: 2385, lr: 1.000000e-06, loss: 40727.296188, time using: 68.293374(13.658675s/iter)
+2022-09-22 23:35:20 - 23708 - train - 170: - iter: 2390, lr: 1.000000e-06, loss: 40358.933574, time using: 68.246135(13.649227s/iter)
+2022-09-22 23:36:28 - 23708 - train - 170: - iter: 2395, lr: 1.000000e-06, loss: 41001.380684, time using: 68.100033(13.620007s/iter)
+2022-09-22 23:37:37 - 23708 - train - 170: - iter: 2400, lr: 1.000000e-06, loss: 40711.349637, time using: 68.165714(13.633143s/iter)
+2022-09-22 23:38:45 - 23708 - train - 170: - iter: 2405, lr: 1.000000e-06, loss: 40449.248414, time using: 68.212804(13.642561s/iter)
+2022-09-22 23:39:53 - 23708 - train - 170: - iter: 2410, lr: 1.000000e-06, loss: 40039.698586, time using: 68.165755(13.633151s/iter)
+2022-09-22 23:41:01 - 23708 - train - 170: - iter: 2415, lr: 1.000000e-06, loss: 39912.659100, time using: 68.183710(13.636742s/iter)
+2022-09-22 23:42:09 - 23708 - train - 170: - iter: 2420, lr: 1.000000e-06, loss: 39721.295397, time using: 68.192537(13.638507s/iter)
+2022-09-22 23:43:17 - 23708 - train - 170: - iter: 2425, lr: 1.000000e-06, loss: 40401.532408, time using: 68.183751(13.636750s/iter)
+2022-09-22 23:44:26 - 23708 - train - 170: - iter: 2430, lr: 1.000000e-06, loss: 40638.290799, time using: 68.086885(13.617377s/iter)
+2022-09-22 23:45:47 - 23708 - train - 170: - iter: 2435, lr: 1.000000e-06, loss: 40200.656635, time using: 81.146128(16.229226s/iter)
+2022-09-22 23:46:55 - 23708 - train - 170: - iter: 2440, lr: 1.000000e-06, loss: 40515.782982, time using: 67.878478(13.575696s/iter)
+2022-09-22 23:48:02 - 23708 - train - 170: - iter: 2445, lr: 1.000000e-06, loss: 40302.529650, time using: 67.814652(13.562930s/iter)
+2022-09-22 23:49:10 - 23708 - train - 170: - iter: 2450, lr: 1.000000e-06, loss: 40265.286760, time using: 67.843576(13.568715s/iter)
+2022-09-22 23:50:18 - 23708 - train - 170: - iter: 2455, lr: 1.000000e-06, loss: 40472.636479, time using: 67.886463(13.577293s/iter)
+2022-09-22 23:51:26 - 23708 - train - 170: - iter: 2460, lr: 1.000000e-06, loss: 40813.670753, time using: 67.906414(13.581283s/iter)
+2022-09-22 23:52:34 - 23708 - train - 170: - iter: 2465, lr: 1.000000e-06, loss: 41187.957512, time using: 67.932342(13.586468s/iter)
+2022-09-22 23:53:42 - 23708 - train - 170: - iter: 2470, lr: 1.000000e-06, loss: 40890.453448, time using: 67.895437(13.579087s/iter)
+2022-09-22 23:54:50 - 23708 - train - 170: - iter: 2475, lr: 1.000000e-06, loss: 40655.305199, time using: 67.894425(13.578885s/iter)
+2022-09-22 23:55:58 - 23708 - train - 170: - iter: 2480, lr: 1.000000e-06, loss: 40182.836315, time using: 67.794693(13.558939s/iter)
+2022-09-22 23:57:05 - 23708 - train - 170: - iter: 2485, lr: 1.000000e-06, loss: 40494.467094, time using: 67.874494(13.574899s/iter)
+2022-09-22 23:58:13 - 23708 - train - 170: - iter: 2490, lr: 1.000000e-06, loss: 39592.296022, time using: 67.749830(13.549966s/iter)
+2022-09-22 23:59:21 - 23708 - train - 170: - iter: 2495, lr: 1.000000e-06, loss: 39058.650123, time using: 67.717912(13.543582s/iter)
+2022-09-23 00:00:29 - 23708 - train - 170: - iter: 2500, lr: 1.000000e-06, loss: 39147.895895, time using: 68.058999(13.611800s/iter)
+2022-09-23 00:01:50 - 23708 - train - 170: - iter: 2505, lr: 1.000000e-06, loss: 39161.476248, time using: 80.872486(16.174497s/iter)
+2022-09-23 00:02:58 - 23708 - train - 170: - iter: 2510, lr: 1.000000e-06, loss: 39081.180833, time using: 67.812660(13.562532s/iter)
+2022-09-23 00:04:05 - 23708 - train - 170: - iter: 2515, lr: 1.000000e-06, loss: 38909.721388, time using: 67.632133(13.526427s/iter)
+2022-09-23 00:05:13 - 23708 - train - 170: - iter: 2520, lr: 1.000000e-06, loss: 39044.398154, time using: 67.812660(13.562532s/iter)
+2022-09-23 00:06:21 - 23708 - train - 170: - iter: 2525, lr: 1.000000e-06, loss: 39131.836263, time using: 67.667049(13.533410s/iter)
+2022-09-23 00:07:29 - 23708 - train - 170: - iter: 2530, lr: 1.000000e-06, loss: 39262.472406, time using: 67.771773(13.554355s/iter)
+2022-09-23 00:08:36 - 23708 - train - 170: - iter: 2535, lr: 1.000000e-06, loss: 39012.283625, time using: 67.654085(13.530817s/iter)
+2022-09-23 00:09:44 - 23708 - train - 170: - iter: 2540, lr: 1.000000e-06, loss: 39770.108035, time using: 67.746835(13.549367s/iter)
+2022-09-23 00:10:52 - 23708 - train - 170: - iter: 2545, lr: 1.000000e-06, loss: 39550.185747, time using: 67.746836(13.549367s/iter)
+2022-09-23 00:11:59 - 23708 - train - 170: - iter: 2550, lr: 1.000000e-06, loss: 39030.646667, time using: 67.665052(13.533010s/iter)
+2022-09-23 00:13:07 - 23708 - train - 170: - iter: 2555, lr: 1.000000e-06, loss: 38754.973451, time using: 67.804681(13.560936s/iter)
+2022-09-23 00:14:15 - 23708 - train - 170: - iter: 2560, lr: 1.000000e-06, loss: 38144.975118, time using: 67.899197(13.579839s/iter)
+2022-09-23 00:15:23 - 23708 - train - 170: - iter: 2565, lr: 1.000000e-06, loss: 37844.994784, time using: 67.702952(13.540590s/iter)
+2022-09-23 00:16:44 - 23708 - train - 170: - iter: 2570, lr: 1.000000e-06, loss: 38460.857214, time using: 80.814737(16.162947s/iter)
+2022-09-23 00:17:52 - 23708 - train - 170: - iter: 2575, lr: 1.000000e-06, loss: 38652.531691, time using: 68.118833(13.623767s/iter)
+2022-09-23 00:19:00 - 23708 - train - 170: - iter: 2580, lr: 1.000000e-06, loss: 39120.316854, time using: 68.117842(13.623568s/iter)
+2022-09-23 00:20:08 - 23708 - train - 170: - iter: 2585, lr: 1.000000e-06, loss: 39295.442065, time using: 68.004148(13.600830s/iter)
+2022-09-23 00:21:16 - 23708 - train - 170: - iter: 2590, lr: 1.000000e-06, loss: 38980.492095, time using: 68.143775(13.628755s/iter)
+2022-09-23 00:22:24 - 23708 - train - 170: - iter: 2595, lr: 1.000000e-06, loss: 39268.968278, time using: 68.003150(13.600630s/iter)
+2022-09-23 00:23:32 - 23708 - train - 170: - iter: 2600, lr: 1.000000e-06, loss: 39732.182076, time using: 68.077949(13.615590s/iter)
+2022-09-23 00:24:40 - 23708 - train - 170: - iter: 2605, lr: 1.000000e-06, loss: 40178.958929, time using: 68.048303(13.609661s/iter)
+2022-09-23 00:25:48 - 23708 - train - 170: - iter: 2610, lr: 1.000000e-06, loss: 40705.875206, time using: 68.201772(13.640354s/iter)
+2022-09-23 00:26:56 - 23708 - train - 170: - iter: 2615, lr: 1.000000e-06, loss: 40386.180363, time using: 68.148762(13.629752s/iter)
+2022-09-23 00:28:04 - 23708 - train - 170: - iter: 2620, lr: 1.000000e-06, loss: 39618.585281, time using: 67.926356(13.585271s/iter)
+2022-09-23 00:29:12 - 23708 - train - 170: - iter: 2625, lr: 1.000000e-06, loss: 39686.315710, time using: 68.124824(13.624965s/iter)
+2022-09-23 00:30:21 - 23708 - train - 170: - iter: 2630, lr: 1.000000e-06, loss: 39327.332712, time using: 68.256470(13.651294s/iter)
+2022-09-23 00:31:29 - 23708 - train - 170: - iter: 2635, lr: 1.000000e-06, loss: 39629.324465, time using: 68.076952(13.615390s/iter)
+2022-09-23 00:32:50 - 23708 - train - 170: - iter: 2640, lr: 1.000000e-06, loss: 40026.854724, time using: 81.167479(16.233496s/iter)
+2022-09-23 00:33:58 - 23708 - train - 170: - iter: 2645, lr: 1.000000e-06, loss: 41055.160585, time using: 68.063988(13.612798s/iter)
+2022-09-23 00:35:06 - 23708 - train - 170: - iter: 2650, lr: 1.000000e-06, loss: 41342.586063, time using: 68.108870(13.621774s/iter)
+2022-09-23 00:36:14 - 23708 - train - 170: - iter: 2655, lr: 1.000000e-06, loss: 40902.142178, time using: 68.042046(13.608409s/iter)
+2022-09-23 00:37:22 - 23708 - train - 170: - iter: 2660, lr: 1.000000e-06, loss: 40681.663561, time using: 68.025083(13.605017s/iter)
+2022-09-23 00:38:30 - 23708 - train - 170: - iter: 2665, lr: 1.000000e-06, loss: 41280.661002, time using: 68.114460(13.622892s/iter)
+2022-09-23 00:39:38 - 23708 - train - 170: - iter: 2670, lr: 1.000000e-06, loss: 41047.600840, time using: 68.068959(13.613792s/iter)
+2022-09-23 00:40:47 - 23708 - train - 170: - iter: 2675, lr: 1.000000e-06, loss: 40839.858732, time using: 68.103882(13.620776s/iter)
+2022-09-23 00:41:55 - 23708 - train - 170: - iter: 2680, lr: 1.000000e-06, loss: 40470.348610, time using: 68.184716(13.636943s/iter)
+2022-09-23 00:43:03 - 23708 - train - 170: - iter: 2685, lr: 1.000000e-06, loss: 40222.454141, time using: 67.999162(13.599832s/iter)
+2022-09-23 00:44:11 - 23708 - train - 170: - iter: 2690, lr: 1.000000e-06, loss: 40020.876513, time using: 68.004148(13.600830s/iter)
+2022-09-23 00:45:19 - 23708 - train - 170: - iter: 2695, lr: 1.000000e-06, loss: 39719.621369, time using: 68.047032(13.609406s/iter)
+2022-09-23 00:46:27 - 23708 - train - 170: - iter: 2700, lr: 1.000000e-06, loss: 39871.865284, time using: 67.947299(13.589460s/iter)
+2022-09-23 00:47:48 - 23708 - train - 170: - iter: 2705, lr: 1.000000e-06, loss: 39772.288271, time using: 81.163392(16.232678s/iter)
+2022-09-23 00:48:56 - 23708 - train - 170: - iter: 2710, lr: 1.000000e-06, loss: 40069.727837, time using: 67.832606(13.566521s/iter)
+2022-09-23 00:50:04 - 23708 - train - 170: - iter: 2715, lr: 1.000000e-06, loss: 39439.177609, time using: 68.164719(13.632944s/iter)
+2022-09-23 00:51:12 - 23708 - train - 170: - iter: 2720, lr: 1.000000e-06, loss: 39631.071508, time using: 67.987191(13.597438s/iter)
+2022-09-23 00:52:20 - 23708 - train - 170: - iter: 2725, lr: 1.000000e-06, loss: 39943.826025, time using: 67.980210(13.596042s/iter)
+2022-09-23 00:53:28 - 23708 - train - 170: - iter: 2730, lr: 1.000000e-06, loss: 40007.311206, time using: 68.199623(13.639925s/iter)
+2022-09-23 00:54:36 - 23708 - train - 170: - iter: 2735, lr: 1.000000e-06, loss: 39253.061320, time using: 67.960262(13.592052s/iter)
+2022-09-23 00:55:44 - 23708 - train - 170: - iter: 2740, lr: 1.000000e-06, loss: 39182.027869, time using: 68.011127(13.602225s/iter)
+2022-09-23 00:56:52 - 23708 - train - 170: - iter: 2745, lr: 1.000000e-06, loss: 39104.326155, time using: 68.127817(13.625563s/iter)
+2022-09-23 00:58:00 - 23708 - train - 170: - iter: 2750, lr: 1.000000e-06, loss: 38225.831086, time using: 68.145769(13.629154s/iter)
+2022-09-23 00:59:08 - 23708 - train - 170: - iter: 2755, lr: 1.000000e-06, loss: 38279.590209, time using: 68.161726(13.632345s/iter)
+2022-09-23 01:00:17 - 23708 - train - 170: - iter: 2760, lr: 1.000000e-06, loss: 38302.536898, time using: 68.209599(13.641920s/iter)
+2022-09-23 01:01:25 - 23708 - train - 170: - iter: 2765, lr: 1.000000e-06, loss: 39217.633354, time using: 68.115850(13.623170s/iter)
+2022-09-23 01:02:33 - 23708 - train - 170: - iter: 2770, lr: 1.000000e-06, loss: 39674.115725, time using: 67.965250(13.593050s/iter)
+2022-09-23 01:03:54 - 23708 - train - 170: - iter: 2775, lr: 1.000000e-06, loss: 39497.986067, time using: 81.233269(16.246654s/iter)
+2022-09-23 01:05:02 - 23708 - train - 170: - iter: 2780, lr: 1.000000e-06, loss: 39777.866267, time using: 68.207603(13.641521s/iter)
+2022-09-23 01:06:10 - 23708 - train - 170: - iter: 2785, lr: 1.000000e-06, loss: 40708.664713, time using: 68.012125(13.602425s/iter)
+2022-09-23 01:07:18 - 23708 - train - 170: - iter: 2790, lr: 1.000000e-06, loss: 40577.657751, time using: 68.204611(13.640922s/iter)
+2022-09-23 01:08:27 - 23708 - train - 170: - iter: 2795, lr: 1.000000e-06, loss: 40141.304243, time using: 68.101885(13.620377s/iter)
+2022-09-23 01:09:35 - 23708 - train - 170: - iter: 2800, lr: 1.000000e-06, loss: 40273.876947, time using: 68.135391(13.627078s/iter)
+2022-09-23 01:10:43 - 23708 - train - 170: - iter: 2805, lr: 1.000000e-06, loss: 40333.668889, time using: 68.104474(13.620895s/iter)
+2022-09-23 01:11:51 - 23708 - train - 170: - iter: 2810, lr: 1.000000e-06, loss: 40109.931388, time using: 68.257471(13.651494s/iter)
+2022-09-23 01:12:59 - 23708 - train - 170: - iter: 2815, lr: 1.000000e-06, loss: 39602.483268, time using: 68.129811(13.625962s/iter)
+2022-09-23 01:14:07 - 23708 - train - 170: - iter: 2820, lr: 1.000000e-06, loss: 39552.264359, time using: 68.327283(13.665457s/iter)
+2022-09-23 01:15:16 - 23708 - train - 170: - iter: 2825, lr: 1.000000e-06, loss: 39253.236927, time using: 68.076954(13.615391s/iter)
+2022-09-23 01:16:24 - 23708 - train - 170: - iter: 2830, lr: 1.000000e-06, loss: 39513.761571, time using: 68.453945(13.690789s/iter)
+2022-09-23 01:17:32 - 23708 - train - 170: - iter: 2835, lr: 1.000000e-06, loss: 38865.460796, time using: 67.891445(13.578289s/iter)
+2022-09-23 01:18:53 - 23708 - train - 170: - iter: 2840, lr: 1.000000e-06, loss: 39192.827855, time using: 81.276323(16.255265s/iter)
+2022-09-23 01:20:01 - 23708 - train - 170: - iter: 2845, lr: 1.000000e-06, loss: 39499.437794, time using: 68.145764(13.629153s/iter)
+2022-09-23 01:21:10 - 23708 - train - 170: - iter: 2850, lr: 1.000000e-06, loss: 39566.226687, time using: 68.655406(13.731081s/iter)
+2022-09-23 01:22:18 - 23708 - train - 170: - iter: 2855, lr: 1.000000e-06, loss: 38847.752114, time using: 67.954279(13.590856s/iter)
+2022-09-23 01:23:26 - 23708 - train - 170: - iter: 2860, lr: 1.000000e-06, loss: 38845.507406, time using: 67.913389(13.582678s/iter)
+2022-09-23 01:24:34 - 23708 - train - 170: - iter: 2865, lr: 1.000000e-06, loss: 39042.646096, time using: 68.073960(13.614792s/iter)
+2022-09-23 01:25:42 - 23708 - train - 170: - iter: 2870, lr: 1.000000e-06, loss: 39004.962793, time using: 67.921355(13.584271s/iter)
+2022-09-23 01:26:50 - 23708 - train - 170: - iter: 2875, lr: 1.000000e-06, loss: 38460.182111, time using: 67.897423(13.579485s/iter)
+2022-09-23 01:27:58 - 23708 - train - 170: - iter: 2880, lr: 1.000000e-06, loss: 38171.470936, time using: 67.913390(13.582678s/iter)
+2022-09-23 01:29:06 - 23708 - train - 170: - iter: 2885, lr: 1.000000e-06, loss: 38730.401918, time using: 68.136383(13.627277s/iter)
+2022-09-23 01:30:14 - 23708 - train - 170: - iter: 2890, lr: 1.000000e-06, loss: 38566.066377, time using: 67.893442(13.578688s/iter)
+2022-09-23 01:31:22 - 23708 - train - 170: - iter: 2895, lr: 1.000000e-06, loss: 38584.266501, time using: 68.050022(13.610004s/iter)
+2022-09-23 01:32:30 - 23708 - train - 170: - iter: 2900, lr: 1.000000e-06, loss: 38499.435736, time using: 68.103881(13.620776s/iter)
+2022-09-23 01:33:38 - 23708 - train - 170: - iter: 2905, lr: 1.000000e-06, loss: 39512.303663, time using: 68.065981(13.613196s/iter)
+2022-09-23 01:34:59 - 23708 - train - 170: - iter: 2910, lr: 1.000000e-06, loss: 39108.043026, time using: 81.371647(16.274329s/iter)
+2022-09-23 01:36:07 - 23708 - train - 170: - iter: 2915, lr: 1.000000e-06, loss: 39379.530969, time using: 68.172696(13.634539s/iter)
+2022-09-23 01:37:16 - 23708 - train - 170: - iter: 2920, lr: 1.000000e-06, loss: 38956.359267, time using: 68.061990(13.612398s/iter)
+2022-09-23 01:38:24 - 23708 - train - 170: - iter: 2925, lr: 1.000000e-06, loss: 39324.922169, time using: 68.243508(13.648702s/iter)
+2022-09-23 01:39:32 - 23708 - train - 170: - iter: 2930, lr: 1.000000e-06, loss: 39367.016295, time using: 68.114851(13.622970s/iter)
+2022-09-23 01:40:40 - 23708 - train - 170: - iter: 2935, lr: 1.000000e-06, loss: 39557.293842, time using: 68.164714(13.632943s/iter)
+2022-09-23 01:41:48 - 23708 - train - 170: - iter: 2940, lr: 1.000000e-06, loss: 39284.028188, time using: 68.136796(13.627359s/iter)
+2022-09-23 01:42:56 - 23708 - train - 170: - iter: 2945, lr: 1.000000e-06, loss: 39075.413352, time using: 67.998163(13.599633s/iter)
+2022-09-23 01:44:04 - 23708 - train - 170: - iter: 2950, lr: 1.000000e-06, loss: 39160.039556, time using: 68.076465(13.615293s/iter)
+2022-09-23 01:45:12 - 23708 - train - 170: - iter: 2955, lr: 1.000000e-06, loss: 38873.425258, time using: 67.998164(13.599633s/iter)
+2022-09-23 01:46:20 - 23708 - train - 170: - iter: 2960, lr: 1.000000e-06, loss: 39573.311506, time using: 67.993176(13.598635s/iter)
+2022-09-23 01:47:28 - 23708 - train - 170: - iter: 2965, lr: 1.000000e-06, loss: 38948.987601, time using: 67.981540(13.596308s/iter)
+2022-09-23 01:48:36 - 23708 - train - 170: - iter: 2970, lr: 1.000000e-06, loss: 39031.831446, time using: 68.216620(13.643324s/iter)
+2022-09-23 01:49:58 - 23708 - train - 170: - iter: 2975, lr: 1.000000e-06, loss: 38891.944517, time using: 81.199226(16.239845s/iter)
+2022-09-23 01:51:06 - 23708 - train - 170: - iter: 2980, lr: 1.000000e-06, loss: 38395.860603, time using: 67.985199(13.597040s/iter)
+2022-09-23 01:52:14 - 23708 - train - 170: - iter: 2985, lr: 1.000000e-06, loss: 37601.814600, time using: 68.101882(13.620376s/iter)
+2022-09-23 01:53:22 - 23708 - train - 170: - iter: 2990, lr: 1.000000e-06, loss: 38083.198176, time using: 68.239111(13.647822s/iter)
+2022-09-23 01:54:30 - 23708 - train - 170: - iter: 2995, lr: 1.000000e-06, loss: 37662.882184, time using: 68.038074(13.607615s/iter)
+2022-09-23 01:55:38 - 23708 - train - 170: - iter: 3000, lr: 1.000000e-06, loss: 37924.237083, time using: 68.441959(13.688392s/iter)
+2022-09-23 01:56:47 - 23708 - train - 170: - iter: 3005, lr: 1.000000e-06, loss: 38025.720999, time using: 68.129812(13.625962s/iter)
+2022-09-23 01:57:55 - 23708 - train - 170: - iter: 3010, lr: 1.000000e-06, loss: 37879.726001, time using: 68.093951(13.618790s/iter)
+2022-09-23 01:59:03 - 23708 - train - 170: - iter: 3015, lr: 1.000000e-06, loss: 37795.049535, time using: 68.058003(13.611601s/iter)
+2022-09-23 02:00:11 - 23708 - train - 170: - iter: 3020, lr: 1.000000e-06, loss: 37865.585807, time using: 67.998161(13.599632s/iter)
+2022-09-23 02:01:19 - 23708 - train - 170: - iter: 3025, lr: 1.000000e-06, loss: 37939.606757, time using: 68.078947(13.615789s/iter)
+2022-09-23 02:02:27 - 23708 - train - 170: - iter: 3030, lr: 1.000000e-06, loss: 38040.496791, time using: 68.009134(13.601827s/iter)
+2022-09-23 02:03:35 - 23708 - train - 170: - iter: 3035, lr: 1.000000e-06, loss: 38371.085153, time using: 68.157738(13.631548s/iter)
+2022-09-23 02:04:43 - 23708 - train - 170: - iter: 3040, lr: 1.000000e-06, loss: 38104.134679, time using: 67.977217(13.595443s/iter)
+2022-09-23 02:06:04 - 23708 - train - 170: - iter: 3045, lr: 1.000000e-06, loss: 38854.259269, time using: 81.249218(16.249844s/iter)
+2022-09-23 02:07:12 - 23708 - train - 170: - iter: 3050, lr: 1.000000e-06, loss: 38503.764812, time using: 68.095903(13.619181s/iter)
+2022-09-23 02:08:21 - 23708 - train - 170: - iter: 3055, lr: 1.000000e-06, loss: 38390.743937, time using: 68.183640(13.636728s/iter)
+2022-09-23 02:09:29 - 23708 - train - 170: - iter: 3060, lr: 1.000000e-06, loss: 38207.544592, time using: 68.296547(13.659309s/iter)
+2022-09-23 02:10:37 - 23708 - train - 170: - iter: 3065, lr: 1.000000e-06, loss: 38050.291372, time using: 67.991179(13.598236s/iter)
+2022-09-23 02:11:45 - 23708 - train - 170: - iter: 3070, lr: 1.000000e-06, loss: 37744.189406, time using: 68.171700(13.634340s/iter)
+2022-09-23 02:12:53 - 23708 - train - 170: - iter: 3075, lr: 1.000000e-06, loss: 38025.443182, time using: 68.024076(13.604815s/iter)
+2022-09-23 02:14:01 - 23708 - train - 170: - iter: 3080, lr: 1.000000e-06, loss: 37928.965116, time using: 68.085974(13.617195s/iter)
+2022-09-23 02:15:09 - 23708 - train - 170: - iter: 3085, lr: 1.000000e-06, loss: 38078.658495, time using: 68.207603(13.641521s/iter)
+2022-09-23 02:16:18 - 23708 - train - 170: - iter: 3090, lr: 1.000000e-06, loss: 38129.321652, time using: 68.389113(13.677823s/iter)
+2022-09-23 02:17:26 - 23708 - train - 170: - iter: 3095, lr: 1.000000e-06, loss: 37575.362744, time using: 68.130810(13.626162s/iter)
+2022-09-23 02:18:34 - 23708 - train - 170: - iter: 3100, lr: 1.000000e-06, loss: 38944.501133, time using: 68.117842(13.623568s/iter)
+2022-09-23 02:19:42 - 23708 - train - 170: - iter: 3105, lr: 1.000000e-06, loss: 39042.202239, time using: 68.086926(13.617385s/iter)
+2022-09-23 02:21:03 - 23708 - train - 170: - iter: 3110, lr: 1.000000e-06, loss: 39028.664338, time using: 81.291453(16.258291s/iter)
+2022-09-23 02:22:11 - 23708 - train - 170: - iter: 3115, lr: 1.000000e-06, loss: 39466.177642, time using: 68.175690(13.635138s/iter)
+2022-09-23 02:23:19 - 23708 - train - 170: - iter: 3120, lr: 1.000000e-06, loss: 39512.418237, time using: 67.992179(13.598436s/iter)
+2022-09-23 02:24:28 - 23708 - train - 170: - iter: 3125, lr: 1.000000e-06, loss: 39718.409481, time using: 68.134180(13.626836s/iter)
+2022-09-23 02:25:36 - 23708 - train - 170: - iter: 3130, lr: 1.000000e-06, loss: 39965.692693, time using: 68.078948(13.615790s/iter)
+2022-09-23 02:26:44 - 23708 - train - 170: - iter: 3135, lr: 1.000000e-06, loss: 39911.901702, time using: 68.008139(13.601628s/iter)
+2022-09-23 02:27:52 - 23708 - train - 170: - iter: 3140, lr: 1.000000e-06, loss: 39477.208742, time using: 68.118839(13.623768s/iter)
+2022-09-23 02:29:00 - 23708 - train - 170: - iter: 3145, lr: 1.000000e-06, loss: 39571.283581, time using: 68.050025(13.610005s/iter)
+2022-09-23 02:30:08 - 23708 - train - 170: - iter: 3150, lr: 1.000000e-06, loss: 38285.092443, time using: 67.914432(13.582886s/iter)
+2022-09-23 02:31:16 - 23708 - train - 170: - iter: 3155, lr: 1.000000e-06, loss: 38008.352371, time using: 68.072003(13.614401s/iter)
+2022-09-23 02:32:24 - 23708 - train - 170: - iter: 3160, lr: 1.000000e-06, loss: 37720.144572, time using: 68.016120(13.603224s/iter)
+2022-09-23 02:33:32 - 23708 - train - 170: - iter: 3165, lr: 1.000000e-06, loss: 38035.144013, time using: 68.042042(13.608408s/iter)
+2022-09-23 02:34:40 - 23708 - train - 170: - iter: 3170, lr: 1.000000e-06, loss: 38233.363835, time using: 68.077950(13.615590s/iter)
+2022-09-23 02:35:48 - 23708 - train - 170: - iter: 3175, lr: 1.000000e-06, loss: 37749.596383, time using: 68.024093(13.604819s/iter)
+2022-09-23 02:37:09 - 23708 - train - 170: - iter: 3180, lr: 1.000000e-06, loss: 37759.126287, time using: 81.059105(16.211821s/iter)
+2022-09-23 02:38:17 - 23708 - train - 170: - iter: 3185, lr: 1.000000e-06, loss: 37233.086912, time using: 67.875489(13.575098s/iter)
+2022-09-23 02:39:25 - 23708 - train - 170: - iter: 3190, lr: 1.000000e-06, loss: 37983.880173, time using: 68.158733(13.631747s/iter)
+2022-09-23 02:40:33 - 23708 - train - 170: - iter: 3195, lr: 1.000000e-06, loss: 37987.364416, time using: 68.158986(13.631797s/iter)
+2022-09-23 02:41:42 - 23708 - train - 170: - iter: 3200, lr: 1.000000e-06, loss: 37982.581005, time using: 68.222563(13.644513s/iter)
+2022-09-23 02:42:50 - 23708 - train - 170: - iter: 3205, lr: 1.000000e-06, loss: 38064.236662, time using: 68.116845(13.623369s/iter)
+2022-09-23 02:43:58 - 23708 - train - 170: - iter: 3210, lr: 1.000000e-06, loss: 38221.059160, time using: 68.102884(13.620577s/iter)
+2022-09-23 02:45:06 - 23708 - train - 170: - iter: 3215, lr: 1.000000e-06, loss: 37777.590724, time using: 68.197628(13.639526s/iter)
+2022-09-23 02:46:14 - 23708 - train - 170: - iter: 3220, lr: 1.000000e-06, loss: 37698.659702, time using: 68.009134(13.601827s/iter)
+2022-09-23 02:47:22 - 23708 - train - 170: - iter: 3225, lr: 1.000000e-06, loss: 37910.309397, time using: 68.113853(13.622771s/iter)
+2022-09-23 02:48:30 - 23708 - train - 170: - iter: 3230, lr: 1.000000e-06, loss: 37892.259067, time using: 68.212590(13.642518s/iter)
+2022-09-23 02:49:38 - 23708 - train - 170: - iter: 3235, lr: 1.000000e-06, loss: 38334.579065, time using: 68.127816(13.625563s/iter)
+2022-09-23 02:50:47 - 23708 - train - 170: - iter: 3240, lr: 1.000000e-06, loss: 37864.989087, time using: 68.195624(13.639125s/iter)
+2022-09-23 02:52:07 - 23708 - train - 170: - iter: 3245, lr: 1.000000e-06, loss: 37457.323180, time using: 80.875600(16.175120s/iter)
+2022-09-23 02:53:16 - 23708 - train - 170: - iter: 3250, lr: 1.000000e-06, loss: 37373.730717, time using: 68.497869(13.699574s/iter)
+2022-09-23 02:54:24 - 23708 - train - 170: - iter: 3255, lr: 1.000000e-06, loss: 38043.580350, time using: 68.308335(13.661667s/iter)
+2022-09-23 02:55:33 - 23708 - train - 170: - iter: 3260, lr: 1.000000e-06, loss: 38172.511583, time using: 68.225555(13.645111s/iter)
+2022-09-23 02:56:41 - 23708 - train - 170: - iter: 3265, lr: 1.000000e-06, loss: 38284.794002, time using: 68.018110(13.603622s/iter)
+2022-09-23 02:57:49 - 23708 - train - 170: - iter: 3270, lr: 1.000000e-06, loss: 38060.059117, time using: 68.131807(13.626361s/iter)
+2022-09-23 02:58:57 - 23708 - train - 170: - iter: 3275, lr: 1.000000e-06, loss: 38098.884673, time using: 68.148760(13.629752s/iter)
+2022-09-23 03:00:05 - 23708 - train - 170: - iter: 3280, lr: 1.000000e-06, loss: 38043.512938, time using: 68.167710(13.633542s/iter)
+2022-09-23 03:01:13 - 23708 - train - 170: - iter: 3285, lr: 1.000000e-06, loss: 37554.697391, time using: 68.217574(13.643515s/iter)
+2022-09-23 03:02:21 - 23708 - train - 170: - iter: 3290, lr: 1.000000e-06, loss: 37493.809380, time using: 68.136791(13.627358s/iter)
+2022-09-23 03:03:30 - 23708 - train - 170: - iter: 3295, lr: 1.000000e-06, loss: 38087.066419, time using: 68.171700(13.634340s/iter)
+2022-09-23 03:04:38 - 23708 - train - 170: - iter: 3300, lr: 1.000000e-06, loss: 38643.329207, time using: 68.230542(13.646108s/iter)
+2022-09-23 03:05:46 - 23708 - train - 170: - iter: 3305, lr: 1.000000e-06, loss: 38138.146060, time using: 68.097894(13.619579s/iter)
+2022-09-23 03:06:54 - 23708 - train - 170: - iter: 3310, lr: 1.000000e-06, loss: 37703.228088, time using: 68.276420(13.655284s/iter)
+2022-09-23 03:08:15 - 23708 - train - 170: - iter: 3315, lr: 1.000000e-06, loss: 37740.839507, time using: 81.253937(16.250787s/iter)
+2022-09-23 03:09:24 - 23708 - train - 170: - iter: 3320, lr: 1.000000e-06, loss: 38137.394333, time using: 68.169705(13.633941s/iter)
+2022-09-23 03:10:32 - 23708 - train - 170: - iter: 3325, lr: 1.000000e-06, loss: 37939.537808, time using: 68.109865(13.621973s/iter)
+2022-09-23 03:11:40 - 23708 - train - 170: - iter: 3330, lr: 1.000000e-06, loss: 38185.143885, time using: 67.899428(13.579886s/iter)
+2022-09-23 03:12:48 - 23708 - train - 170: - iter: 3335, lr: 1.000000e-06, loss: 38067.642880, time using: 68.055008(13.611002s/iter)
+2022-09-23 03:13:56 - 23708 - train - 170: - iter: 3340, lr: 1.000000e-06, loss: 38258.766594, time using: 68.074009(13.614802s/iter)
+2022-09-23 03:15:04 - 23708 - train - 170: - iter: 3345, lr: 1.000000e-06, loss: 37760.966018, time using: 68.070965(13.614193s/iter)
+2022-09-23 03:16:12 - 23708 - train - 170: - iter: 3350, lr: 1.000000e-06, loss: 37806.173123, time using: 68.138922(13.627784s/iter)
+2022-09-23 03:17:20 - 23708 - train - 170: - iter: 3355, lr: 1.000000e-06, loss: 37782.402716, time using: 68.036062(13.607212s/iter)
+2022-09-23 03:18:28 - 23708 - train - 170: - iter: 3360, lr: 1.000000e-06, loss: 38388.902047, time using: 68.040040(13.608008s/iter)
+2022-09-23 03:19:36 - 23708 - train - 170: - iter: 3365, lr: 1.000000e-06, loss: 38234.287072, time using: 67.984200(13.596840s/iter)
+2022-09-23 03:20:44 - 23708 - train - 170: - iter: 3370, lr: 1.000000e-06, loss: 37929.661104, time using: 68.111860(13.622372s/iter)
+2022-09-23 03:21:52 - 23708 - train - 170: - iter: 3375, lr: 1.000000e-06, loss: 37831.857435, time using: 68.004145(13.600829s/iter)
+2022-09-23 03:22:59 - 23708 - train - 170: - iter: 3380, lr: 1.000000e-06, loss: 37208.843569, time using: 67.331938(13.466388s/iter)
+2022-09-23 03:24:21 - 23708 - train - 170: - iter: 3385, lr: 1.000000e-06, loss: 37855.458193, time using: 81.700718(16.340144s/iter)
+2022-09-23 03:25:29 - 23708 - train - 170: - iter: 3390, lr: 1.000000e-06, loss: 37838.344477, time using: 67.848568(13.569714s/iter)
+2022-09-23 03:26:37 - 23708 - train - 170: - iter: 3395, lr: 1.000000e-06, loss: 38128.183696, time using: 67.862524(13.572505s/iter)
+2022-09-23 03:27:45 - 23708 - train - 170: - iter: 3400, lr: 1.000000e-06, loss: 38062.070590, time using: 67.895436(13.579087s/iter)
+2022-09-23 03:28:53 - 23708 - train - 170: - iter: 3405, lr: 1.000000e-06, loss: 37779.377682, time using: 67.848154(13.569631s/iter)
+2022-09-23 03:30:00 - 23708 - train - 170: - iter: 3410, lr: 1.000000e-06, loss: 37797.647726, time using: 67.865520(13.573104s/iter)
+2022-09-23 03:31:08 - 23708 - train - 170: - iter: 3415, lr: 1.000000e-06, loss: 38258.290578, time using: 67.696968(13.539394s/iter)
+2022-09-23 03:32:16 - 23708 - train - 170: - iter: 3420, lr: 1.000000e-06, loss: 38104.396642, time using: 67.698964(13.539793s/iter)
+2022-09-23 03:33:24 - 23708 - train - 170: - iter: 3425, lr: 1.000000e-06, loss: 38220.481126, time using: 67.719905(13.543981s/iter)
+2022-09-23 03:34:31 - 23708 - train - 170: - iter: 3430, lr: 1.000000e-06, loss: 38045.563657, time using: 67.834602(13.566920s/iter)
+2022-09-23 03:35:39 - 23708 - train - 170: - iter: 3435, lr: 1.000000e-06, loss: 38303.963733, time using: 67.984201(13.596840s/iter)
+2022-09-23 03:36:47 - 23708 - train - 170: - iter: 3440, lr: 1.000000e-06, loss: 38453.075580, time using: 67.919374(13.583875s/iter)
+2022-09-23 03:37:55 - 23708 - train - 170: - iter: 3445, lr: 1.000000e-06, loss: 38512.953290, time using: 67.791279(13.558256s/iter)
+2022-09-23 03:39:16 - 23708 - train - 170: - iter: 3450, lr: 1.000000e-06, loss: 37709.754078, time using: 80.946236(16.189247s/iter)
+2022-09-23 03:40:24 - 23708 - train - 170: - iter: 3455, lr: 1.000000e-06, loss: 37739.373923, time using: 68.183752(13.636750s/iter)
+2022-09-23 03:41:32 - 23708 - train - 170: - iter: 3460, lr: 1.000000e-06, loss: 37834.298160, time using: 68.111859(13.622372s/iter)
+2022-09-23 03:42:40 - 23708 - train - 170: - iter: 3465, lr: 1.000000e-06, loss: 37146.007635, time using: 68.097897(13.619579s/iter)
+2022-09-23 03:43:49 - 23708 - train - 170: - iter: 3470, lr: 1.000000e-06, loss: 37888.505182, time using: 68.119839(13.623968s/iter)
+2022-09-23 03:44:57 - 23708 - train - 170: - iter: 3475, lr: 1.000000e-06, loss: 38127.735676, time using: 68.047033(13.609407s/iter)
+2022-09-23 03:46:05 - 23708 - train - 170: - iter: 3480, lr: 1.000000e-06, loss: 38776.545548, time using: 68.141780(13.628356s/iter)
+2022-09-23 03:47:13 - 23708 - train - 170: - iter: 3485, lr: 1.000000e-06, loss: 38292.499965, time using: 68.077950(13.615590s/iter)
+2022-09-23 03:48:21 - 23708 - train - 170: - iter: 3490, lr: 1.000000e-06, loss: 37859.935190, time using: 68.131807(13.626361s/iter)
+2022-09-23 03:49:29 - 23708 - train - 170: - iter: 3495, lr: 1.000000e-06, loss: 37655.114192, time using: 68.099869(13.619974s/iter)
+2022-09-23 03:50:38 - 23708 - train - 170: - iter: 3500, lr: 1.000000e-06, loss: 37992.006334, time using: 68.481870(13.696374s/iter)
+2022-09-23 03:51:45 - 23708 - train - 170: - iter: 3505, lr: 1.000000e-06, loss: 39269.241334, time using: 67.944308(13.588862s/iter)
+2022-09-23 03:52:53 - 23708 - train - 170: - iter: 3510, lr: 1.000000e-06, loss: 39191.655133, time using: 67.993174(13.598635s/iter)
+2022-09-23 03:54:01 - 23708 - train - 170: - iter: 3515, lr: 1.000000e-06, loss: 39279.612389, time using: 67.784841(13.556968s/iter)
+2022-09-23 03:55:22 - 23708 - train - 170: - iter: 3520, lr: 1.000000e-06, loss: 38749.798210, time using: 81.135485(16.227097s/iter)
+2022-09-23 03:56:30 - 23708 - train - 170: - iter: 3525, lr: 1.000000e-06, loss: 39346.101304, time using: 67.855544(13.571109s/iter)
+2022-09-23 03:57:38 - 23708 - train - 170: - iter: 3530, lr: 1.000000e-06, loss: 39721.354697, time using: 67.723392(13.544678s/iter)
+2022-09-23 03:58:46 - 23708 - train - 170: - iter: 3535, lr: 1.000000e-06, loss: 39451.400585, time using: 67.845570(13.569114s/iter)
+2022-09-23 03:59:54 - 23708 - train - 170: - iter: 3540, lr: 1.000000e-06, loss: 39691.160309, time using: 67.899941(13.579988s/iter)
+2022-09-23 04:01:02 - 23708 - train - 170: - iter: 3545, lr: 1.000000e-06, loss: 39805.431177, time using: 67.823629(13.564726s/iter)
+2022-09-23 04:02:09 - 23708 - train - 170: - iter: 3550, lr: 1.000000e-06, loss: 40397.467463, time using: 67.708929(13.541786s/iter)
+2022-09-23 04:03:17 - 23708 - train - 170: - iter: 3555, lr: 1.000000e-06, loss: 39413.892122, time using: 67.928351(13.585670s/iter)
+2022-09-23 04:04:25 - 23708 - train - 170: - iter: 3560, lr: 1.000000e-06, loss: 39595.051440, time using: 67.873496(13.574699s/iter)
+2022-09-23 04:05:33 - 23708 - train - 170: - iter: 3565, lr: 1.000000e-06, loss: 39608.678723, time using: 67.730876(13.546175s/iter)
+2022-09-23 04:06:41 - 23708 - train - 170: - iter: 3570, lr: 1.000000e-06, loss: 39303.585717, time using: 67.830122(13.566024s/iter)
+2022-09-23 04:07:48 - 23708 - train - 170: - iter: 3575, lr: 1.000000e-06, loss: 38550.599873, time using: 67.875492(13.575098s/iter)
+2022-09-23 04:08:56 - 23708 - train - 170: - iter: 3580, lr: 1.000000e-06, loss: 38041.639397, time using: 67.864521(13.572904s/iter)
+2022-09-23 04:10:17 - 23708 - train - 170: - iter: 3585, lr: 1.000000e-06, loss: 38549.940355, time using: 80.666159(16.133232s/iter)
+2022-09-23 04:11:25 - 23708 - train - 170: - iter: 3590, lr: 1.000000e-06, loss: 38117.833562, time using: 67.783737(13.556747s/iter)
+2022-09-23 04:12:33 - 23708 - train - 170: - iter: 3595, lr: 1.000000e-06, loss: 38149.863599, time using: 67.778733(13.555747s/iter)
+2022-09-23 04:13:40 - 23708 - train - 170: - iter: 3600, lr: 1.000000e-06, loss: 37614.470489, time using: 67.842580(13.568516s/iter)
+2022-09-23 04:14:48 - 23708 - train - 170: - iter: 3605, lr: 1.000000e-06, loss: 37361.969397, time using: 67.586265(13.517253s/iter)
+2022-09-23 04:15:56 - 23708 - train - 170: - iter: 3610, lr: 1.000000e-06, loss: 37096.024258, time using: 67.671620(13.534324s/iter)
+2022-09-23 04:17:04 - 23708 - train - 170: - iter: 3615, lr: 1.000000e-06, loss: 37452.151999, time using: 67.891449(13.578290s/iter)
+2022-09-23 04:18:12 - 23708 - train - 170: - iter: 3620, lr: 1.000000e-06, loss: 37958.771624, time using: 68.902734(13.780547s/iter)
+2022-09-23 04:19:24 - 23708 - train - 170: - iter: 3625, lr: 1.000000e-06, loss: 38267.206783, time using: 71.347209(14.269442s/iter)
+2022-09-23 04:20:32 - 23708 - train - 170: - iter: 3630, lr: 1.000000e-06, loss: 38282.906342, time using: 67.859533(13.571907s/iter)
+2022-09-23 04:21:39 - 23708 - train - 170: - iter: 3635, lr: 1.000000e-06, loss: 38415.167816, time using: 67.747832(13.549566s/iter)
+2022-09-23 04:22:47 - 23708 - train - 170: - iter: 3640, lr: 1.000000e-06, loss: 38967.610948, time using: 67.696969(13.539394s/iter)
+2022-09-23 04:23:55 - 23708 - train - 170: - iter: 3645, lr: 1.000000e-06, loss: 38886.046196, time using: 67.807672(13.561534s/iter)
+2022-09-23 04:25:02 - 23708 - train - 170: - iter: 3650, lr: 1.000000e-06, loss: 38820.742390, time using: 67.528469(13.505694s/iter)
+2022-09-23 04:26:24 - 23708 - train - 170: - iter: 3655, lr: 1.000000e-06, loss: 39514.598667, time using: 81.020262(16.204052s/iter)
+2022-09-23 04:27:31 - 23708 - train - 170: - iter: 3660, lr: 1.000000e-06, loss: 39394.293013, time using: 67.696969(13.539394s/iter)
+2022-09-23 04:28:39 - 23708 - train - 170: - iter: 3665, lr: 1.000000e-06, loss: 39307.982604, time using: 67.771768(13.554354s/iter)
+2022-09-23 04:29:47 - 23708 - train - 170: - iter: 3670, lr: 1.000000e-06, loss: 39365.045159, time using: 67.539388(13.507878s/iter)
+2022-09-23 04:30:54 - 23708 - train - 170: - iter: 3675, lr: 1.000000e-06, loss: 38930.224272, time using: 67.699961(13.539992s/iter)
+2022-09-23 04:32:02 - 23708 - train - 170: - iter: 3680, lr: 1.000000e-06, loss: 39199.693416, time using: 67.642105(13.528421s/iter)
+2022-09-23 04:33:09 - 23708 - train - 170: - iter: 3685, lr: 1.000000e-06, loss: 38749.100022, time using: 67.568313(13.513663s/iter)
+2022-09-23 04:34:17 - 23708 - train - 170: - iter: 3690, lr: 1.000000e-06, loss: 38410.502072, time using: 67.765827(13.553165s/iter)
+2022-09-23 04:35:25 - 23708 - train - 170: - iter: 3695, lr: 1.000000e-06, loss: 38219.488022, time using: 67.769775(13.553955s/iter)
+2022-09-23 04:36:33 - 23708 - train - 170: - iter: 3700, lr: 1.000000e-06, loss: 38517.310031, time using: 67.574461(13.514892s/iter)
+2022-09-23 04:37:40 - 23708 - train - 170: - iter: 3705, lr: 1.000000e-06, loss: 38321.440928, time using: 67.729710(13.545942s/iter)
+2022-09-23 04:38:48 - 23708 - train - 170: - iter: 3710, lr: 1.000000e-06, loss: 38131.233752, time using: 67.730878(13.546176s/iter)
+2022-09-23 04:39:56 - 23708 - train - 170: - iter: 3715, lr: 1.000000e-06, loss: 37746.696551, time using: 67.787726(13.557545s/iter)
+2022-09-23 04:41:17 - 23708 - train - 170: - iter: 3720, lr: 1.000000e-06, loss: 37810.099220, time using: 80.818695(16.163739s/iter)
+2022-09-23 04:42:25 - 23708 - train - 170: - iter: 3725, lr: 1.000000e-06, loss: 38028.231385, time using: 68.212630(13.642526s/iter)
+2022-09-23 04:43:33 - 23708 - train - 170: - iter: 3730, lr: 1.000000e-06, loss: 37262.897604, time using: 68.195640(13.639128s/iter)
+2022-09-23 04:44:41 - 23708 - train - 170: - iter: 3735, lr: 1.000000e-06, loss: 37303.156367, time using: 68.192642(13.638528s/iter)
+2022-09-23 04:45:49 - 23708 - train - 170: - iter: 3740, lr: 1.000000e-06, loss: 37495.469174, time using: 68.152778(13.630556s/iter)
+2022-09-23 04:46:57 - 23708 - train - 170: - iter: 3745, lr: 1.000000e-06, loss: 37606.700327, time using: 68.117847(13.623569s/iter)
+2022-09-23 04:48:06 - 23708 - train - 170: - iter: 3750, lr: 1.000000e-06, loss: 37360.560556, time using: 68.169718(13.633944s/iter)
+2022-09-23 04:49:14 - 23708 - train - 170: - iter: 3755, lr: 1.000000e-06, loss: 36450.979285, time using: 68.057003(13.611401s/iter)
+2022-09-23 04:50:22 - 23708 - train - 170: - iter: 3760, lr: 1.000000e-06, loss: 37191.516789, time using: 68.115849(13.623170s/iter)
+2022-09-23 04:51:30 - 23708 - train - 170: - iter: 3765, lr: 1.000000e-06, loss: 37738.560995, time using: 68.121861(13.624372s/iter)
+2022-09-23 04:52:38 - 23708 - train - 170: - iter: 3770, lr: 1.000000e-06, loss: 37592.155560, time using: 68.046034(13.609207s/iter)
+2022-09-23 04:53:46 - 23708 - train - 170: - iter: 3775, lr: 1.000000e-06, loss: 37263.839609, time using: 68.104919(13.620984s/iter)
+2022-09-23 04:54:54 - 23708 - train - 170: - iter: 3780, lr: 1.000000e-06, loss: 37811.359883, time using: 68.052047(13.610409s/iter)
+2022-09-23 04:56:02 - 23708 - train - 170: - iter: 3785, lr: 1.000000e-06, loss: 37996.341350, time using: 68.028093(13.605619s/iter)
+2022-09-23 04:57:23 - 23708 - train - 170: - iter: 3790, lr: 1.000000e-06, loss: 38237.257248, time using: 81.231369(16.246274s/iter)
+2022-09-23 04:58:32 - 23708 - train - 170: - iter: 3795, lr: 1.000000e-06, loss: 38465.166927, time using: 68.164745(13.632949s/iter)
+2022-09-23 04:59:40 - 23708 - train - 170: - iter: 3800, lr: 1.000000e-06, loss: 38539.403176, time using: 68.190621(13.638124s/iter)
+2022-09-23 05:00:48 - 23708 - train - 170: - iter: 3805, lr: 1.000000e-06, loss: 39213.737216, time using: 68.290417(13.658083s/iter)
+2022-09-23 05:01:56 - 23708 - train - 170: - iter: 3810, lr: 1.000000e-06, loss: 38795.340074, time using: 68.175717(13.635143s/iter)
+2022-09-23 05:03:04 - 23708 - train - 170: - iter: 3815, lr: 1.000000e-06, loss: 38608.971776, time using: 68.135744(13.627149s/iter)
+2022-09-23 05:04:13 - 23708 - train - 170: - iter: 3820, lr: 1.000000e-06, loss: 38728.134825, time using: 68.209725(13.641945s/iter)
+2022-09-23 05:05:21 - 23708 - train - 170: - iter: 3825, lr: 1.000000e-06, loss: 38753.550179, time using: 68.304416(13.660883s/iter)
+2022-09-23 05:06:29 - 23708 - train - 170: - iter: 3830, lr: 1.000000e-06, loss: 38900.246776, time using: 68.280429(13.656086s/iter)
+2022-09-23 05:07:37 - 23708 - train - 170: - iter: 3835, lr: 1.000000e-06, loss: 38819.346011, time using: 68.297363(13.659473s/iter)
+2022-09-23 05:08:46 - 23708 - train - 170: - iter: 3840, lr: 1.000000e-06, loss: 38259.489590, time using: 68.077977(13.615595s/iter)
+2022-09-23 05:09:54 - 23708 - train - 170: - iter: 3845, lr: 1.000000e-06, loss: 37928.351534, time using: 68.215555(13.643111s/iter)
+2022-09-23 05:11:02 - 23708 - train - 170: - iter: 3850, lr: 1.000000e-06, loss: 38353.779879, time using: 68.285427(13.657085s/iter)
+2022-09-23 05:12:23 - 23708 - train - 170: - iter: 3855, lr: 1.000000e-06, loss: 38216.906569, time using: 80.983627(16.196725s/iter)
+2022-09-23 05:13:31 - 23708 - train - 170: - iter: 3860, lr: 1.000000e-06, loss: 37967.526446, time using: 67.707939(13.541588s/iter)
+2022-09-23 05:14:38 - 23708 - train - 170: - iter: 3865, lr: 1.000000e-06, loss: 37514.576409, time using: 67.681263(13.536253s/iter)
+2022-09-23 05:15:46 - 23708 - train - 170: - iter: 3870, lr: 1.000000e-06, loss: 37154.056160, time using: 67.676023(13.535205s/iter)
+2022-09-23 05:16:54 - 23708 - train - 170: - iter: 3875, lr: 1.000000e-06, loss: 37239.689193, time using: 67.861527(13.572305s/iter)
+2022-09-23 05:18:02 - 23708 - train - 170: - iter: 3880, lr: 1.000000e-06, loss: 37632.774030, time using: 67.809667(13.561933s/iter)
+2022-09-23 05:19:10 - 23708 - train - 170: - iter: 3885, lr: 1.000000e-06, loss: 37715.917258, time using: 67.756066(13.551213s/iter)
+2022-09-23 05:20:17 - 23708 - train - 170: - iter: 3890, lr: 1.000000e-06, loss: 38180.589909, time using: 67.784735(13.556947s/iter)
+2022-09-23 05:21:25 - 23708 - train - 170: - iter: 3895, lr: 1.000000e-06, loss: 37898.889675, time using: 67.540388(13.508078s/iter)
+2022-09-23 05:22:33 - 23708 - train - 170: - iter: 3900, lr: 1.000000e-06, loss: 37723.203698, time using: 67.685999(13.537200s/iter)
+2022-09-23 05:23:40 - 23708 - train - 170: - iter: 3905, lr: 1.000000e-06, loss: 37319.884805, time using: 67.735862(13.547172s/iter)
+2022-09-23 05:24:48 - 23708 - train - 170: - iter: 3910, lr: 1.000000e-06, loss: 37176.968092, time using: 67.690032(13.538006s/iter)
+2022-09-23 05:25:56 - 23708 - train - 170: - iter: 3915, lr: 1.000000e-06, loss: 37457.945380, time using: 67.729880(13.545976s/iter)
+2022-09-23 05:27:03 - 23708 - train - 170: - iter: 3920, lr: 1.000000e-06, loss: 38103.433630, time using: 67.673030(13.534606s/iter)
+2022-09-23 05:28:24 - 23708 - train - 170: - iter: 3925, lr: 1.000000e-06, loss: 38028.800629, time using: 80.904964(16.180993s/iter)
+2022-09-23 05:29:32 - 23708 - train - 170: - iter: 3930, lr: 1.000000e-06, loss: 36999.167505, time using: 67.720904(13.544181s/iter)
+2022-09-23 05:30:40 - 23708 - train - 170: - iter: 3935, lr: 1.000000e-06, loss: 36703.317581, time using: 67.605214(13.521043s/iter)
+2022-09-23 05:31:47 - 23708 - train - 170: - iter: 3940, lr: 1.000000e-06, loss: 36634.241755, time using: 67.622171(13.524434s/iter)
+2022-09-23 05:32:55 - 23708 - train - 170: - iter: 3945, lr: 1.000000e-06, loss: 37276.419638, time using: 67.691982(13.538396s/iter)
+2022-09-23 05:34:03 - 23708 - train - 170: - iter: 3950, lr: 1.000000e-06, loss: 37782.051450, time using: 67.748859(13.549772s/iter)
+2022-09-23 05:35:10 - 23708 - train - 170: - iter: 3955, lr: 1.000000e-06, loss: 38297.237116, time using: 67.748831(13.549766s/iter)
+2022-09-23 05:36:18 - 23708 - train - 170: - iter: 3960, lr: 1.000000e-06, loss: 38375.161307, time using: 67.713923(13.542785s/iter)
+2022-09-23 05:37:26 - 23708 - train - 170: - iter: 3965, lr: 1.000000e-06, loss: 38788.257525, time using: 67.595241(13.519048s/iter)
+2022-09-23 05:38:33 - 23708 - train - 170: - iter: 3970, lr: 1.000000e-06, loss: 38142.631219, time using: 67.523434(13.504687s/iter)
+2022-09-23 05:39:41 - 23708 - train - 170: - iter: 3975, lr: 1.000000e-06, loss: 38219.004728, time using: 67.762834(13.552567s/iter)
+2022-09-23 05:40:49 - 23708 - train - 170: - iter: 3980, lr: 1.000000e-06, loss: 38154.337905, time using: 67.778742(13.555748s/iter)
+2022-09-23 05:41:56 - 23708 - train - 170: - iter: 3985, lr: 1.000000e-06, loss: 38463.042816, time using: 67.568583(13.513717s/iter)
+2022-09-23 05:43:17 - 23708 - train - 170: - iter: 3990, lr: 1.000000e-06, loss: 38327.542667, time using: 80.760433(16.152087s/iter)
+2022-09-23 05:44:25 - 23708 - train - 170: - iter: 3995, lr: 1.000000e-06, loss: 38287.675368, time using: 67.596827(13.519365s/iter)
+2022-09-23 05:45:33 - 23708 - train - 170: - iter: 4000, lr: 1.000000e-06, loss: 37986.923239, time using: 67.989187(13.597837s/iter)
+2022-09-23 05:46:40 - 23708 - train - 170: - iter: 4005, lr: 1.000000e-06, loss: 37753.106708, time using: 67.735866(13.547173s/iter)
+2022-09-23 05:47:48 - 23708 - train - 170: - iter: 4010, lr: 1.000000e-06, loss: 37941.083510, time using: 67.701956(13.540391s/iter)
+2022-09-23 05:48:56 - 23708 - train - 170: - iter: 4015, lr: 1.000000e-06, loss: 37308.346174, time using: 67.688990(13.537798s/iter)
+2022-09-23 05:50:03 - 23708 - train - 170: - iter: 4020, lr: 1.000000e-06, loss: 37281.192809, time using: 67.614191(13.522838s/iter)
+2022-09-23 05:51:11 - 23708 - train - 170: - iter: 4025, lr: 1.000000e-06, loss: 37523.491175, time using: 67.617181(13.523436s/iter)
+2022-09-23 05:52:19 - 23708 - train - 170: - iter: 4030, lr: 1.000000e-06, loss: 37463.566094, time using: 67.450629(13.490126s/iter)
+2022-09-23 05:53:26 - 23708 - train - 170: - iter: 4035, lr: 1.000000e-06, loss: 37456.452108, time using: 67.710929(13.542186s/iter)
+2022-09-23 05:54:34 - 23708 - train - 170: - iter: 4040, lr: 1.000000e-06, loss: 37201.093105, time using: 67.565319(13.513064s/iter)
+2022-09-23 05:55:41 - 23708 - train - 170: - iter: 4045, lr: 1.000000e-06, loss: 36953.235597, time using: 67.652681(13.530536s/iter)
+2022-09-23 05:56:49 - 23708 - train - 170: - iter: 4050, lr: 1.000000e-06, loss: 36544.707590, time using: 67.625160(13.525032s/iter)
+2022-09-23 05:57:57 - 23708 - train - 170: - iter: 4055, lr: 1.000000e-06, loss: 36315.579871, time using: 67.698961(13.539792s/iter)
+2022-09-23 05:59:18 - 23708 - train - 170: - iter: 4060, lr: 1.000000e-06, loss: 36713.655776, time using: 80.747557(16.149511s/iter)
+2022-09-23 06:00:25 - 23708 - train - 170: - iter: 4065, lr: 1.000000e-06, loss: 37167.076018, time using: 67.686996(13.537399s/iter)
+2022-09-23 06:01:33 - 23708 - train - 170: - iter: 4070, lr: 1.000000e-06, loss: 36932.122985, time using: 67.746861(13.549372s/iter)
+2022-09-23 06:02:41 - 23708 - train - 170: - iter: 4075, lr: 1.000000e-06, loss: 36575.128796, time using: 67.734836(13.546967s/iter)
+2022-09-23 06:03:48 - 23708 - train - 170: - iter: 4080, lr: 1.000000e-06, loss: 36675.880818, time using: 67.696980(13.539396s/iter)
+2022-09-23 06:04:56 - 23708 - train - 170: - iter: 4085, lr: 1.000000e-06, loss: 36095.373330, time using: 67.660291(13.532058s/iter)
+2022-09-23 06:06:04 - 23708 - train - 170: - iter: 4090, lr: 1.000000e-06, loss: 36594.010305, time using: 67.681000(13.536200s/iter)
+2022-09-23 06:07:11 - 23708 - train - 170: - iter: 4095, lr: 1.000000e-06, loss: 36688.071091, time using: 67.692994(13.538599s/iter)
+2022-09-23 06:08:19 - 23708 - train - 170: - iter: 4100, lr: 1.000000e-06, loss: 36301.598916, time using: 67.615227(13.523045s/iter)
+2022-09-23 06:09:27 - 23708 - train - 170: - iter: 4105, lr: 1.000000e-06, loss: 36570.508084, time using: 67.722902(13.544580s/iter)
+2022-09-23 06:10:35 - 23708 - train - 170: - iter: 4110, lr: 1.000000e-06, loss: 36401.676763, time using: 67.787746(13.557549s/iter)
+2022-09-23 06:11:42 - 23708 - train - 170: - iter: 4115, lr: 1.000000e-06, loss: 35793.249073, time using: 67.689020(13.537804s/iter)
+2022-09-23 06:12:50 - 23708 - train - 170: - iter: 4120, lr: 1.000000e-06, loss: 36326.154011, time using: 67.576293(13.515259s/iter)
+2022-09-23 06:14:11 - 23708 - train - 170: - iter: 4125, lr: 1.000000e-06, loss: 36894.198027, time using: 80.841290(16.168258s/iter)
+2022-09-23 06:15:19 - 23708 - train - 170: - iter: 4130, lr: 1.000000e-06, loss: 37864.452499, time using: 67.917373(13.583475s/iter)
+2022-09-23 06:16:27 - 23708 - train - 170: - iter: 4135, lr: 1.000000e-06, loss: 38119.415671, time using: 67.915385(13.583077s/iter)
+2022-09-23 06:17:34 - 23708 - train - 170: - iter: 4140, lr: 1.000000e-06, loss: 38057.854424, time using: 67.715967(13.543193s/iter)
+2022-09-23 06:18:42 - 23708 - train - 170: - iter: 4145, lr: 1.000000e-06, loss: 37964.115353, time using: 67.845568(13.569114s/iter)
+2022-09-23 06:19:50 - 23708 - train - 170: - iter: 4150, lr: 1.000000e-06, loss: 38144.990634, time using: 67.597237(13.519447s/iter)
+2022-09-23 06:20:57 - 23708 - train - 170: - iter: 4155, lr: 1.000000e-06, loss: 38267.557353, time using: 67.803683(13.560737s/iter)
+2022-09-23 06:22:05 - 23708 - train - 170: - iter: 4160, lr: 1.000000e-06, loss: 38181.179609, time using: 67.873497(13.574699s/iter)
+2022-09-23 06:23:13 - 23708 - train - 170: - iter: 4165, lr: 1.000000e-06, loss: 38898.821220, time using: 67.775756(13.555151s/iter)
+2022-09-23 06:24:21 - 23708 - train - 170: - iter: 4170, lr: 1.000000e-06, loss: 39248.229826, time using: 67.805723(13.561145s/iter)
+2022-09-23 06:25:29 - 23708 - train - 170: - iter: 4175, lr: 1.000000e-06, loss: 38820.116741, time using: 67.742847(13.548569s/iter)
+2022-09-23 06:26:36 - 23708 - train - 170: - iter: 4180, lr: 1.000000e-06, loss: 37452.527095, time using: 67.779264(13.555853s/iter)
+2022-09-23 06:27:44 - 23708 - train - 170: - iter: 4185, lr: 1.000000e-06, loss: 37331.031530, time using: 67.763788(13.552758s/iter)
+2022-09-23 06:28:52 - 23708 - train - 170: - iter: 4190, lr: 1.000000e-06, loss: 36921.390048, time using: 67.643111(13.528622s/iter)
+2022-09-23 06:30:13 - 23708 - train - 170: - iter: 4195, lr: 1.000000e-06, loss: 37071.294331, time using: 81.064890(16.212978s/iter)
+2022-09-23 06:31:21 - 23708 - train - 170: - iter: 4200, lr: 1.000000e-06, loss: 37628.645043, time using: 68.018106(13.603621s/iter)
+2022-09-23 06:32:29 - 23708 - train - 170: - iter: 4205, lr: 1.000000e-06, loss: 37428.307410, time using: 68.019106(13.603821s/iter)
+2022-09-23 06:33:37 - 23708 - train - 170: - iter: 4210, lr: 1.000000e-06, loss: 37046.015966, time using: 68.282397(13.656479s/iter)
+2022-09-23 06:34:45 - 23708 - train - 170: - iter: 4215, lr: 1.000000e-06, loss: 36621.225380, time using: 68.136792(13.627358s/iter)
+2022-09-23 06:35:53 - 23708 - train - 170: - iter: 4220, lr: 1.000000e-06, loss: 35926.929645, time using: 67.977217(13.595443s/iter)
+2022-09-23 06:37:01 - 23708 - train - 170: - iter: 4225, lr: 1.000000e-06, loss: 35702.987056, time using: 67.986196(13.597239s/iter)
+2022-09-23 06:38:10 - 23708 - train - 170: - iter: 4230, lr: 1.000000e-06, loss: 36408.897766, time using: 68.121831(13.624366s/iter)
+2022-09-23 06:39:18 - 23708 - train - 170: - iter: 4235, lr: 1.000000e-06, loss: 36849.592190, time using: 68.079987(13.615997s/iter)
+2022-09-23 06:40:26 - 23708 - train - 170: - iter: 4240, lr: 1.000000e-06, loss: 37364.092457, time using: 68.138788(13.627758s/iter)
+2022-09-23 06:41:34 - 23708 - train - 170: - iter: 4245, lr: 1.000000e-06, loss: 37328.996655, time using: 68.159714(13.631943s/iter)
+2022-09-23 06:42:42 - 23708 - train - 170: - iter: 4250, lr: 1.000000e-06, loss: 37262.786882, time using: 68.234532(13.646906s/iter)
+2022-09-23 06:43:50 - 23708 - train - 170: - iter: 4255, lr: 1.000000e-06, loss: 37404.679016, time using: 68.118841(13.623768s/iter)
+2022-09-23 06:45:11 - 23708 - train - 170: - iter: 4260, lr: 1.000000e-06, loss: 36978.853074, time using: 81.108142(16.221628s/iter)
+2022-09-23 06:46:19 - 23708 - train - 170: - iter: 4265, lr: 1.000000e-06, loss: 36997.974412, time using: 67.840584(13.568117s/iter)
+2022-09-23 06:47:27 - 23708 - train - 170: - iter: 4270, lr: 1.000000e-06, loss: 37322.587674, time using: 67.860510(13.572102s/iter)
+2022-09-23 06:48:35 - 23708 - train - 170: - iter: 4275, lr: 1.000000e-06, loss: 37475.048875, time using: 67.869535(13.573907s/iter)
+2022-09-23 06:49:43 - 23708 - train - 170: - iter: 4280, lr: 1.000000e-06, loss: 37565.440136, time using: 67.835597(13.567119s/iter)
+2022-09-23 06:50:50 - 23708 - train - 170: - iter: 4285, lr: 1.000000e-06, loss: 37616.053256, time using: 67.681636(13.536327s/iter)
+2022-09-23 06:51:58 - 23708 - train - 170: - iter: 4290, lr: 1.000000e-06, loss: 37243.705019, time using: 67.699961(13.539992s/iter)
+2022-09-23 06:53:06 - 23708 - train - 170: - iter: 4295, lr: 1.000000e-06, loss: 37171.024061, time using: 67.685998(13.537200s/iter)
+2022-09-23 06:54:14 - 23708 - train - 170: - iter: 4300, lr: 1.000000e-06, loss: 36408.699007, time using: 67.844575(13.568915s/iter)
+2022-09-23 06:55:22 - 23708 - train - 170: - iter: 4305, lr: 1.000000e-06, loss: 36421.670142, time using: 67.852574(13.570515s/iter)
+2022-09-23 06:56:29 - 23708 - train - 170: - iter: 4310, lr: 1.000000e-06, loss: 37198.694461, time using: 67.853557(13.570711s/iter)
+2022-09-23 06:57:37 - 23708 - train - 170: - iter: 4315, lr: 1.000000e-06, loss: 36859.998625, time using: 67.747834(13.549567s/iter)
+2022-09-23 06:58:45 - 23708 - train - 170: - iter: 4320, lr: 1.000000e-06, loss: 36607.281172, time using: 67.715918(13.543184s/iter)
+2022-09-23 06:59:53 - 23708 - train - 170: - iter: 4325, lr: 1.000000e-06, loss: 36450.646428, time using: 67.918378(13.583676s/iter)
+2022-09-23 07:01:14 - 23708 - train - 170: - iter: 4330, lr: 1.000000e-06, loss: 35790.545795, time using: 80.909402(16.181880s/iter)
+2022-09-23 07:02:21 - 23708 - train - 170: - iter: 4335, lr: 1.000000e-06, loss: 35419.940559, time using: 67.717901(13.543580s/iter)
+2022-09-23 07:03:29 - 23708 - train - 170: - iter: 4340, lr: 1.000000e-06, loss: 35143.385189, time using: 67.732923(13.546585s/iter)
+2022-09-23 07:04:37 - 23708 - train - 170: - iter: 4345, lr: 1.000000e-06, loss: 35153.360360, time using: 67.708937(13.541787s/iter)
+2022-09-23 07:05:45 - 23708 - train - 170: - iter: 4350, lr: 1.000000e-06, loss: 35359.926589, time using: 67.885465(13.577093s/iter)
+2022-09-23 07:06:53 - 23708 - train - 170: - iter: 4355, lr: 1.000000e-06, loss: 35461.002393, time using: 67.831608(13.566322s/iter)
+2022-09-23 07:08:00 - 23708 - train - 170: - iter: 4360, lr: 1.000000e-06, loss: 35254.112517, time using: 67.790723(13.558145s/iter)
+2022-09-23 07:09:08 - 23708 - train - 170: - iter: 4365, lr: 1.000000e-06, loss: 35346.916107, time using: 67.807672(13.561534s/iter)
+2022-09-23 07:10:16 - 23708 - train - 170: - iter: 4370, lr: 1.000000e-06, loss: 35488.676198, time using: 67.769819(13.553964s/iter)
+2022-09-23 07:11:24 - 23708 - train - 170: - iter: 4375, lr: 1.000000e-06, loss: 35834.643785, time using: 67.646104(13.529221s/iter)
+2022-09-23 07:12:31 - 23708 - train - 170: - iter: 4380, lr: 1.000000e-06, loss: 36865.056227, time using: 67.718909(13.543782s/iter)
+2022-09-23 07:13:39 - 23708 - train - 170: - iter: 4385, lr: 1.000000e-06, loss: 36700.887435, time using: 67.832608(13.566522s/iter)
+2022-09-23 07:14:47 - 23708 - train - 170: - iter: 4390, lr: 1.000000e-06, loss: 37160.932298, time using: 67.863523(13.572705s/iter)
+2022-09-23 07:16:08 - 23708 - train - 170: - iter: 4395, lr: 1.000000e-06, loss: 37834.432127, time using: 80.945820(16.189164s/iter)
+2022-09-23 07:17:16 - 23708 - train - 170: - iter: 4400, lr: 1.000000e-06, loss: 37992.243258, time using: 68.193671(13.638734s/iter)
+2022-09-23 07:18:24 - 23708 - train - 170: - iter: 4405, lr: 1.000000e-06, loss: 37701.072262, time using: 68.104398(13.620880s/iter)
+2022-09-23 07:19:32 - 23708 - train - 170: - iter: 4410, lr: 1.000000e-06, loss: 37811.308732, time using: 68.151763(13.630353s/iter)
+2022-09-23 07:20:40 - 23708 - train - 170: - iter: 4415, lr: 1.000000e-06, loss: 38237.293242, time using: 68.070972(13.614194s/iter)
+2022-09-23 07:21:49 - 23708 - train - 170: - iter: 4420, lr: 1.000000e-06, loss: 37945.029758, time using: 68.113883(13.622777s/iter)
+2022-09-23 07:22:57 - 23708 - train - 170: - iter: 4425, lr: 1.000000e-06, loss: 37767.317245, time using: 68.077922(13.615584s/iter)
+2022-09-23 07:24:05 - 23708 - train - 170: - iter: 4430, lr: 1.000000e-06, loss: 37267.101830, time using: 67.908444(13.581689s/iter)
+2022-09-23 07:25:13 - 23708 - train - 170: - iter: 4435, lr: 1.000000e-06, loss: 37464.456113, time using: 68.122830(13.624566s/iter)
+2022-09-23 07:26:21 - 23708 - train - 170: - iter: 4440, lr: 1.000000e-06, loss: 37230.692535, time using: 67.910386(13.582077s/iter)
+2022-09-23 07:27:28 - 23708 - train - 170: - iter: 4445, lr: 1.000000e-06, loss: 36412.178671, time using: 67.890477(13.578095s/iter)
+2022-09-23 07:28:36 - 23708 - train - 170: - iter: 4450, lr: 1.000000e-06, loss: 36436.447573, time using: 67.925372(13.585074s/iter)
+2022-09-23 07:29:44 - 23708 - train - 170: - iter: 4455, lr: 1.000000e-06, loss: 36632.149045, time using: 68.033071(13.606614s/iter)
+2022-09-23 07:30:53 - 23708 - train - 170: - iter: 4460, lr: 1.000000e-06, loss: 37013.041015, time using: 68.168747(13.633749s/iter)
+2022-09-23 07:32:13 - 23708 - train - 170: - iter: 4465, lr: 1.000000e-06, loss: 36419.001975, time using: 80.859344(16.171869s/iter)
+2022-09-23 07:33:21 - 23708 - train - 170: - iter: 4470, lr: 1.000000e-06, loss: 36719.811031, time using: 67.737851(13.547570s/iter)
+2022-09-23 07:34:29 - 23708 - train - 170: - iter: 4475, lr: 1.000000e-06, loss: 36106.814829, time using: 67.718910(13.543782s/iter)
+2022-09-23 07:35:37 - 23708 - train - 170: - iter: 4480, lr: 1.000000e-06, loss: 36542.620173, time using: 67.724894(13.544979s/iter)
+2022-09-23 07:36:44 - 23708 - train - 170: - iter: 4485, lr: 1.000000e-06, loss: 37043.820520, time using: 67.704942(13.540988s/iter)
+2022-09-23 07:37:52 - 23708 - train - 170: - iter: 4490, lr: 1.000000e-06, loss: 37719.543166, time using: 67.615188(13.523038s/iter)
+2022-09-23 07:39:00 - 23708 - train - 170: - iter: 4495, lr: 1.000000e-06, loss: 37948.949318, time using: 67.698955(13.539791s/iter)
+2022-09-23 07:40:08 - 23708 - train - 170: - iter: 4500, lr: 1.000000e-06, loss: 37822.050346, time using: 67.964524(13.592905s/iter)
+2022-09-23 07:41:15 - 23708 - train - 170: - iter: 4505, lr: 1.000000e-06, loss: 37452.990576, time using: 67.846567(13.569313s/iter)
+2022-09-23 07:42:23 - 23708 - train - 170: - iter: 4510, lr: 1.000000e-06, loss: 36510.213128, time using: 67.896482(13.579296s/iter)
+2022-09-23 07:43:31 - 23708 - train - 170: - iter: 4515, lr: 1.000000e-06, loss: 36757.833134, time using: 67.772766(13.554553s/iter)
+2022-09-23 07:44:39 - 23708 - train - 170: - iter: 4520, lr: 1.000000e-06, loss: 36488.888479, time using: 67.815652(13.563130s/iter)
+2022-09-23 07:45:47 - 23708 - train - 170: - iter: 4525, lr: 1.000000e-06, loss: 37511.837979, time using: 67.572302(13.514460s/iter)
+2022-09-23 07:47:08 - 23708 - train - 170: - iter: 4530, lr: 1.000000e-06, loss: 36662.567935, time using: 81.031603(16.206321s/iter)
+2022-09-23 07:48:16 - 23708 - train - 170: - iter: 4535, lr: 1.000000e-06, loss: 36236.304669, time using: 68.139784(13.627957s/iter)
+2022-09-23 07:49:24 - 23708 - train - 170: - iter: 4540, lr: 1.000000e-06, loss: 35561.891918, time using: 68.108867(13.621773s/iter)
+2022-09-23 07:50:32 - 23708 - train - 170: - iter: 4545, lr: 1.000000e-06, loss: 35381.706977, time using: 68.047061(13.609412s/iter)
+2022-09-23 07:51:40 - 23708 - train - 170: - iter: 4550, lr: 1.000000e-06, loss: 35068.820649, time using: 68.027087(13.605417s/iter)
+2022-09-23 07:52:48 - 23708 - train - 170: - iter: 4555, lr: 1.000000e-06, loss: 35374.365596, time using: 68.059999(13.612000s/iter)
+2022-09-23 07:53:56 - 23708 - train - 170: - iter: 4560, lr: 1.000000e-06, loss: 35922.247828, time using: 67.885703(13.577141s/iter)
+2022-09-23 07:55:04 - 23708 - train - 170: - iter: 4565, lr: 1.000000e-06, loss: 35931.388542, time using: 68.105875(13.621175s/iter)
+2022-09-23 07:56:12 - 23708 - train - 170: - iter: 4570, lr: 1.000000e-06, loss: 35929.065164, time using: 68.092978(13.618596s/iter)
+2022-09-23 07:57:20 - 23708 - train - 170: - iter: 4575, lr: 1.000000e-06, loss: 35569.154075, time using: 67.989188(13.597838s/iter)
+2022-09-23 07:58:28 - 23708 - train - 170: - iter: 4580, lr: 1.000000e-06, loss: 36483.864150, time using: 67.991170(13.598234s/iter)
+2022-09-23 07:59:36 - 23708 - train - 170: - iter: 4585, lr: 1.000000e-06, loss: 36392.409314, time using: 68.103858(13.620772s/iter)
+2022-09-23 08:00:44 - 23708 - train - 170: - iter: 4590, lr: 1.000000e-06, loss: 36320.915780, time using: 68.178681(13.635736s/iter)
+2022-09-23 08:01:52 - 23708 - train - 170: - iter: 4595, lr: 1.000000e-06, loss: 36360.976252, time using: 67.980799(13.596160s/iter)
+2022-09-23 08:03:13 - 23708 - train - 170: - iter: 4600, lr: 1.000000e-06, loss: 36622.813014, time using: 80.865919(16.173184s/iter)
+2022-09-23 08:04:21 - 23708 - train - 170: - iter: 4605, lr: 1.000000e-06, loss: 36689.662793, time using: 67.629739(13.525948s/iter)
+2022-09-23 08:05:28 - 23708 - train - 170: - iter: 4610, lr: 1.000000e-06, loss: 36366.121108, time using: 67.680016(13.536003s/iter)
+2022-09-23 08:06:37 - 23708 - train - 170: - iter: 4615, lr: 1.000000e-06, loss: 36340.466497, time using: 68.258469(13.651694s/iter)
+2022-09-23 08:07:44 - 23708 - train - 170: - iter: 4620, lr: 1.000000e-06, loss: 36269.581781, time using: 67.692978(13.538596s/iter)
+2022-09-23 08:08:52 - 23708 - train - 170: - iter: 4625, lr: 1.000000e-06, loss: 36283.558069, time using: 67.979206(13.595841s/iter)
+2022-09-23 08:10:00 - 23708 - train - 170: - iter: 4630, lr: 1.000000e-06, loss: 36053.840188, time using: 67.600228(13.520046s/iter)
+2022-09-23 08:11:08 - 23708 - train - 170: - iter: 4635, lr: 1.000000e-06, loss: 36680.116990, time using: 67.678020(13.535604s/iter)
+2022-09-23 08:12:15 - 23708 - train - 170: - iter: 4640, lr: 1.000000e-06, loss: 37226.315314, time using: 67.750874(13.550175s/iter)
+2022-09-23 08:13:23 - 23708 - train - 170: - iter: 4645, lr: 1.000000e-06, loss: 37308.361982, time using: 67.652090(13.530418s/iter)
+2022-09-23 08:14:31 - 23708 - train - 170: - iter: 4650, lr: 1.000000e-06, loss: 37164.958365, time using: 67.698963(13.539793s/iter)
+2022-09-23 08:15:39 - 23708 - train - 170: - iter: 4655, lr: 1.000000e-06, loss: 37194.671493, time using: 67.835598(13.567120s/iter)
+2022-09-23 08:16:46 - 23708 - train - 170: - iter: 4660, lr: 1.000000e-06, loss: 37482.252870, time using: 67.786727(13.557345s/iter)
+2022-09-23 08:18:07 - 23708 - train - 170: - iter: 4665, lr: 1.000000e-06, loss: 37377.213135, time using: 80.952166(16.190433s/iter)
+2022-09-23 08:19:15 - 23708 - train - 170: - iter: 4670, lr: 1.000000e-06, loss: 37581.422556, time using: 67.702219(13.540444s/iter)
+2022-09-23 08:20:23 - 23708 - train - 170: - iter: 4675, lr: 1.000000e-06, loss: 37002.792106, time using: 67.722928(13.544586s/iter)
+2022-09-23 08:21:31 - 23708 - train - 170: - iter: 4680, lr: 1.000000e-06, loss: 36881.352027, time using: 67.829226(13.565845s/iter)
+2022-09-23 08:22:39 - 23708 - train - 170: - iter: 4685, lr: 1.000000e-06, loss: 36095.759266, time using: 67.867111(13.573422s/iter)
+2022-09-23 08:23:46 - 23708 - train - 170: - iter: 4690, lr: 1.000000e-06, loss: 35182.857197, time using: 67.923958(13.584792s/iter)
+2022-09-23 08:24:54 - 23708 - train - 170: - iter: 4695, lr: 1.000000e-06, loss: 35551.191152, time using: 67.790758(13.558152s/iter)
+2022-09-23 08:26:02 - 23708 - train - 170: - iter: 4700, lr: 1.000000e-06, loss: 35883.573869, time using: 67.893442(13.578688s/iter)
+2022-09-23 08:27:10 - 23708 - train - 170: - iter: 4705, lr: 1.000000e-06, loss: 36105.260188, time using: 67.904453(13.580891s/iter)
+2022-09-23 08:28:18 - 23708 - train - 170: - iter: 4710, lr: 1.000000e-06, loss: 36189.568801, time using: 67.784735(13.556947s/iter)
+2022-09-23 08:29:26 - 23708 - train - 170: - iter: 4715, lr: 1.000000e-06, loss: 36258.745581, time using: 67.764787(13.552957s/iter)
+2022-09-23 08:30:33 - 23708 - train - 170: - iter: 4720, lr: 1.000000e-06, loss: 36648.464065, time using: 67.773762(13.554752s/iter)
+2022-09-23 08:31:41 - 23708 - train - 170: - iter: 4725, lr: 1.000000e-06, loss: 36727.825538, time using: 67.683006(13.536601s/iter)
+2022-09-23 08:32:49 - 23708 - train - 170: - iter: 4730, lr: 1.000000e-06, loss: 36882.974773, time using: 67.805677(13.561135s/iter)
+2022-09-23 08:34:10 - 23708 - train - 170: - iter: 4735, lr: 1.000000e-06, loss: 37128.937029, time using: 81.041368(16.208274s/iter)
+2022-09-23 08:35:18 - 23708 - train - 170: - iter: 4740, lr: 1.000000e-06, loss: 37707.380610, time using: 68.232537(13.646507s/iter)
+2022-09-23 08:36:26 - 23708 - train - 170: - iter: 4745, lr: 1.000000e-06, loss: 36843.654813, time using: 68.073960(13.614792s/iter)
+2022-09-23 08:37:34 - 23708 - train - 170: - iter: 4750, lr: 1.000000e-06, loss: 37136.361213, time using: 68.223560(13.644712s/iter)
+2022-09-23 08:38:43 - 23708 - train - 170: - iter: 4755, lr: 1.000000e-06, loss: 36775.107245, time using: 68.196633(13.639327s/iter)
+2022-09-23 08:39:51 - 23708 - train - 170: - iter: 4760, lr: 1.000000e-06, loss: 36228.536227, time using: 68.030078(13.606016s/iter)
+2022-09-23 08:40:59 - 23708 - train - 170: - iter: 4765, lr: 1.000000e-06, loss: 36465.827343, time using: 68.120047(13.624009s/iter)
+2022-09-23 08:42:07 - 23708 - train - 170: - iter: 4770, lr: 1.000000e-06, loss: 36404.764784, time using: 68.196638(13.639328s/iter)
+2022-09-23 08:43:15 - 23708 - train - 170: - iter: 4775, lr: 1.000000e-06, loss: 36917.832947, time using: 68.045084(13.609017s/iter)
+2022-09-23 08:44:23 - 23708 - train - 170: - iter: 4780, lr: 1.000000e-06, loss: 36865.530551, time using: 68.100888(13.620178s/iter)
+2022-09-23 08:45:31 - 23708 - train - 170: - iter: 4785, lr: 1.000000e-06, loss: 36571.004537, time using: 68.190646(13.638129s/iter)
+2022-09-23 08:46:39 - 23708 - train - 170: - iter: 4790, lr: 1.000000e-06, loss: 36260.793353, time using: 68.179677(13.635935s/iter)
+2022-09-23 08:47:48 - 23708 - train - 170: - iter: 4795, lr: 1.000000e-06, loss: 36381.687211, time using: 68.141777(13.628355s/iter)
+2022-09-23 08:49:09 - 23708 - train - 170: - iter: 4800, lr: 1.000000e-06, loss: 35872.189725, time using: 81.221750(16.244350s/iter)
+2022-09-23 08:50:17 - 23708 - train - 170: - iter: 4805, lr: 1.000000e-06, loss: 35891.321244, time using: 67.650094(13.530019s/iter)
+2022-09-23 08:51:24 - 23708 - train - 170: - iter: 4810, lr: 1.000000e-06, loss: 36651.409323, time using: 67.723898(13.544780s/iter)
+2022-09-23 08:52:32 - 23708 - train - 170: - iter: 4815, lr: 1.000000e-06, loss: 36625.468411, time using: 67.754815(13.550963s/iter)
+2022-09-23 08:53:40 - 23708 - train - 170: - iter: 4820, lr: 1.000000e-06, loss: 35742.592716, time using: 67.946303(13.589261s/iter)
+2022-09-23 08:54:48 - 23708 - train - 170: - iter: 4825, lr: 1.000000e-06, loss: 35826.874510, time using: 67.780744(13.556149s/iter)
+2022-09-23 08:55:56 - 23708 - train - 170: - iter: 4830, lr: 1.000000e-06, loss: 35456.847586, time using: 67.870504(13.574101s/iter)
+2022-09-23 08:57:03 - 23708 - train - 170: - iter: 4835, lr: 1.000000e-06, loss: 36003.242001, time using: 67.708978(13.541796s/iter)
+2022-09-23 08:58:11 - 23708 - train - 170: - iter: 4840, lr: 1.000000e-06, loss: 36230.623727, time using: 67.707898(13.541580s/iter)
+2022-09-23 08:59:19 - 23708 - train - 170: - iter: 4845, lr: 1.000000e-06, loss: 36641.413508, time using: 67.882472(13.576494s/iter)
+2022-09-23 09:00:27 - 23708 - train - 170: - iter: 4850, lr: 1.000000e-06, loss: 36238.165137, time using: 67.714920(13.542984s/iter)
+2022-09-23 09:01:34 - 23708 - train - 170: - iter: 4855, lr: 1.000000e-06, loss: 36659.802506, time using: 67.781743(13.556349s/iter)
+2022-09-23 09:02:42 - 23708 - train - 170: - iter: 4860, lr: 1.000000e-06, loss: 36059.414722, time using: 67.951328(13.590266s/iter)
+2022-09-23 09:03:50 - 23708 - train - 170: - iter: 4865, lr: 1.000000e-06, loss: 35864.256069, time using: 67.828571(13.565714s/iter)
+2022-09-23 09:05:11 - 23708 - train - 170: - iter: 4870, lr: 1.000000e-06, loss: 35902.333270, time using: 80.964119(16.192824s/iter)
+2022-09-23 09:06:19 - 23708 - train - 170: - iter: 4875, lr: 1.000000e-06, loss: 35933.558751, time using: 68.146772(13.629354s/iter)
+2022-09-23 09:07:27 - 23708 - train - 170: - iter: 4880, lr: 1.000000e-06, loss: 36446.024750, time using: 67.998162(13.599632s/iter)
+2022-09-23 09:08:35 - 23708 - train - 170: - iter: 4885, lr: 1.000000e-06, loss: 36351.501866, time using: 68.001155(13.600231s/iter)
+2022-09-23 09:09:43 - 23708 - train - 170: - iter: 4890, lr: 1.000000e-06, loss: 35526.928116, time using: 68.186167(13.637233s/iter)
+2022-09-23 09:10:52 - 23708 - train - 170: - iter: 4895, lr: 1.000000e-06, loss: 35509.728310, time using: 68.168708(13.633742s/iter)
+2022-09-23 09:12:00 - 23708 - train - 170: - iter: 4900, lr: 1.000000e-06, loss: 36122.692133, time using: 67.975225(13.595045s/iter)
+2022-09-23 09:13:08 - 23708 - train - 170: - iter: 4905, lr: 1.000000e-06, loss: 35378.780062, time using: 68.007305(13.601461s/iter)
+2022-09-23 09:14:16 - 23708 - train - 170: - iter: 4910, lr: 1.000000e-06, loss: 35098.725204, time using: 68.090917(13.618183s/iter)
+2022-09-23 09:15:24 - 23708 - train - 170: - iter: 4915, lr: 1.000000e-06, loss: 34845.315572, time using: 68.094905(13.618981s/iter)
+2022-09-23 09:16:32 - 23708 - train - 170: - iter: 4920, lr: 1.000000e-06, loss: 35749.590586, time using: 67.962260(13.592452s/iter)
+2022-09-23 09:17:40 - 23708 - train - 170: - iter: 4925, lr: 1.000000e-06, loss: 35493.488583, time using: 68.267445(13.653489s/iter)
+2022-09-23 09:18:48 - 23708 - train - 170: - iter: 4930, lr: 1.000000e-06, loss: 35025.536546, time using: 68.043044(13.608609s/iter)
+2022-09-23 09:20:09 - 23708 - train - 170: - iter: 4935, lr: 1.000000e-06, loss: 34993.495994, time using: 80.991023(16.198205s/iter)
+2022-09-23 09:21:17 - 23708 - train - 170: - iter: 4940, lr: 1.000000e-06, loss: 35151.552413, time using: 68.230051(13.646010s/iter)
+2022-09-23 09:22:26 - 23708 - train - 170: - iter: 4945, lr: 1.000000e-06, loss: 34843.318158, time using: 68.202616(13.640523s/iter)
+2022-09-23 09:23:34 - 23708 - train - 170: - iter: 4950, lr: 1.000000e-06, loss: 34725.621421, time using: 68.102880(13.620576s/iter)
+2022-09-23 09:24:42 - 23708 - train - 170: - iter: 4955, lr: 1.000000e-06, loss: 34995.121302, time using: 68.243057(13.648611s/iter)
+2022-09-23 09:25:50 - 23708 - train - 170: - iter: 4960, lr: 1.000000e-06, loss: 35121.055554, time using: 68.050487(13.610097s/iter)
+2022-09-23 09:26:58 - 23708 - train - 170: - iter: 4965, lr: 1.000000e-06, loss: 35257.007528, time using: 68.182670(13.636534s/iter)
+2022-09-23 09:28:06 - 23708 - train - 170: - iter: 4970, lr: 1.000000e-06, loss: 35397.540069, time using: 68.106872(13.621374s/iter)
+2022-09-23 09:29:14 - 23708 - train - 170: - iter: 4975, lr: 1.000000e-06, loss: 35467.378380, time using: 68.091913(13.618383s/iter)
+2022-09-23 09:30:22 - 23708 - train - 170: - iter: 4980, lr: 1.000000e-06, loss: 35686.992460, time using: 68.137789(13.627558s/iter)
+2022-09-23 09:31:31 - 23708 - train - 170: - iter: 4985, lr: 1.000000e-06, loss: 35331.973472, time using: 68.168708(13.633742s/iter)
+2022-09-23 09:32:39 - 23708 - train - 170: - iter: 4990, lr: 1.000000e-06, loss: 36022.185253, time using: 68.039052(13.607810s/iter)
+2022-09-23 09:33:47 - 23708 - train - 170: - iter: 4995, lr: 1.000000e-06, loss: 36625.097867, time using: 68.036057(13.607211s/iter)
+2022-09-23 09:34:55 - 23708 - train - 170: - iter: 5000, lr: 1.000000e-06, loss: 36743.702159, time using: 68.488849(13.697770s/iter)
+2022-09-23 09:36:16 - 23708 - train - 170: - iter: 5005, lr: 1.000000e-06, loss: 36911.367632, time using: 80.827457(16.165491s/iter)
+2022-09-23 09:37:24 - 23708 - train - 170: - iter: 5010, lr: 1.000000e-06, loss: 37565.064408, time using: 67.573300(13.514660s/iter)
+2022-09-23 09:38:31 - 23708 - train - 170: - iter: 5015, lr: 1.000000e-06, loss: 38255.718546, time using: 67.627659(13.525532s/iter)
+2022-09-23 09:39:39 - 23708 - train - 170: - iter: 5020, lr: 1.000000e-06, loss: 37593.807611, time using: 67.635140(13.527028s/iter)
+2022-09-23 09:40:46 - 23708 - train - 170: - iter: 5025, lr: 1.000000e-06, loss: 37509.522429, time using: 67.597238(13.519448s/iter)
+2022-09-23 09:41:54 - 23708 - train - 170: - iter: 5030, lr: 1.000000e-06, loss: 37411.535488, time using: 67.678020(13.535604s/iter)
+2022-09-23 09:43:02 - 23708 - train - 170: - iter: 5035, lr: 1.000000e-06, loss: 37391.494310, time using: 67.521438(13.504288s/iter)
+2022-09-23 09:44:09 - 23708 - train - 170: - iter: 5040, lr: 1.000000e-06, loss: 36975.591945, time using: 67.663063(13.532613s/iter)
+2022-09-23 09:45:17 - 23708 - train - 170: - iter: 5045, lr: 1.000000e-06, loss: 36500.879455, time using: 67.686993(13.537399s/iter)
+2022-09-23 09:46:25 - 23708 - train - 170: - iter: 5050, lr: 1.000000e-06, loss: 36160.503311, time using: 67.542381(13.508476s/iter)
+2022-09-23 09:47:32 - 23708 - train - 170: - iter: 5055, lr: 1.000000e-06, loss: 36089.383592, time using: 67.656079(13.531216s/iter)
+2022-09-23 09:48:40 - 23708 - train - 170: - iter: 5060, lr: 1.000000e-06, loss: 35979.407574, time using: 67.682007(13.536401s/iter)
+2022-09-23 09:49:48 - 23708 - train - 170: - iter: 5065, lr: 1.000000e-06, loss: 35254.421914, time using: 67.816650(13.563330s/iter)
+2022-09-23 09:50:55 - 23708 - train - 170: - iter: 5070, lr: 1.000000e-06, loss: 35438.671035, time using: 66.902093(13.380419s/iter)
+2022-09-23 09:52:17 - 23708 - train - 170: - iter: 5075, lr: 1.000000e-06, loss: 35456.955325, time using: 82.080394(16.416079s/iter)
+2022-09-23 09:53:25 - 23708 - train - 170: - iter: 5080, lr: 1.000000e-06, loss: 35450.011205, time using: 68.081165(13.616233s/iter)
+2022-09-23 09:54:33 - 23708 - train - 170: - iter: 5085, lr: 1.000000e-06, loss: 35531.390616, time using: 68.069971(13.613994s/iter)
+2022-09-23 09:55:41 - 23708 - train - 170: - iter: 5090, lr: 1.000000e-06, loss: 35722.264446, time using: 67.870506(13.574101s/iter)
+2022-09-23 09:56:49 - 23708 - train - 170: - iter: 5095, lr: 1.000000e-06, loss: 35593.044310, time using: 67.945305(13.589061s/iter)
+2022-09-23 09:57:57 - 23708 - train - 170: - iter: 5100, lr: 1.000000e-06, loss: 35684.237100, time using: 67.953284(13.590657s/iter)
+2022-09-23 09:59:05 - 23708 - train - 170: - iter: 5105, lr: 1.000000e-06, loss: 35272.389454, time using: 68.044237(13.608847s/iter)
+2022-09-23 10:00:14 - 23708 - train - 170: - iter: 5110, lr: 1.000000e-06, loss: 34940.811357, time using: 68.988142(13.797628s/iter)
+2022-09-23 10:01:29 - 23708 - train - 170: - iter: 5115, lr: 1.000000e-06, loss: 34960.029641, time using: 75.820649(15.164130s/iter)
+2022-09-23 10:02:42 - 23708 - train - 170: - iter: 5120, lr: 1.000000e-06, loss: 35134.397234, time using: 72.092021(14.418404s/iter)
+2022-09-23 10:03:55 - 23708 - train - 170: - iter: 5125, lr: 1.000000e-06, loss: 35220.702841, time using: 73.241471(14.648294s/iter)
+2022-09-23 10:05:12 - 23708 - train - 170: - iter: 5130, lr: 1.000000e-06, loss: 34859.438972, time using: 77.280360(15.456072s/iter)
+2022-09-23 10:06:24 - 23708 - train - 170: - iter: 5135, lr: 1.000000e-06, loss: 35198.227502, time using: 72.111139(14.422228s/iter)
+2022-09-23 10:07:46 - 23708 - train - 170: - iter: 5140, lr: 1.000000e-06, loss: 35875.180944, time using: 82.303284(16.460657s/iter)
+2022-09-23 10:08:57 - 23708 - train - 170: - iter: 5145, lr: 1.000000e-06, loss: 36115.484280, time using: 70.850178(14.170036s/iter)
+2022-09-23 10:10:09 - 23708 - train - 170: - iter: 5150, lr: 1.000000e-06, loss: 36094.769641, time using: 71.385241(14.277048s/iter)
+2022-09-23 10:11:19 - 23708 - train - 170: - iter: 5155, lr: 1.000000e-06, loss: 36286.194879, time using: 70.162057(14.032411s/iter)
+2022-09-23 10:12:29 - 23708 - train - 170: - iter: 5160, lr: 1.000000e-06, loss: 36448.172022, time using: 70.082256(14.016451s/iter)
+2022-09-23 10:13:39 - 23708 - train - 170: - iter: 5165, lr: 1.000000e-06, loss: 36741.477560, time using: 69.652784(13.930557s/iter)
+2022-09-23 10:14:48 - 23708 - train - 170: - iter: 5170, lr: 1.000000e-06, loss: 35737.230446, time using: 69.635727(13.927145s/iter)
+2022-09-23 10:15:58 - 23708 - train - 170: - iter: 5175, lr: 1.000000e-06, loss: 35522.337335, time using: 69.684768(13.936954s/iter)
+2022-09-23 10:17:11 - 23708 - train - 170: - iter: 5180, lr: 1.000000e-06, loss: 35840.108645, time using: 73.326529(14.665306s/iter)
+2022-09-23 10:18:21 - 23708 - train - 170: - iter: 5185, lr: 1.000000e-06, loss: 35448.659282, time using: 70.088998(14.017800s/iter)
+2022-09-23 10:19:32 - 23708 - train - 170: - iter: 5190, lr: 1.000000e-06, loss: 34936.148186, time using: 70.643010(14.128602s/iter)
+2022-09-23 10:20:43 - 23708 - train - 170: - iter: 5195, lr: 1.000000e-06, loss: 35247.508586, time using: 70.810818(14.162164s/iter)
+2022-09-23 10:21:57 - 23708 - train - 170: - iter: 5200, lr: 1.000000e-06, loss: 35574.446585, time using: 74.318741(14.863748s/iter)
+2022-09-23 10:23:06 - 23708 - train - 170: - iter: 5205, lr: 1.000000e-06, loss: 35483.759065, time using: 69.021263(13.804253s/iter)
+2022-09-23 10:24:30 - 23708 - train - 170: - iter: 5210, lr: 1.000000e-06, loss: 35294.076104, time using: 83.365155(16.673031s/iter)
+2022-09-23 10:25:39 - 23708 - train - 170: - iter: 5215, lr: 1.000000e-06, loss: 35407.247455, time using: 69.226731(13.845346s/iter)
+2022-09-23 10:26:48 - 23708 - train - 170: - iter: 5220, lr: 1.000000e-06, loss: 35824.437871, time using: 69.325468(13.865094s/iter)
+2022-09-23 10:27:57 - 23708 - train - 170: - iter: 5225, lr: 1.000000e-06, loss: 35930.609394, time using: 69.224653(13.844931s/iter)
+2022-09-23 10:29:06 - 23708 - train - 170: - iter: 5230, lr: 1.000000e-06, loss: 35566.006169, time using: 68.597458(13.719492s/iter)
+2022-09-23 10:30:17 - 23708 - train - 170: - iter: 5235, lr: 1.000000e-06, loss: 35617.651941, time using: 70.751825(14.150365s/iter)
+2022-09-23 10:31:29 - 23708 - train - 170: - iter: 5240, lr: 1.000000e-06, loss: 35582.453615, time using: 72.212971(14.442594s/iter)
+2022-09-23 10:32:42 - 23708 - train - 170: - iter: 5245, lr: 1.000000e-06, loss: 34629.359699, time using: 72.666019(14.533204s/iter)
+2022-09-23 10:33:50 - 23708 - train - 170: - iter: 5250, lr: 1.000000e-06, loss: 34794.033190, time using: 68.148560(13.629712s/iter)
+2022-09-23 10:34:58 - 23708 - train - 170: - iter: 5255, lr: 1.000000e-06, loss: 34855.593522, time using: 68.080281(13.616056s/iter)
+2022-09-23 10:36:06 - 23708 - train - 170: - iter: 5260, lr: 1.000000e-06, loss: 35274.159431, time using: 67.941095(13.588219s/iter)
+2022-09-23 10:37:14 - 23708 - train - 170: - iter: 5265, lr: 1.000000e-06, loss: 35050.662496, time using: 67.916796(13.583359s/iter)
+2022-09-23 10:38:22 - 23708 - train - 170: - iter: 5270, lr: 1.000000e-06, loss: 35166.403107, time using: 67.967506(13.593501s/iter)
+2022-09-23 10:39:43 - 23708 - train - 170: - iter: 5275, lr: 1.000000e-06, loss: 35609.635402, time using: 81.226171(16.245234s/iter)
+2022-09-23 10:40:52 - 23708 - train - 170: - iter: 5280, lr: 1.000000e-06, loss: 36113.320205, time using: 68.719254(13.743851s/iter)
+2022-09-23 10:42:00 - 23708 - train - 170: - iter: 5285, lr: 1.000000e-06, loss: 36052.779142, time using: 68.168056(13.633611s/iter)
+2022-09-23 10:43:08 - 23708 - train - 170: - iter: 5290, lr: 1.000000e-06, loss: 35973.409298, time using: 68.048440(13.609688s/iter)
+2022-09-23 10:44:16 - 23708 - train - 170: - iter: 5295, lr: 1.000000e-06, loss: 36367.316569, time using: 68.066647(13.613329s/iter)
+2022-09-23 10:45:24 - 23708 - train - 170: - iter: 5300, lr: 1.000000e-06, loss: 35684.598296, time using: 68.241654(13.648331s/iter)
+2022-09-23 10:46:32 - 23708 - train - 170: - iter: 5305, lr: 1.000000e-06, loss: 35373.226194, time using: 68.152716(13.630543s/iter)
+2022-09-23 10:47:40 - 23708 - train - 170: - iter: 5310, lr: 1.000000e-06, loss: 34720.676350, time using: 67.918214(13.583643s/iter)
+2022-09-23 10:48:48 - 23708 - train - 170: - iter: 5315, lr: 1.000000e-06, loss: 34728.772153, time using: 68.059365(13.611873s/iter)
+2022-09-23 10:49:56 - 23708 - train - 170: - iter: 5320, lr: 1.000000e-06, loss: 35111.110767, time using: 68.173519(13.634704s/iter)
+2022-09-23 10:51:05 - 23708 - train - 170: - iter: 5325, lr: 1.000000e-06, loss: 34931.116468, time using: 68.141781(13.628356s/iter)
+2022-09-23 10:52:13 - 23708 - train - 170: - iter: 5330, lr: 1.000000e-06, loss: 35273.619106, time using: 68.067379(13.613476s/iter)
+2022-09-23 10:53:21 - 23708 - train - 170: - iter: 5335, lr: 1.000000e-06, loss: 35977.654937, time using: 68.071658(13.614332s/iter)
+2022-09-23 10:54:31 - 23708 - train - 170: - iter: 5340, lr: 1.000000e-06, loss: 35805.560164, time using: 70.056442(14.011288s/iter)
+2022-09-23 10:55:58 - 23708 - train - 170: - iter: 5345, lr: 1.000000e-06, loss: 35950.213693, time using: 87.051262(17.410252s/iter)
+2022-09-23 10:57:06 - 23708 - train - 170: - iter: 5350, lr: 1.000000e-06, loss: 35896.746459, time using: 68.707748(13.741550s/iter)
+2022-09-23 10:58:18 - 23708 - train - 170: - iter: 5355, lr: 1.000000e-06, loss: 36062.897469, time using: 71.919744(14.383949s/iter)
+2022-09-23 10:59:29 - 23708 - train - 170: - iter: 5360, lr: 1.000000e-06, loss: 36365.739171, time using: 70.204435(14.040887s/iter)
+2022-09-23 11:00:42 - 23708 - train - 170: - iter: 5365, lr: 1.000000e-06, loss: 36531.932689, time using: 73.218598(14.643720s/iter)
+2022-09-23 11:01:53 - 23708 - train - 170: - iter: 5370, lr: 1.000000e-06, loss: 36881.499473, time using: 70.696149(14.139230s/iter)
+2022-09-23 11:03:02 - 23708 - train - 170: - iter: 5375, lr: 1.000000e-06, loss: 36333.561719, time using: 69.467941(13.893588s/iter)
+2022-09-23 11:04:18 - 23708 - train - 170: - iter: 5380, lr: 1.000000e-06, loss: 35941.704060, time using: 75.647891(15.129578s/iter)
+2022-09-23 11:05:32 - 23708 - train - 170: - iter: 5385, lr: 1.000000e-06, loss: 35845.071914, time using: 74.187575(14.837515s/iter)
+2022-09-23 11:06:47 - 23708 - train - 170: - iter: 5390, lr: 1.000000e-06, loss: 36145.814916, time using: 75.078476(15.015695s/iter)
+2022-09-23 11:08:05 - 23708 - train - 170: - iter: 5395, lr: 1.000000e-06, loss: 35708.601022, time using: 77.758205(15.551641s/iter)
+2022-09-23 11:09:23 - 23708 - train - 170: - iter: 5400, lr: 1.000000e-06, loss: 36371.348398, time using: 77.854596(15.570919s/iter)
+2022-09-23 11:10:37 - 23708 - train - 170: - iter: 5405, lr: 1.000000e-06, loss: 36688.542073, time using: 74.132907(14.826581s/iter)
+2022-09-23 11:12:11 - 23708 - train - 170: - iter: 5410, lr: 1.000000e-06, loss: 36677.865945, time using: 94.483238(18.896648s/iter)
+2022-09-23 11:13:23 - 23708 - train - 170: - iter: 5415, lr: 1.000000e-06, loss: 36526.692950, time using: 72.216958(14.443392s/iter)
+2022-09-23 11:14:37 - 23708 - train - 170: - iter: 5420, lr: 1.000000e-06, loss: 35719.488104, time using: 73.493475(14.698695s/iter)
+2022-09-23 11:15:51 - 23708 - train - 170: - iter: 5425, lr: 1.000000e-06, loss: 36268.135282, time using: 74.103956(14.820791s/iter)
+2022-09-23 11:17:08 - 23708 - train - 170: - iter: 5430, lr: 1.000000e-06, loss: 36669.556311, time using: 77.377007(15.475401s/iter)
+2022-09-23 11:18:26 - 23708 - train - 170: - iter: 5435, lr: 1.000000e-06, loss: 36696.342811, time using: 78.055068(15.611014s/iter)
+2022-09-23 11:19:47 - 23708 - train - 170: - iter: 5440, lr: 1.000000e-06, loss: 36500.232467, time using: 80.811212(16.162242s/iter)
+2022-09-23 11:21:01 - 23708 - train - 170: - iter: 5445, lr: 1.000000e-06, loss: 37187.422554, time using: 73.313722(14.662744s/iter)
+2022-09-23 11:22:09 - 23708 - train - 170: - iter: 5450, lr: 1.000000e-06, loss: 36745.898353, time using: 68.963824(13.792765s/iter)
+2022-09-23 11:23:21 - 23708 - train - 170: - iter: 5455, lr: 1.000000e-06, loss: 36661.332563, time using: 72.006972(14.401394s/iter)
+2022-09-23 11:24:31 - 23708 - train - 170: - iter: 5460, lr: 1.000000e-06, loss: 36130.574351, time using: 69.505372(13.901074s/iter)
+2022-09-23 11:25:40 - 23708 - train - 170: - iter: 5465, lr: 1.000000e-06, loss: 36203.186824, time using: 68.966818(13.793364s/iter)
+2022-09-23 11:26:49 - 23708 - train - 170: - iter: 5470, lr: 1.000000e-06, loss: 36260.068724, time using: 69.023740(13.804748s/iter)
+2022-09-23 11:27:58 - 23708 - train - 170: - iter: 5475, lr: 1.000000e-06, loss: 36070.335074, time using: 68.942320(13.788464s/iter)
+2022-09-23 11:29:22 - 23708 - train - 170: - iter: 5480, lr: 1.000000e-06, loss: 35668.868066, time using: 84.097538(16.819508s/iter)
+2022-09-23 11:30:31 - 23708 - train - 170: - iter: 5485, lr: 1.000000e-06, loss: 34772.145947, time using: 68.548806(13.709761s/iter)
+2022-09-23 11:31:39 - 23708 - train - 170: - iter: 5490, lr: 1.000000e-06, loss: 34978.277137, time using: 68.571405(13.714281s/iter)
+2022-09-23 11:32:48 - 23708 - train - 170: - iter: 5495, lr: 1.000000e-06, loss: 35066.541549, time using: 68.455621(13.691124s/iter)
+2022-09-23 11:33:57 - 23708 - train - 170: - iter: 5500, lr: 1.000000e-06, loss: 34923.181371, time using: 69.184707(13.836941s/iter)
+2022-09-23 11:35:06 - 23708 - train - 170: - iter: 5505, lr: 1.000000e-06, loss: 35174.826104, time using: 69.669748(13.933950s/iter)
+2022-09-23 11:36:18 - 23708 - train - 170: - iter: 5510, lr: 1.000000e-06, loss: 35842.571663, time using: 71.624474(14.324895s/iter)
+2022-09-23 11:37:30 - 23708 - train - 170: - iter: 5515, lr: 1.000000e-06, loss: 36066.585839, time using: 72.215270(14.443054s/iter)
+2022-09-23 11:38:40 - 23708 - train - 170: - iter: 5520, lr: 1.000000e-06, loss: 36551.651180, time using: 69.759937(13.951987s/iter)
+2022-09-23 11:39:49 - 23708 - train - 170: - iter: 5525, lr: 1.000000e-06, loss: 36235.240697, time using: 68.626986(13.725397s/iter)
+2022-09-23 11:41:00 - 23708 - train - 170: - iter: 5530, lr: 1.000000e-06, loss: 36148.468827, time using: 71.643150(14.328630s/iter)

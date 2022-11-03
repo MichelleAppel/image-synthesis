@@ -132,4 +132,8 @@ dmypy.json
 checkpoints/
 wandb/
 *.pth
+*.mat
 output/
+old/
+Sven/
+notebooks/
