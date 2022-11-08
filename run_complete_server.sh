@@ -1,9 +1,9 @@
 #!/bin/bash 
 
-img_size = '448'
+img_size='448'
 
-cycleGANrun_name = 'fake2real_' + img_size
-net_G_path = 'checkpoints\' + cycleGANrun_name + '\latest_net_G_A.pth'
+cycleGANrun_name='fake2real_'+$img_size
+net_G_path='checkpoints\'+cycleGANrun_name+'\latest_net_G_A.pth'
 
 project_name = 'outlines'
 
@@ -11,13 +11,13 @@ run_name = 'dataset_'+$img_size
 run_name_fake = 'dataset_'+$img_size+'_outlines_fake'
 run_name_real = 'dataset_'+$img_size+'_outlines_real'
 
-root = 'data\'+$img_size
-data_root_fake_train = '\labeled_fake'
-data_root_real_train = '\labeled_real'
-data_root_fake_test = '\labeled_fake_test'
-data_root_real_test = '\labeled_real_test'
+root='data\'+$img_size
+data_root_fake_train='\labeled_fake'
+data_root_real_train='\labeled_real'
+data_root_fake_test='\labeled_fake_test'
+data_root_real_test='\labeled_real_test'
 
-batch_size = 1
+batch_size=1
 
 
 python .\cyclegan\train.py --dataroot $root --use_wandb --name $run_name --batch_size 16 --load_size 448 --crop_size 448
