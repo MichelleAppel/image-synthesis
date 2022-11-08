@@ -7,9 +7,9 @@ net_G_path='checkpoints\'+cycleGANrun_name+'\latest_net_G_A.pth'
 
 project_name='outlines'
 
-run_name = 'dataset_'+$img_size
-run_name_fake = 'dataset_'+$img_size+'_outlines_fake'
-run_name_real = 'dataset_'+$img_size+'_outlines_real'
+run_name='dataset_'+$img_size
+run_name_fake='dataset_'+$img_size+'_outlines_fake'
+run_name_real='dataset_'+$img_size+'_outlines_real'
 
 root='data\'+$img_size
 data_root_fake_train='\labeled_fake'
