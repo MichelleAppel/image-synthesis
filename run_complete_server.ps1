@@ -20,7 +20,7 @@ $data_root_real_test = "\labeled_real_test"
 $batch_size = 1
 
 
-python .\cyclegan\train.py --dataroot $root --use_wandb --name $run_name --batch_size 16 --load_size 448 --crop_size 448
+python .\cyclegan\train.py --dataroot $root --use_wandb --no_html --name $run_name --batch_size 16 --load_size 448 --crop_size 448
 
 python .\image_synthesis\train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode train --domain_transfer True --data_root $data_root_fake_train --net_G_path $net_G_path 
 python .\image_synthesis\train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_fake_test --load ./checkpoints/$run_name_fake/checkpoint_epoch5.pth --save_path .\output\$project_name_$run_name_fake\ # --domain_transfer True --net_G_path $net_G_path
