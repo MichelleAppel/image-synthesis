@@ -1,7 +1,5 @@
 #!/bin/bash 
 
-conda activate ML
-
 img_size='448'
 
 cycleGANrun_name='fake2real_'+$img_size
