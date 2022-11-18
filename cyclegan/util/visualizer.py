@@ -3,7 +3,7 @@ import os
 import sys
 import ntpath
 import time
-from . import util, html
+from . import util #, html
 from subprocess import Popen, PIPE
 
 
@@ -70,7 +70,7 @@ class Visualizer():
         """
         self.opt = opt  # cache the option
         self.display_id = opt.display_id
-        self.use_html = opt.isTrain and not opt.no_html
+        self.use_html = False # opt.isTrain and not opt.no_html
         self.win_size = opt.display_winsize
         self.name = opt.name
         self.port = opt.display_port
