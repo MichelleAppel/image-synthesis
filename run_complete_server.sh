@@ -24,8 +24,8 @@ batch_size=32
 
 python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode train --domain_transfer True --data_root $data_root_fake_train --net_G_path $net_G_path --gpu $1
 python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_fake_test --load ./checkpoints/$run_name_fake/checkpoint_epoch5.pth --save_path ./output/$project_name_$run_name_fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
-python ./image_synthesis/test.py  --project_name $project_name --run_name $run_name_fake --n_images 64 --root $root$data_root_fake_test --gpu $1
+python ./image_synthesis/test.py  --project_name $project_name --run_name $run_name_fake --n_images 64 --root $root$data_root_fake_test
 
 python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_real_train --gpu $1
 python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_fake_test --load ./checkpoints/$run_name_real/checkpoint_epoch5.pth --save_path ./output/$project_name_$run_name_real/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
-python ./image_synthesis/test.py  --project_name $project_name --run_name $run_name_real --n_images 64 --root $root$data_root_fake_test --gpu $1s
+python ./image_synthesis/test.py  --project_name $project_name --run_name $run_name_real --n_images 64 --root $root$data_root_fake_test
