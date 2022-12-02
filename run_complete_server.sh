@@ -12,10 +12,10 @@ run_name_fake='dataset_'$img_size'_outlines_fake'
 run_name_real='dataset_'$img_size'_outlines_real'
 
 root='data/'$img_size
-data_root_fake_train=root'/fake_labeled100k'
-data_root_real_train=root'/labeled_real'
-data_root_fake_test=root'/labeled_fake_test'
-data_root_real_test=root'/labeled_real_test'
+data_root_fake_train=$root'/fake_labeled100k'
+data_root_real_train=$root'/labeled_real'
+data_root_fake_test=$root'/labeled_fake_test'
+data_root_real_test=$root'/labeled_real_test'
 
 batch_size=32
 
