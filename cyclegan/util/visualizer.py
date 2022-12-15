@@ -222,19 +222,20 @@ class Visualizer():
             self.plot_data = {'X': [], 'Y': [], 'legend': list(losses.keys())}
         self.plot_data['X'].append(epoch + counter_ratio)
         self.plot_data['Y'].append([losses[k] for k in self.plot_data['legend']])
-        try:
-            self.vis.line(
-                X=np.stack([np.array(self.plot_data['X'])] * len(self.plot_data['legend']), 1),
-                Y=np.array(self.plot_data['Y']),
-                opts={
-                    'title': self.name + ' loss over time',
-                    'legend': self.plot_data['legend'],
-                    'xlabel': 'epoch',
-                    'ylabel': 'loss'},
-                win=self.display_id)
-        except VisdomExceptionBase:
-            self.create_visdom_connections()
+        # try:
+        #     self.vis.line(
+        #         X=np.stack([np.array(self.plot_data['X'])] * len(self.plot_data['legend']), 1),
+        #         Y=np.array(self.plot_data['Y']),
+        #         opts={
+        #             'title': self.name + ' loss over time',
+        #             'legend': self.plot_data['legend'],
+        #             'xlabel': 'epoch',
+        #             'ylabel': 'loss'},
+        #         win=self.display_id)
+        # except VisdomExceptionBase:
+        #     self.create_visdom_connections()
         if self.use_wandb:
+            # self.wandb_run.log({"epoch": epoch + counter_ratio, "losses": [losses[k] for k in self.plot_data['legend']]})
             self.wandb_run.log(losses)
 
     # losses: same format as |losses| of plot_current_losses
