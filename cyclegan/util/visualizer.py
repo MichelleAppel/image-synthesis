@@ -210,7 +210,7 @@ class Visualizer():
                 webpage.add_images(ims, txts, links, width=self.win_size)
             webpage.save()
 
-    def plot_current_losses(self, epoch, counter_ratio, losses):
+    def plot_current_losses(self, epoch, epoch_iter, dataset_size, losses):
         """display the current losses on visdom display: dictionary of error labels and values
 
         Parameters:
@@ -218,10 +218,10 @@ class Visualizer():
             counter_ratio (float) -- progress (percentage) in the current epoch, between 0 to 1
             losses (OrderedDict)  -- training losses stored in the format of (name, float) pairs
         """
-        if not hasattr(self, 'plot_data'):
-            self.plot_data = {'X': [], 'Y': [], 'legend': list(losses.keys())}
-        self.plot_data['X'].append(epoch + counter_ratio)
-        self.plot_data['Y'].append([losses[k] for k in self.plot_data['legend']])
+        # if not hasattr(self, 'plot_data'):
+        #     self.plot_data = {'X': [], 'Y': [], 'legend': list(losses.keys())}
+        # self.plot_data['X'].append(epoch + counter_ratio)
+        # self.plot_data['Y'].append([losses[k] for k in self.plot_data['legend']])
         # try:
         #     self.vis.line(
         #         X=np.stack([np.array(self.plot_data['X'])] * len(self.plot_data['legend']), 1),
@@ -236,7 +236,7 @@ class Visualizer():
         #     self.create_visdom_connections()
         if self.use_wandb:
             # self.wandb_run.log({"epoch": epoch + counter_ratio, "losses": [losses[k] for k in self.plot_data['legend']]})
-            self.wandb_run.log(losses)
+            self.wandb_run.log(losses, step=((epoch-1)*dataset_size)+epoch_iter)
 
     # losses: same format as |losses| of plot_current_losses
     def print_current_losses(self, epoch, iters, losses, t_comp, t_data):
