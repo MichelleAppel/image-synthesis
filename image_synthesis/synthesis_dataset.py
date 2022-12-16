@@ -53,7 +53,7 @@ class SynthesisDataset(Dataset):
 
         self.do_domain_transfer = do_domain_transfer
         if self.do_domain_transfer:
-            self.netG_B = networks.define_G(3, 3, 16, 'resnet_6blocks', 'instance',
+            self.netG_B = networks.define_G(3, 3, 16, 'resnet_9blocks', 'instance',
                                         False, 'normal', 0.02)
 
             load_path = net_G_path
