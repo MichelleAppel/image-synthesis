@@ -61,10 +61,10 @@ class SynthesisDataset(Dataset):
             device = torch.device('cuda:{}'.format(0))
             state_dict = torch.load(load_path, map_location=str(device))
 
-            # for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
-            #     self.__patch_instance_norm_state_dict(state_dict, net, key.split('.'))
+            for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
+                self.__patch_instance_norm_state_dict(state_dict, self.netG_B, key.split('.'))
 
-            self.netG_B.load_state_dict(state_dict)
+            # self.netG_B.load_state_dict(state_dict)
             self.netG_B.eval()
                         
     
