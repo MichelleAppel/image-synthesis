@@ -105,17 +105,20 @@ class SynthesisDataset(Dataset):
         images_dict = {}
 
         key = self.keys[idx]
-        for mod in self.modalities:
-            if mod == 'class':
-                mod = 'indexid'
-            file = self.open_file(os.path.join(self.root_dir, self.dictionary[key][mod]))
-            if self.scale != 1.0:
-                file = self.preprocess(file, scale=self.scale, is_mask=mod!='img')
-            images_dict[mod] = self.toTensor(file)
-            if mod == 'indexid' and self.id_grouping:
-                images_dict['class'] = self.image_to_class(images_dict['indexid'])
-            if mod == 'img' and self.do_domain_transfer:
-                images_dict['img'] = self.domain_transfer(self.normalize((images_dict['img'])))      
+        try:
+            for mod in self.modalities:
+                if mod == 'class':
+                    mod = 'indexid'
+                file = self.open_file(os.path.join(self.root_dir, self.dictionary[key][mod]))
+                if self.scale != 1.0:
+                    file = self.preprocess(file, scale=self.scale, is_mask=mod!='img')
+                images_dict[mod] = self.toTensor(file)
+                if mod == 'indexid' and self.id_grouping:
+                    images_dict['class'] = self.image_to_class(images_dict['indexid'])
+                if mod == 'img' and self.do_domain_transfer:
+                    images_dict['img'] = self.domain_transfer(self.normalize((images_dict['img'])))      
+        except:
+            pass
 
         return images_dict
 
