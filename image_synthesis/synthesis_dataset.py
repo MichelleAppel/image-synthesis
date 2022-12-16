@@ -54,17 +54,17 @@ class SynthesisDataset(Dataset):
         self.do_domain_transfer = do_domain_transfer
         if self.do_domain_transfer:
             self.netG_B = networks.define_G(3, 3, 16, 'resnet_9blocks', 'instance',
-                                        False, 'normal', 0.02, [9])
+                                        False, 'normal', 0.02)
 
             load_path = net_G_path
 
             device = torch.device('cuda:{}'.format(0))
             state_dict = torch.load(load_path, map_location=str(device))
 
-            for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
-                self.__patch_instance_norm_state_dict(state_dict, self.netG_B, key.split('.'))
+            # for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
+            #     self.__patch_instance_norm_state_dict(state_dict, self.netG_B, key.split('.'))
 
-            # self.netG_B.load_state_dict(state_dict)
+            self.netG_B.load_state_dict(state_dict)
             self.netG_B.eval()
                         
     
