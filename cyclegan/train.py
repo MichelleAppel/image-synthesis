@@ -67,6 +67,20 @@ if __name__ == '__main__':
                 save_suffix = 'iter_%d' % total_iters if opt.save_by_iter else 'latest'
                 model.save_networks(save_suffix)
 
+                import torch
+                from models import networks
+
+                netG_B = networks.define_G(3, 3, 16, 'resnet_9blocks', 'instance',
+                                        False)
+
+                # device = torch.device('cuda:{}'.format(0))
+                state_dict = torch.load("checkpoints\TEST4_448\latest_net_G_A.pth")#, map_location=str(device))
+
+                netG_B.load_state_dict(state_dict)
+                print('success')
+                break
+
+
             iter_data_time = time.time()
         if epoch % opt.save_epoch_freq == 0:              # cache our model every <save_epoch_freq> epochs
             print('saving the model at the end of epoch %d, iters %d' % (epoch, total_iters))

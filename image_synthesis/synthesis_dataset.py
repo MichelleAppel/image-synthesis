@@ -25,7 +25,7 @@ class SynthesisDataset(Dataset):
     """The dataset for the ArchVizPro data
 
     """
-    def __init__(self, root_dir, scale=1.0, extension='.png', id_grouping=False, do_domain_transfer=True, net_G_path="checkpoints\fake-to-real_AVP3456\latest_net_G_A.pth"):
+    def __init__(self, root_dir, scale=1.0, extension='.png', id_grouping=False, do_domain_transfer=True, net_G_path=None):
 
         # file locations
         self.root_dir = root_dir # file path of the image dataset
@@ -53,19 +53,19 @@ class SynthesisDataset(Dataset):
 
         self.do_domain_transfer = do_domain_transfer
         if self.do_domain_transfer:
-            self.netG_B = networks.define_G(3, 3, 16, 'resnet_9blocks', 'instance',
-                                        False, 'normal', 0.02)
+            self.netG = networks.define_G(3, 3, 16, 'resnet_9blocks', 'instance',
+                                        False) #, 'normal', 0.02)
 
             load_path = net_G_path
 
-            device = torch.device('cuda:{}'.format(0))
-            state_dict = torch.load(load_path, map_location=str(device))
+            # device = torch.device('cuda:{}'.format(0))
+            state_dict = torch.load(load_path)#, map_location=str(device))
 
             # for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
             #     self.__patch_instance_norm_state_dict(state_dict, self.netG_B, key.split('.'))
 
-            self.netG_B.load_state_dict(state_dict)
-            self.netG_B.eval()
+            self.netG.load_state_dict(state_dict)
+            self.netG.eval()
                         
     
         # transformations
@@ -173,5 +173,5 @@ class SynthesisDataset(Dataset):
 
     def domain_transfer(self, batch):
         with torch.no_grad():
-            output_batch = self.netG_B(batch.unsqueeze(0)).detach()
+            output_batch = self.netG(batch.unsqueeze(0)).detach()
         return output_batch.squeeze(0)
