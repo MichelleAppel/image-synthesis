@@ -312,6 +312,7 @@ def cal_gradient_penalty(netD, real_data, fake_data, device, type='mixed', const
         return 0.0, None
 
 
+
 class ResnetGenerator(nn.Module):
     """Resnet-based generator that consists of Resnet blocks between a few downsampling/upsampling operations.
 
@@ -356,17 +357,21 @@ class ResnetGenerator(nn.Module):
 
         for i in range(n_downsampling):  # add upsampling layers
             mult = 2 ** (n_downsampling - i)
+            # model += [
+            #     nn.ConvTranspose2d(ngf * mult, int(ngf * mult / 2),
+            #                              kernel_size=3, stride=2,
+            #                              padding=1, output_padding=1,
+            #                              bias=use_bias),
+            #     norm_layer(int(ngf * mult / 2)),
+            #     nn.ReLU(True)]
+
             model += [
-                # nn.ConvTranspose2d(ngf * mult, int(ngf * mult / 2),
-                #                          kernel_size=3, stride=2,
-                #                          padding=1, output_padding=1,
-                #                          bias=use_bias),
-                        nn.Upsample(scale_factor = 2, mode='nearest'),
-                        nn.ReflectionPad2d(1),
-                        nn.Conv2d(ngf * mult, int(ngf * mult / 2),
-                                            kernel_size=3, stride=1, padding=0), # For removing the checkerboard artifacts
-                      norm_layer(int(ngf * mult / 2)),
-                      nn.ReLU(True)]
+                    nn.Upsample(scale_factor=2),
+                    nn.ReflectionPad2d(1),
+                    nn.Conv2d(ngf * mult, int(ngf * mult / 2), 3, stride=1, padding=0),
+                    norm_layer(int(ngf * mult / 2)),
+                    nn.ReLU(inplace=True),
+                ]
         model += [nn.ReflectionPad2d(3)]
         model += [nn.Conv2d(ngf, output_nc, kernel_size=7, padding=0)]
         model += [nn.Tanh()]
