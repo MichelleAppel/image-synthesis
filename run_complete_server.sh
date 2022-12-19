@@ -2,7 +2,7 @@
 
 img_size='448'
 
-cycleGANrun_name='fake2real_'$img_size
+cycleGANrun_name='dataset_'$img_size
 net_G_path='checkpoints/'$cycleGANrun_name'/latest_net_G_A.pth'
 
 project_name='image_synthesis'
