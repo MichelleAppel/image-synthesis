@@ -174,8 +174,9 @@ def train_net(net,
         if save_checkpoint:
             if not os.path.exists(dir_checkpoint):
                 os.makedirs(dir_checkpoint) # make it
-            torch.save(net.state_dict(), os.path.join(dir_checkpoint, 'checkpoint_epoch{}.pth'.format(epoch + 1)))
-            logging.info(f'Checkpoint {epoch + 1} saved!')
+            save_path = os.path.join(dir_checkpoint, 'checkpoint_epoch{}.pth'.format(epoch + 1))
+            torch.save(net.state_dict(), save_path)
+            logging.info(f'Checkpoint {epoch + 1} saved at {save_path}!')
 
 def test_net(net,
               device,
@@ -272,7 +273,7 @@ def get_args():
     parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
     parser.add_argument('--checkpoints_dir', type=str, default='.\checkpoints', help='models are saved here')
     parser.add_argument('--save_path', type=str, default='.\output', help='dir to save the images to')
-    parser.add_argument('--save_n_images', type=int, default=64, help='Number of images to save')
+    parser.add_argument('--save_n_images', type=int, default=100, help='Number of images to save')
     parser.add_argument('--data_root', type=str, help='data root')
     parser.add_argument('--net_G_path', type=str, help='cycleGAN net root')
 
