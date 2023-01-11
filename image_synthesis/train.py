@@ -301,7 +301,7 @@ if __name__ == '__main__':
         net.load_state_dict(torch.load(args.load, map_location=device))
         logging.info(f'Model loaded from {args.load}')
 
-    logging.info('Domain transfer', args.domain_transfer)
+    logging.info(f'Domain transfer {args.domain_transfer}')
 
     net.to(device=device)
     if args.mode == 'train':
