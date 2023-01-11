@@ -271,7 +271,7 @@ def get_args():
     parser.add_argument('--name', type=str, default='experiment_name', help='name of the experiment. It decides where to store samples and models')
     # parser.add_argument('--use_wandb', action='store_true', help='use wandb')
     parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
-    parser.add_argument('--checkpoints_dir', type=str, default='.\checkpoints', help='models are saved here')
+    parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
     parser.add_argument('--save_path', type=str, default='.\output', help='dir to save the images to')
     parser.add_argument('--save_n_images', type=int, default=100, help='Number of images to save')
     parser.add_argument('--data_root', type=str, help='data root')
