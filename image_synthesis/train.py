@@ -281,8 +281,7 @@ def get_args():
 
 if __name__ == '__main__':
     args = get_args()
-    print(args.checkpoints_dir, args.run_name)
-    dir_checkpoint = os.path.join(args.checkpoints_dir, args.run_name)
+    dir_checkpoint = os.path.join(args.checkpoints_dir, args.project_name, args.run_name)
 
     logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -302,7 +301,7 @@ if __name__ == '__main__':
         net.load_state_dict(torch.load(args.load, map_location=device))
         logging.info(f'Model loaded from {args.load}')
 
-    print('DT', args.domain_transfer)
+    logging.info('Domain transfer', args.domain_transfer)
 
     net.to(device=device)
     if args.mode == 'train':
