@@ -48,7 +48,7 @@ def train_net(net,
     val_loader = DataLoader(val_set, shuffle=False, drop_last=True, **loader_args)
 
     # (Initialize logging)
-    experiment = wandb.init(project=args.project_name, name=args.run_name, entity="michelleappel", id=args.run_name)
+    experiment = wandb.init(project=args.project_name, name=args.run_name, entity="michelleappel")
     experiment.config.update(dict(epochs=epochs, batch_size=batch_size, learning_rate=learning_rate,
                                   val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale,
                                   amp=amp))
