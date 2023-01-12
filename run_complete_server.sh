@@ -3,13 +3,13 @@
 img_size='448'
 
 cycleGANrun_name='dataset_'$img_size
-net_G_path='checkpoints/'$cycleGANrun_name'/15_net_G_A.pth'
+net_G_path='checkpoints/'$cycleGANrun_name'/20_net_G_A.pth'
 
 project_name='image_synthesis'
 
 run_name='dataset_'$img_size
 run_name_fake_noDT='dataset_'$img_size'_outlines_fake_noDT'
-run_name_fake='dataset_'$img_size'_outlines_fake_debug15'
+run_name_fake='dataset_'$img_size'_outlines_fake_debug20'
 run_name_real='dataset_'$img_size'_outlines_real'
 
 root='data/'$img_size
