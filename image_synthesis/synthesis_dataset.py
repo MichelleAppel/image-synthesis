@@ -115,7 +115,7 @@ class SynthesisDataset(Dataset):
             if mod == 'indexid' and self.id_grouping:
                 images_dict['class'] = self.image_to_class(images_dict['indexid'])
             if mod == 'img' and self.do_domain_transfer:
-                images_dict['img'] = self.domain_transfer(self.normalize((images_dict['img'])))      
+                images_dict['img'] = self.normalize(self.domain_transfer(self.normalize((images_dict['img']))))
 
         return images_dict
 
