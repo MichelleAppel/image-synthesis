@@ -3,7 +3,7 @@
 img_size='448'
 
 cycleGANrun_name='dataset_'$img_size
-net_G_path='checkpoints/'$cycleGANrun_name'/15_net_G_A.pth'
+net_G_path='checkpoints/'$cycleGANrun_name'/50_net_G_A.pth'
 
 project_name='image_synthesis'
 
