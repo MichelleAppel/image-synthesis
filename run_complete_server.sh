@@ -3,18 +3,18 @@
 img_size='448'
 
 cycleGANrun_name='dataset_'$img_size
-net_G_path='checkpoints/'$cycleGANrun_name'/30_net_G_A.pth'
+net_G_path='checkpoints/'$cycleGANrun_name'/20_net_G_A.pth'
 
 project_name='image_synthesis'
 
 run_name='dataset_'$img_size
 run_name_fake_noDT='dataset_'$img_size'_outlines_fake_noDT'
-run_name_fake='dataset_'$img_size'_outlines_fake_debug30'
+run_name_fake='dataset_'$img_size'_outlines_fake'
 run_name_real='dataset_'$img_size'_outlines_real'
 
 root='data/'$img_size
-# data_root_fake_train=$root'/fake_labeled100k'
-data_root_fake_train=$root'/labeled_fake_test'
+data_root_fake_train=$root'/fake_labeled100k'
+# data_root_fake_train=$root'/labeled_fake_test'
 data_root_real_train=$root'/labeled_real'
 data_root_fake_test=$root'/fake_labeled100k_test'
 data_root_real_test=$root'/labeled_real_test'
