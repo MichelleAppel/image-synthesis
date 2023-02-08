@@ -22,7 +22,7 @@ data_root_real_test=$root'/labeled_real_test'
 batch_size=4
 
 # Train cycleGAN
-python ./cyclegan/train.py --dataroot $root --use_wandb --name $run_name --batch_size 1 --load_size 448 --crop_size 448 --gpu_ids $1
+python ./cyclegan/train.py --dataroot $root --use_wandb --name $run_name --batch_size 1 --load_size 448 --crop_size 128 --gpu_ids $1
 
 # Edge detection on real dataset
 ### Train
