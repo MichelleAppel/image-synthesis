@@ -2,7 +2,7 @@
 
 img_size='448'
 
-cycleGANrun_name='dataset_'$img_size'resnet6'
+cycleGANrun_name='dataset_'$img_size'resnet9'
 net_G_path='checkpoints/'$cycleGANrun_name'/20_net_G_A.pth'
 
 project_name='image_synthesis'
