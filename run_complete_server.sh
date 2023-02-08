@@ -2,7 +2,7 @@
 
 img_size='448'
 
-cycleGANrun_name='dataset_'$img_size'_resnet_9blocks'
+cycleGANrun_name='dataset_'$img_size'_resnet_6blocks'
 net_G_path='checkpoints/'$cycleGANrun_name'/20_net_G_A.pth'
 
 project_name='image_synthesis'
@@ -22,7 +22,7 @@ data_root_real_test=$root'/labeled_real_test'
 batch_size=4
 
 # Train cycleGAN
-python ./cyclegan/train.py --dataroot $root --use_wandb --name $cycleGANrun_name --batch_size 1 --load_size 448 --crop_size 448 --gpu_ids $1 --netG resnet_9blocks
+python ./cyclegan/train.py --dataroot $root --use_wandb --name $cycleGANrun_name --batch_size 1 --load_size 448 --crop_size 448 --gpu_ids $1 --netG resnet_6blocks
 
 # Edge detection on real dataset
 ### Train
