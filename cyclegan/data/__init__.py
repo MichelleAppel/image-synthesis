@@ -13,7 +13,9 @@ See our template dataset class 'template_dataset.py' for more details.
 import importlib
 import torch.utils.data
 from data.base_dataset import BaseDataset
+from torch import manual_seed
 
+manual_seed(42)
 
 def find_dataset_using_name(dataset_name):
     """Import the module "data/[dataset_name]_dataset.py".
