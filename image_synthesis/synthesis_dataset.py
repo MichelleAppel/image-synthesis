@@ -53,13 +53,10 @@ class SynthesisDataset(Dataset):
 
         self.do_domain_transfer = do_domain_transfer
         if self.do_domain_transfer:
-            self.netG = networks.define_G(3, 3, 16, 'resnet_9blocks', 'instance',
-                                        False) #, 'normal', 0.02)
-
-            load_path = net_G_path
+            self.netG = networks.define_G(3, 3, 16, 'resnet_9blocks', 'instance', False)
 
             # device = torch.device('cuda:{}'.format(0))
-            state_dict = torch.load(load_path)#, map_location=str(device))
+            state_dict = torch.load(net_G_path)#, map_location=str(device))
 
             # for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
             #     self.__patch_instance_norm_state_dict(state_dict, self.netG_B, key.split('.'))
@@ -116,8 +113,8 @@ class SynthesisDataset(Dataset):
                 images_dict['class'] = self.image_to_class(images_dict['indexid'])
             if mod == 'img' and self.do_domain_transfer:
                 images_dict['img'] = self.domain_transfer(self.normalize((images_dict['img'])))
-            # if mod == 'img':
-            #     images_dict['img'] = self.normalize(images_dict['img'])
+            elif mod == 'img':
+                images_dict['img'] = self.normalize(images_dict['img'])
 
         return images_dict
 

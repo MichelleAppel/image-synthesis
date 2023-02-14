@@ -315,13 +315,11 @@ def cal_gradient_penalty(netD, real_data, fake_data, device, type='mixed', const
 
 class ResnetGenerator(nn.Module):
     """Resnet-based generator that consists of Resnet blocks between a few downsampling/upsampling operations.
-
     We adapt Torch code and idea from Justin Johnson's neural style transfer project(https://github.com/jcjohnson/fast-neural-style)
     """
 
     def __init__(self, input_nc, output_nc, ngf=64, norm_layer=nn.BatchNorm2d, use_dropout=False, n_blocks=6, padding_type='reflect'):
         """Construct a Resnet-based generator
-
         Parameters:
             input_nc (int)      -- the number of channels in input images
             output_nc (int)     -- the number of channels in output images
@@ -357,21 +355,12 @@ class ResnetGenerator(nn.Module):
 
         for i in range(n_downsampling):  # add upsampling layers
             mult = 2 ** (n_downsampling - i)
-            # model += [
-            #     nn.ConvTranspose2d(ngf * mult, int(ngf * mult / 2),
-            #                              kernel_size=3, stride=2,
-            #                              padding=1, output_padding=1,
-            #                              bias=use_bias),
-            #     norm_layer(int(ngf * mult / 2)),
-            #     nn.ReLU(True)]
-
-            model += [
-                    nn.Upsample(scale_factor=2),
-                    nn.ReflectionPad2d(1),
-                    nn.Conv2d(ngf * mult, int(ngf * mult / 2), 3, stride=1, padding=0),
-                    norm_layer(int(ngf * mult / 2)),
-                    nn.ReLU(inplace=True),
-                ]
+            model += [nn.ConvTranspose2d(ngf * mult, int(ngf * mult / 2),
+                                         kernel_size=3, stride=2,
+                                         padding=1, output_padding=1,
+                                         bias=use_bias),
+                      norm_layer(int(ngf * mult / 2)),
+                      nn.ReLU(True)]
         model += [nn.ReflectionPad2d(3)]
         model += [nn.Conv2d(ngf, output_nc, kernel_size=7, padding=0)]
         model += [nn.Tanh()]
@@ -388,7 +377,6 @@ class ResnetBlock(nn.Module):
 
     def __init__(self, dim, padding_type, norm_layer, use_dropout, use_bias):
         """Initialize the Resnet block
-
         A resnet block is a conv block with skip connections
         We construct a conv block with build_conv_block function,
         and implement skip connections in <forward> function.
@@ -399,14 +387,12 @@ class ResnetBlock(nn.Module):
 
     def build_conv_block(self, dim, padding_type, norm_layer, use_dropout, use_bias):
         """Construct a convolutional block.
-
         Parameters:
             dim (int)           -- the number of channels in the conv layer.
             padding_type (str)  -- the name of padding layer: reflect | replicate | zero
             norm_layer          -- normalization layer
             use_dropout (bool)  -- if use dropout layers.
             use_bias (bool)     -- if the conv layer uses bias or not
-
         Returns a conv block (with a conv layer, a normalization layer, and a non-linearity layer (ReLU))
         """
         conv_block = []
