@@ -19,7 +19,7 @@ data_root_real_train=$root'/labeled_real'
 data_root_fake_test=$root'/fake_labeled100k_test'
 data_root_real_test=$root'/labeled_real_test'
 
-batch_size=4
+batch_size=2
 
 ## Train cycleGAN
 # python ./cyclegan/train.py --dataroot $root --use_wandb --name $cycleGANrun_name --batch_size 1 --load_size 448 --crop_size 256 --gpu_ids $1 --netG unet_256
