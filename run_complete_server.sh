@@ -21,10 +21,10 @@ data_root_real_test=$root'/labeled_real_test'
 
 batch_size=4
 
-# Train cycleGAN
+## Train cycleGAN
 # python ./cyclegan/train.py --dataroot $root --use_wandb --name $cycleGANrun_name --batch_size 1 --load_size 448 --crop_size 256 --gpu_ids $1 --netG unet_256
 
-Edge detection on real dataset
+## Edge detection on real dataset
 ## Train
 python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_real_train --gpu $1 --epochs 25 --learning_rate 0.0001
 
@@ -36,7 +36,7 @@ python ./image_synthesis/train.py --project_name $project_name --run_name $run_n
 python ./image_synthesis/test.py  --project_name $project_name --run_name $run_name_real --n_images 100 --root $data_root_fake_test
 
 
-# Edge detection on fake dataset w/o domain transfer
+## Edge detection on fake dataset w/o domain transfer
 ### Train
 # python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake_noDT --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_fake_train --gpu $1
 
@@ -49,8 +49,7 @@ python ./image_synthesis/test.py  --project_name $project_name --run_name $run_n
 
 
 
-
-# Edge detection on fake dataset with domain transfer
+## Edge detection on fake dataset with domain transfer
 ### Train
 # python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_fake_train --gpu $1 --domain_transfer False --net_G_path $net_G_path
 
