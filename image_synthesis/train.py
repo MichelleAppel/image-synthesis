@@ -277,6 +277,8 @@ def get_args():
     parser.add_argument('--data_root', type=str, help='data root')
     parser.add_argument('--net_G_path', type=str, help='cycleGAN net root')
 
+    
+
     return parser.parse_args()
 
 
