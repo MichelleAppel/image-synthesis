@@ -50,11 +50,11 @@ batch_size=2
 
 # # Edge detection on fake dataset with domain transfer
 # ## Train
-# python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_fake_train --gpu $1 --domain_transfer False --net_G_path $net_G_path
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_fake_train --gpu $1 --domain_transfer False --net_G_path $net_G_path --load ./checkpoints/$project_name/$run_name_fake/checkpoint_epoch2.pth
 
 # ## Test
-python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_fake_test --load ./checkpoints/$project_name/$run_name_fake/checkpoint_epoch2.pth --save_path ./output/$project_name/$run_name_fake/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
-python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_real_test --load ./checkpoints/$project_name/$run_name_fake/checkpoint_epoch2.pth --save_path ./output/$project_name/$run_name_fake/real/ --gpu $1 
+# python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_fake_test --load ./checkpoints/$project_name/$run_name_fake/checkpoint_epoch2.pth --save_path ./output/$project_name/$run_name_fake/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
+# python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_fake --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_real_test --load ./checkpoints/$project_name/$run_name_fake/checkpoint_epoch2.pth --save_path ./output/$project_name/$run_name_fake/real/ --gpu $1 
 
 # ## Evaluation
 # python ./image_synthesis/test.py  --project_name $project_name --run_name $run_name_fake --n_images 100 --root $data_root_fake_test
