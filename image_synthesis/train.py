@@ -26,7 +26,7 @@ torch.cuda.manual_seed(42)
 
 def train_net(net,
               device,
-              epochs: int = 5,
+              steps: int = 40000,
               batch_size: int = 1,
               learning_rate: float = 0.001,
               val_percent: float = 0.1,
@@ -34,13 +34,15 @@ def train_net(net,
               img_scale: float = 1.0,
               amp: bool = False):
     # 1. Create dataset
-    dataset = SynthesisDataset(args.data_root, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path)
-    dataset.modalities = ['img', args.modality]
+    train_set = SynthesisDataset(args.data_root, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path)
+    train_set.modalities = ['img', args.modality]
+
+    val_set = SynthesisDataset(args.data_root_val, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path)
+    val_set.modalities = ['img', args.modality]
 
     # 2. Split into train / validation partitions
-    n_val = int(len(dataset) * val_percent)
-    n_train = len(dataset) - n_val
-    train_set, val_set = random_split(dataset, [n_train, n_val], generator=torch.Generator().manual_seed(0))
+    n_train = len(train_set)
+    n_val = len(val_set)
 
     # 3. Create data loaders
     loader_args = dict(batch_size=batch_size, num_workers=4, pin_memory=True)
@@ -48,12 +50,16 @@ def train_net(net,
     val_loader = DataLoader(val_set, shuffle=False, drop_last=True, **loader_args)
 
     # (Initialize logging)
+    
     experiment = wandb.init(project=args.project_name, name=args.run_name, entity="michelleappel")
-    experiment.config.update(dict(epochs=epochs, batch_size=batch_size, learning_rate=learning_rate,
+    experiment.config.update(dict(steps=steps, batch_size=batch_size, learning_rate=learning_rate,
                                   val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale,
                                   amp=amp))
 
+    epochs = steps//n_train+1
+
     logging.info(f'''Starting training:
+        Steps:           {steps}
         Epochs:          {epochs}
         Batch size:      {batch_size}
         Learning rate:   {learning_rate}
@@ -127,7 +133,7 @@ def train_net(net,
                 pbar.set_postfix(**{'loss (batch)': loss.item()})
 
                 # Evaluation round
-                division_step = (n_train // (10 * batch_size))
+                division_step = 500 # (n_train // (10 * batch_size))
                 if division_step > 0:
                     if global_step % division_step == 0:
                         histograms = {}
@@ -144,8 +150,8 @@ def train_net(net,
                         scheduler.step(val_score)
 
                         if args.modality == 'class':
-                            true = dataset.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
-                            pred = dataset.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
+                            true = train_set.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
+                            pred = train_set.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
                             conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
                         elif args.modality == 'normals' or args.modality == 'depth':
                             true = true_masks[0].float().cpu()
@@ -253,7 +259,8 @@ def get_args():
     parser.add_argument('--mode', '-m', type=str, default='train', help='test or train')
     parser.add_argument('--domain_transfer', '-d', type=bool, default=False, help='domain transfer from fake to real')
 
-    parser.add_argument('--epochs', '-e', metavar='E', type=int, default=5, help='Number of epochs')
+    parser.add_argument('--epochs', '-e', metavar='E', type=int, default=1000, help='Number of epochs')
+    parser.add_argument('--steps', '-e', metavar='E', type=int, default=40000, help='Number of steps')
     parser.add_argument('--batch_size', '-b', dest='batch_size', metavar='B', type=int, default=1, help='Batch size')
     parser.add_argument('--learning_rate', '-l', metavar='LR', type=float, default=0.00001,
                         help='Learning rate', dest='lr')
@@ -275,9 +282,8 @@ def get_args():
     parser.add_argument('--save_path', type=str, default='.\output', help='dir to save the images to')
     parser.add_argument('--save_n_images', type=int, default=100, help='Number of images to save')
     parser.add_argument('--data_root', type=str, help='data root')
+    parser.add_argument('--data_root_val', type=str, help='data root')
     parser.add_argument('--net_G_path', type=str, help='cycleGAN net root')
-
-    
 
     return parser.parse_args()
 
@@ -310,7 +316,7 @@ if __name__ == '__main__':
     if args.mode == 'train':
         try:
             train_net(net=net,
-                    epochs=args.epochs,
+                    steps=args.steps,
                     batch_size=args.batch_size,
                     learning_rate=args.lr,
                     device=device,
