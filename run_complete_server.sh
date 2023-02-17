@@ -7,9 +7,9 @@ net_G_path='checkpoints/'$cycleGANrun_name'/40_net_G_A.pth'
 
 project_name='image_synthesis'
 
-run_name='dataset_'$img_size'_no_normalization'
+run_name='dataset_'$img_size
 run_name_fake_noDT=$run_name'_outlines_fake_noDT'
-run_name_fake=$run_name'_outlines_fake'
+run_name_fake=$run_name'_outlines_fake_nonorm'
 run_name_real=$run_name'_outlines_real'
 
 root='data/'$img_size
