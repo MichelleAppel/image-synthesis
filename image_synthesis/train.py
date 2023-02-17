@@ -260,7 +260,7 @@ def get_args():
     parser.add_argument('--domain_transfer', '-d', type=bool, default=False, help='domain transfer from fake to real')
 
     parser.add_argument('--epochs', '-e', metavar='E', type=int, default=1000, help='Number of epochs')
-    parser.add_argument('--steps', '-e', metavar='E', type=int, default=40000, help='Number of steps')
+    parser.add_argument('--steps', metavar='E', type=int, default=40000, help='Number of steps')
     parser.add_argument('--batch_size', '-b', dest='batch_size', metavar='B', type=int, default=1, help='Batch size')
     parser.add_argument('--learning_rate', '-l', metavar='LR', type=float, default=0.00001,
                         help='Learning rate', dest='lr')
