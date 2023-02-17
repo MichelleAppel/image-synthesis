@@ -24,16 +24,16 @@ batch_size=2
 ## Train cycleGAN
 # python ./cyclegan/train.py --dataroot $root --use_wandb --name $cycleGANrun_name --batch_size 1 --load_size 448 --crop_size 256 --gpu_ids $1 --netG unet_256
 
-# ## Edge detection on real dataset
-# ## Train
-# python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_real_train --gpu $1 --epochs 25 --learning_rate 0.0001
+## Edge detection on real dataset
+## Train
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_real_train --gpu $1 --epochs 25 --learning_rate 0.0001
 
-# ### Test
-# python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_fake_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_epoch7.pth --save_path ./output/$project_name/$run_name_real/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
-# python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_real_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_epoch7.pth --save_path ./output/$project_name/$run_name_real/real/ --gpu $1
+### Test
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_fake_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_epoch7.pth --save_path ./output/$project_name/$run_name_real/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_real_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_epoch7.pth --save_path ./output/$project_name/$run_name_real/real/ --gpu $1
 
-# ## Evaluation
-# python ./image_synthesis/test.py  --project_name $project_name --run_name $run_name_real --n_images 100 --root $data_root_fake_test
+## Evaluation
+python ./image_synthesis/test.py  --project_name $project_name --run_name $run_name_real --n_images 100 --root $data_root_fake_test
 
 
 # Edge detection on fake dataset w/o domain transfer
