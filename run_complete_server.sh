@@ -21,7 +21,7 @@ data_root_real_test=$root'/labeled_real_test'
 data_root_val=$root'/labeled_real_val'
 
 batch_size=4
-steps=4000
+steps=40000
 
 ## Train cycleGAN
 # python ./cyclegan/train.py --dataroot $root --use_wandb --name $cycleGANrun_name --batch_size 1 --load_size 448 --crop_size 256 --gpu_ids $1 --netG unet_256
