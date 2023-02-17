@@ -18,7 +18,7 @@ data_root_fake_train=$root'/fake_labeled100k'
 data_root_real_train=$root'/labeled_real'
 data_root_fake_test=$root'/fake_labeled100k_test'
 data_root_real_test=$root'/labeled_real_test'
-data_root_val = $root'/labeled_real_val'
+data_root_val =$root'/labeled_real_val'
 
 batch_size=4
 steps=4000
