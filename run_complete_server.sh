@@ -20,7 +20,7 @@ data_root_fake_test=$root'/fake_labeled100k_test'
 data_root_real_test=$root'/labeled_real_test'
 data_root_val=$root'/labeled_real_val'
 
-batch_size=4
+batch_size=2
 steps=40000
 
 ## Train cycleGAN
