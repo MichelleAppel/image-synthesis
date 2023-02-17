@@ -56,7 +56,7 @@ def train_net(net,
                                   val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale,
                                   amp=amp))
 
-    epochs = steps//n_train+1
+    epochs = (steps*batch_size)//n_train+1
 
     logging.info(f'''Starting training:
         Steps:           {steps}
