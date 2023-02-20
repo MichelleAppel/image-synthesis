@@ -143,12 +143,12 @@ def train_net(net,
                             histograms['Weights/' + tag] = wandb.Histogram(value.data.cpu())
                             histograms['Gradients/' + tag] = wandb.Histogram(value.grad.data.cpu())
 
-                        val_score = evaluate(net, val_loader, device, args.modality)
+                        # val_score = evaluate(net, val_loader, device, args.modality)
 
-                        if args.regression:
-                            val_score = 1-val_score
+                        # if args.regression:
+                        #     val_score = 1-val_score
 
-                        scheduler.step(val_score)
+                        scheduler.step(epoch_loss)
 
                         if args.modality == 'class':
                             true = train_set.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
@@ -233,18 +233,18 @@ def test_net(net,
         with torch.cuda.amp.autocast(enabled=amp):
             masks_pred = net(images).detach()
                 
-            if args.modality == 'class':
-                true = dataset.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
-                pred = dataset.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
-                conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
-            elif args.modality == 'normals' or args.modality == 'depth':
-                true = true_masks[0].float().cpu()
-                pred = masks_pred[0].float().cpu()
-                conf = masks_pred[0].float().cpu()
-            else:
-                true = true_masks[0].float().cpu()
-                pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
-                conf = 1-torch.softmax(masks_pred, dim=1)[0][0].float().cpu()
+            # if args.modality == 'class':
+            #     true = dataset.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
+            #     pred = dataset.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
+            #     conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
+            # elif args.modality == 'normals' or args.modality == 'depth':
+            #     true = true_masks[0].float().cpu()
+            #     pred = masks_pred[0].float().cpu()
+            #     conf = masks_pred[0].float().cpu()
+            # else:
+            #     true = true_masks[0].float().cpu()
+            #     pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
+            #     conf = 1-torch.softmax(masks_pred, dim=1)[0][0].float().cpu()
 
         for i in range(len(images)):
             count += 1
