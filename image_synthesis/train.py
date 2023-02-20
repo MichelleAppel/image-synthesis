@@ -134,8 +134,8 @@ def train_net(net,
                 pbar.set_postfix(**{'loss (batch)': loss.item()})
 
                 # Evaluation round
-                print(global_step)
-                division_step = 50
+                print(global_step, global_step % division_step)
+                division_step = 10
                 if division_step > 0:
                     if global_step % division_step == 0:
                         histograms = {}
@@ -144,12 +144,12 @@ def train_net(net,
                             histograms['Weights/' + tag] = wandb.Histogram(value.data.cpu())
                             histograms['Gradients/' + tag] = wandb.Histogram(value.grad.data.cpu())
 
-                        val_score = evaluate(net, val_loader, device, args.modality)
+                        # val_score = evaluate(net, val_loader, device, args.modality)
 
-                        if args.regression:
-                            val_score = 1-val_score
+                        # if args.regression:
+                        #     val_score = 1-val_score
 
-                        scheduler.step(val_score)
+                        # scheduler.step(val_score)
 
                         if args.modality == 'class':
                             true = train_set.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
@@ -164,10 +164,10 @@ def train_net(net,
                             pred = torch.softmax(masks_pred[0], dim=0)[1].float().cpu()
                             conf = torch.softmax(masks_pred[0], dim=0)[1].float().cpu()
 
-                        logging.info('Validation Dice score: {}'.format(val_score))
+                        # logging.info('Validation Dice score: {}'.format(val_score))
                         experiment.log({
                             'learning rate': optimizer.param_groups[0]['lr'],
-                            'validation Dice': val_score,
+                            # 'validation Dice': val_score,
                             'images': wandb.Image(images[0].cpu()),
                             'masks': {
                                 'true': wandb.Image(true),
