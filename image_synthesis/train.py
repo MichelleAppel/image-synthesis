@@ -73,8 +73,8 @@ def train_net(net,
     ''')
 
     # 4. Set up the optimizer, the loss, the learning rate scheduler and the loss scaling for AMP
-    # optimizer = optim.RMSprop(net.parameters(), lr=learning_rate, weight_decay=1e-8, momentum=0.9)
-    optimizer = optim.SGD(net.parameters(), lr=learning_rate, momentum=0.9, weight_decay=2e-4)
+    optimizer = optim.RMSprop(net.parameters(), lr=learning_rate, weight_decay=2e-4, momentum=0.9)
+    # optimizer = optim.SGD(net.parameters(), lr=learning_rate, momentum=0.9, weight_decay=2e-4)
     # optimizer = optim.Adam(net.parameters(), lr=learning_rate, weight_decay=1e-8)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'max', patience=10)  # goal: maximize Dice score
     grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
@@ -134,7 +134,7 @@ def train_net(net,
                 pbar.set_postfix(**{'loss (batch)': loss.item()})
 
                 # Evaluation round
-                division_step = (25 * batch_size)
+                division_step = 500
                 if division_step > 0:
                     if global_step % division_step == 0:
                         histograms = {}
