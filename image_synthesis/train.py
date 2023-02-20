@@ -56,7 +56,7 @@ def train_net(net,
                                   val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale,
                                   amp=amp))
 
-    epochs = (steps*batch_size)//n_train+1
+    epochs = (2*steps*batch_size)//n_train+1
 
     logging.info(f'''Starting training:
         Steps:           {steps}
@@ -74,7 +74,8 @@ def train_net(net,
 
     # 4. Set up the optimizer, the loss, the learning rate scheduler and the loss scaling for AMP
     # optimizer = optim.RMSprop(net.parameters(), lr=learning_rate, weight_decay=1e-8, momentum=0.9)
-    optimizer = optim.Adam(net.parameters(), lr=learning_rate, weight_decay=1e-8)
+    optimizer = optim.SGD(net.parameters(), lr=learning_rate, momentum=0.9, weight_decay=2e-4)
+    # optimizer = optim.Adam(net.parameters(), lr=learning_rate, weight_decay=1e-8)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'max', patience=10)  # goal: maximize Dice score
     grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
     global_step = 0
@@ -261,7 +262,7 @@ def get_args():
 
     parser.add_argument('--epochs', '-e', metavar='E', type=int, default=1000, help='Number of epochs')
     parser.add_argument('--steps', metavar='E', type=int, default=40000, help='Number of steps')
-    parser.add_argument('--batch_size', '-b', dest='batch_size', metavar='B', type=int, default=1, help='Batch size')
+    parser.add_argument('--batch_size', '-b', dest='batch_size', metavar='B', type=int, default=10, help='Batch size')
     parser.add_argument('--learning_rate', '-l', metavar='LR', type=float, default=0.00001,
                         help='Learning rate', dest='lr')
     parser.add_argument('--load', '-f', type=str, default=False, help='Load model from a .pth file')
