@@ -135,7 +135,6 @@ def train_net(net,
 
                 # Evaluation round
                 division_step = 50
-                # print(global_step, global_step % division_step)
                 if division_step > 0:
                     if global_step % division_step == 0:
                         histograms = {}
@@ -144,12 +143,12 @@ def train_net(net,
                             histograms['Weights/' + tag] = wandb.Histogram(value.data.cpu())
                             histograms['Gradients/' + tag] = wandb.Histogram(value.grad.data.cpu())
 
-                        # val_score = evaluate(net, val_loader, device, args.modality)
+                        val_score = evaluate(net, val_loader, device, args.modality)
 
-                        # if args.regression:
-                        #     val_score = 1-val_score
+                        if args.regression:
+                            val_score = 1-val_score
 
-                        # scheduler.step(val_score)
+                        scheduler.step(val_score)
 
                         if args.modality == 'class':
                             true = train_set.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
