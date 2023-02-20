@@ -135,7 +135,7 @@ def train_net(net,
 
                 # Evaluation round
                 division_step = 50
-                print(global_step, global_step % division_step)
+                # print(global_step, global_step % division_step)
                 if division_step > 0:
                     if global_step % division_step == 0:
                         histograms = {}
