@@ -106,7 +106,7 @@ class SynthesisDataset(Dataset):
         if torch.is_tensor(idx):
             idx = idx.tolist()
         
-            images_dict = {}
+        images_dict = {}
 
         key = self.keys[idx]
 
