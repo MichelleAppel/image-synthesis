@@ -111,8 +111,8 @@ class SynthesisDataset(Dataset):
         key = self.keys[idx]
 
         h, w = (self.random_crop, self.random_crop)
-        crop_i = random.randint(0, images_dict['img'].shape[1] - h)
-        crop_j = random.randint(0, images_dict['img'].shape[2] - w)
+        crop_i = None
+        crop_j = None
 
         for mod in self.modalities:
             file = self.open_file(os.path.join(self.root_dir, self.dictionary[key][mod]))
