@@ -122,8 +122,8 @@ class SynthesisDataset(Dataset):
 
             if self.random_crop:
                 if crop_i == None:
-                    crop_i = random.randint(0, file.size[1] - h)
-                    crop_j = random.randint(0, file.size[0] - w)
+                    crop_i = random.randint(0, max(0, file.size[1] - h))
+                    crop_j = random.randint(0, max(0, file.size[0] - w))
                 file = F.crop(file, crop_i, crop_j, h, w)
             
             images_dict[mod] = self.toTensor(file)
