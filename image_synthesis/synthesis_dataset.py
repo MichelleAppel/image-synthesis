@@ -109,10 +109,12 @@ class SynthesisDataset(Dataset):
             if mod == 'class':
                 mod = 'indexid'
             file = self.open_file(os.path.join(self.root_dir, self.dictionary[key][mod]))
+            print(file.shape)
             if self.scale != 1.0:
                 file = self.preprocess(file, scale=self.scale, is_mask=mod!='img')
             if self.random_crop:
                 file = self.crop(file)
+                print(file.shape)
             images_dict[mod] = self.toTensor(file)
             if mod == 'indexid' and self.id_grouping:
                 images_dict['class'] = self.image_to_class(images_dict['indexid'])
