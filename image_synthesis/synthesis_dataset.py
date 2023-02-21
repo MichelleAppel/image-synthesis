@@ -101,11 +101,10 @@ class SynthesisDataset(Dataset):
     def __getitem__(self, idx):      
         if torch.is_tensor(idx):
             idx = idx.tolist()
+        
+            images_dict = {}
 
-        if self.random_crop:
-            i, j, h, w = transforms.RandomCrop.get_params(file, output_size=(self.random_crop, self.random_crop))
-            file = transforms.functional.crop(file, i, j, h, w)
-        images_dict = {}
+        i, j, h, w = (None, None, None, None)
 
         key = self.keys[idx]
         for mod in self.modalities:
@@ -115,6 +114,8 @@ class SynthesisDataset(Dataset):
             if self.scale != 1.0:
                 file = self.preprocess(file, scale=self.scale, is_mask=mod!='img')
             if self.random_crop:
+                if not i:
+                    i, j, h, w = self.crop.get_params(file, output_size=(self.random_crop, self.random_crop))
                 file = transforms.functional.crop(file, i, j, h, w)
             images_dict[mod] = self.toTensor(file)
             if mod == 'indexid' and self.id_grouping:
