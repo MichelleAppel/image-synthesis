@@ -174,7 +174,7 @@ def train_net(net,
                             **histograms
                         })
 
-                division_step = 200
+                division_step = 5000
                 if save_checkpoint and global_step % division_step == 0:
                     if not os.path.exists(dir_checkpoint):
                         os.makedirs(dir_checkpoint) # make it
