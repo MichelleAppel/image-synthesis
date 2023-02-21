@@ -10,6 +10,7 @@ from torch.utils.data import Dataset
 
 from torchvision import transforms
 from torchvision.utils import make_grid
+import torchvision.transforms.functional as F
 
 from models import networks
 
@@ -19,6 +20,9 @@ import numpy as np
 
 from colorhash import ColorHash
 
+import random
+
+random.seed(42)
 torch.manual_seed(42)
 
 class SynthesisDataset(Dataset):
@@ -104,22 +108,26 @@ class SynthesisDataset(Dataset):
         
             images_dict = {}
 
-        i, j, h, w = (None, None, None, None)
-
         key = self.keys[idx]
+
+        h, w = self.random_crop
+        crop_i = random.randint(0, images_dict['img'].shape[1] - h)
+        crop_j = random.randint(0, images_dict['img'].shape[2] - w)
+
         for mod in self.modalities:
-            if mod == 'class':
-                mod = 'indexid'
             file = self.open_file(os.path.join(self.root_dir, self.dictionary[key][mod]))
+
             if self.scale != 1.0:
                 file = self.preprocess(file, scale=self.scale, is_mask=mod!='img')
+
             if self.random_crop:
-                if not i:
-                    i, j, h, w = self.crop.get_params(file, output_size=(self.random_crop, self.random_crop))
-                file = transforms.functional.crop(file, i, j, h, w)
+                if not crop_i or not crop_j:
+                    crop_i = random.randint(0, images_dict['img'].shape[1] - h)
+                    crop_j = random.randint(0, images_dict['img'].shape[2] - w)
+                file = F.crop(file, crop_i, crop_j, h, w)
+            
             images_dict[mod] = self.toTensor(file)
-            if mod == 'indexid' and self.id_grouping:
-                images_dict['class'] = self.image_to_class(images_dict['indexid'])
+
             if mod == 'img' and self.do_domain_transfer:
                 images_dict['img'] = self.domain_transfer(self.normalize((images_dict['img'])))
             # elif mod == 'img':
