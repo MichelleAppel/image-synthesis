@@ -114,7 +114,6 @@ class SynthesisDataset(Dataset):
             if self.random_crop:
                 file = self.crop(file)
             images_dict[mod] = self.toTensor(file)
-            print(images_dict[mod].shape)
             if mod == 'indexid' and self.id_grouping:
                 images_dict['class'] = self.image_to_class(images_dict['indexid'])
             if mod == 'img' and self.do_domain_transfer:
