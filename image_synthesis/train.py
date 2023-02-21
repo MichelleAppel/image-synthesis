@@ -32,7 +32,7 @@ def train_net(net,
               img_scale: float = 1.0,
               amp: bool = False):
     # 1. Create dataset
-    train_set = SynthesisDataset(args.data_root, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path)
+    train_set = SynthesisDataset(args.data_root, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path, random_crop=args.crop)
     train_set.modalities = ['img', args.modality]
 
     val_set = SynthesisDataset(args.data_root_val, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path)
@@ -251,6 +251,7 @@ def get_args():
                         help='Learning rate', dest='lr')
     parser.add_argument('--load', '-f', type=str, default=False, help='Load model from a .pth file')
     parser.add_argument('--scale', '-s', type=float, default=1.0, help='Downscaling factor of the images')
+    parser.add_argument('--crop', '-s', type=float, default=None, help='Crop images to this shape')
     parser.add_argument('--validation', '-v', dest='val', type=float, default=10.0,
                         help='Percent of the data that is used as validation (0-100)')
     parser.add_argument('--amp', action='store_true', default=False, help='Use mixed precision')

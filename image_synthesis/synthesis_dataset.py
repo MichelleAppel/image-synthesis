@@ -25,13 +25,14 @@ class SynthesisDataset(Dataset):
     """The dataset for the ArchVizPro data
 
     """
-    def __init__(self, root_dir, scale=1.0, extension='.png', id_grouping=False, do_domain_transfer=True, net_G_path=None):
+    def __init__(self, root_dir, scale=1.0, extension='.png', id_grouping=False, do_domain_transfer=True, net_G_path=None, random_crop=None):
 
         # file locations
         self.root_dir = root_dir # file path of the image dataset
         
         assert 0 < scale <= 1, 'Scale must be between 0 and 1'
         self.scale = scale
+        self.random_crop=random_crop
 
         self.extension = extension
         self.file_list = os.listdir(self.root_dir) # gets all files in the directory
@@ -69,6 +70,8 @@ class SynthesisDataset(Dataset):
         self.toTensor = transforms.ToTensor() # from PIL image to Tensor
         self.toPilImage = transforms.ToPILImage() # Tensor to Pil Image
         self.normalize = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+        if random_crop:
+            self.crop = transforms.RandomCrop(random_crop)
 
     def get_modalities(self):
         first_char = self.file_list[0][0]
@@ -108,6 +111,8 @@ class SynthesisDataset(Dataset):
             file = self.open_file(os.path.join(self.root_dir, self.dictionary[key][mod]))
             if self.scale != 1.0:
                 file = self.preprocess(file, scale=self.scale, is_mask=mod!='img')
+            if self.random_crop:
+                file = self.crop(file)
             images_dict[mod] = self.toTensor(file)
             if mod == 'indexid' and self.id_grouping:
                 images_dict['class'] = self.image_to_class(images_dict['indexid'])
