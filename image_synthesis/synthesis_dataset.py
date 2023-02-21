@@ -122,6 +122,7 @@ class SynthesisDataset(Dataset):
 
             if self.random_crop:
                 if not crop_i or not crop_j:
+                    print('got here', crop_i, crop_j)
                     crop_i = random.randint(0, file.size[1] - h)
                     crop_j = random.randint(0, file.size[0] - w)
                 file = F.crop(file, crop_i, crop_j, h, w)
