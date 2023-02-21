@@ -110,7 +110,7 @@ class SynthesisDataset(Dataset):
 
         key = self.keys[idx]
 
-        h, w = self.random_crop
+        h, w = (self.random_crop, self.random_crop)
         crop_i = random.randint(0, images_dict['img'].shape[1] - h)
         crop_j = random.randint(0, images_dict['img'].shape[2] - w)
 
