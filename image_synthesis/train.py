@@ -7,17 +7,15 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torchmetrics
+
 import wandb
-from sklearn.metrics import (accuracy_score, confusion_matrix, f1_score,
-                             precision_recall_curve, roc_auc_score)
+
 from torch import optim
 from torch.utils.data import DataLoader, random_split
 from torchvision.utils import save_image
 from tqdm import tqdm
 
 from dice_score import dice_loss
-from evaluate import evaluate
 from synthesis_dataset import SynthesisDataset
 from unet import UNet
 
@@ -27,8 +25,8 @@ torch.cuda.manual_seed(42)
 def train_net(net,
               device,
               steps: int = 40000,
-              batch_size: int = 1,
-              learning_rate: float = 0.001,
+              batch_size: int = 10,
+              learning_rate: float = 0.000001,
               val_percent: float = 0.1,
               save_checkpoint: bool = True,
               img_scale: float = 1.0,
@@ -76,7 +74,7 @@ def train_net(net,
     optimizer = optim.RMSprop(net.parameters(), lr=learning_rate, weight_decay=2e-4, momentum=0.9)
     # optimizer = optim.SGD(net.parameters(), lr=learning_rate, momentum=0.9, weight_decay=2e-4)
     # optimizer = optim.Adam(net.parameters(), lr=learning_rate, weight_decay=1e-8)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=10000)  # goal: maximize Dice score
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=200)  # goal: maximize Dice score
     grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
     global_step = 0
 
@@ -136,7 +134,7 @@ def train_net(net,
                 # Evaluation round
                 division_step = 50
                 if division_step > 0:
-                    if global_step % division_step == 0:
+                    if global_step % division_step == 0 or global_step == 1:
                         histograms = {}
                         for tag, value in net.named_parameters():
                             tag = tag.replace('/', '.')
@@ -173,17 +171,16 @@ def train_net(net,
                                 'pred': wandb.Image(pred),
                                 'conf': wandb.Image(conf)
                             },
-                            'step': global_step,
-                            'epoch': epoch,
                             **histograms
                         })
 
-        if save_checkpoint:
-            if not os.path.exists(dir_checkpoint):
-                os.makedirs(dir_checkpoint) # make it
-            save_path = os.path.join(dir_checkpoint, 'checkpoint_epoch{}.pth'.format(epoch + 1))
-            torch.save(net.state_dict(), save_path)
-            logging.info(f'Checkpoint {epoch + 1} saved at {save_path}!')
+                division_step = 200
+                if save_checkpoint and global_step % division_step:
+                    if not os.path.exists(dir_checkpoint):
+                        os.makedirs(dir_checkpoint) # make it
+                    save_path = os.path.join(dir_checkpoint, 'checkpoint_step{}.pth'.format(global_step))
+                    torch.save(net.state_dict(), save_path)
+                    logging.info(f'Checkpoint {global_step} saved at {save_path}!')
 
 def test_net(net,
               device,
@@ -232,19 +229,6 @@ def test_net(net,
 
         with torch.cuda.amp.autocast(enabled=amp):
             masks_pred = net(images).detach()
-                
-            # if args.modality == 'class':
-            #     true = dataset.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
-            #     pred = dataset.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
-            #     conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
-            # elif args.modality == 'normals' or args.modality == 'depth':
-            #     true = true_masks[0].float().cpu()
-            #     pred = masks_pred[0].float().cpu()
-            #     conf = masks_pred[0].float().cpu()
-            # else:
-            #     true = true_masks[0].float().cpu()
-            #     pred = torch.softmax(masks_pred, dim=1).argmax(dim=1)[0].float().cpu()
-            #     conf = 1-torch.softmax(masks_pred, dim=1)[0][0].float().cpu()
 
         for i in range(len(images)):
             count += 1
