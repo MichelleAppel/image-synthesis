@@ -28,7 +28,6 @@ steps=40000
 
 ## Edge detection on real dataset
 # ## Train
-echo 'gpu?'$1
 python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_real_train --gpu $1 --steps $steps
 
 # ### Test

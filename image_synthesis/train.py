@@ -278,8 +278,8 @@ if __name__ == '__main__':
     dir_checkpoint = os.path.join(args.checkpoints_dir, args.project_name, args.run_name)
 
     logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
-    
-    device = torch.device(args.gpu_ids)
+
+    device = torch.device(int(args.gpu_ids))
     logging.info(f'Using device {device}')
 
     # Change here to adapt to your data
