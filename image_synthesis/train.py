@@ -175,7 +175,7 @@ def train_net(net,
                         })
 
                 division_step = 200
-                if save_checkpoint and global_step % division_step:
+                if save_checkpoint and global_step % division_step == 0:
                     if not os.path.exists(dir_checkpoint):
                         os.makedirs(dir_checkpoint) # make it
                     save_path = os.path.join(dir_checkpoint, 'checkpoint_step{}.pth'.format(global_step))
