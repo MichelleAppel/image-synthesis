@@ -122,8 +122,8 @@ class SynthesisDataset(Dataset):
 
             if self.random_crop:
                 if not crop_i or not crop_j:
-                    crop_i = random.randint(0, images_dict['img'].shape[1] - h)
-                    crop_j = random.randint(0, images_dict['img'].shape[2] - w)
+                    crop_i = random.randint(0, file.shape[1] - h)
+                    crop_j = random.randint(0, file.shape[2] - w)
                 file = F.crop(file, crop_i, crop_j, h, w)
             
             images_dict[mod] = self.toTensor(file)
