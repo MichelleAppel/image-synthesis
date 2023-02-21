@@ -121,7 +121,7 @@ class SynthesisDataset(Dataset):
                 file = self.preprocess(file, scale=self.scale, is_mask=mod!='img')
 
             if self.random_crop:
-                if not crop_i or not crop_j:
+                if crop_i == None:
                     print('got here', crop_i, crop_j)
                     crop_i = random.randint(0, file.size[1] - h)
                     crop_j = random.randint(0, file.size[0] - w)
