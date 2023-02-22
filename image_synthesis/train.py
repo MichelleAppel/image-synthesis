@@ -35,7 +35,7 @@ def train_net(net,
     train_set = SynthesisDataset(args.data_root, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path, random_crop=args.crop)
     train_set.modalities = ['img', args.modality]
 
-    val_set = SynthesisDataset(args.data_root_val, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path)
+    val_set = SynthesisDataset(args.data_root_val, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path, random_crop=args.crop)
     val_set.modalities = ['img', args.modality]
 
     # 2. Split into train / validation partitions
@@ -201,7 +201,7 @@ def test_net(net,
     else:
         type = torch.long
 
-    dataset = SynthesisDataset(args.data_root, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path)
+    dataset = SynthesisDataset(args.data_root, scale=args.scale, extension='.png', do_domain_transfer=args.domain_transfer, net_G_path=args.net_G_path, random_crop=args.crop)
     dataset.modalities = ['img', args.modality]
 
     loader_args = dict(batch_size=batch_size, num_workers=4, pin_memory=True)
