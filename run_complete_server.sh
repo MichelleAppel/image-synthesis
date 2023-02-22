@@ -32,7 +32,7 @@ steps=40000
 
 # # Edge detection on NYUD dataset
 # ## Train
-python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_real_train --gpu $1 --steps $steps
+# python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_real_train --gpu $1 --steps $steps
 
 # ### Test
 # python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_real --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_fake_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_step40000.pth --save_path ./output/$project_name/$run_name_real/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
@@ -43,7 +43,7 @@ python ./image_synthesis/train.py --project_name $project_name --run_name $run_n
 
 # Edge detection on BDSD dataset
 ## Train
-# python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_BDSD --batch_size $batch_size --modality outlines --n_classes 2 --mode train --crop 320 --data_root $data_root_BDSD_train --gpu $1 --steps $steps
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_BDSD --batch_size $batch_size --modality outlines --n_classes 2 --mode train --crop 320 --data_root $data_root_BDSD_train --gpu $1 --steps $steps
 
 # # ### Test
 # python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_BDSD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --crop 320 --data_root $data_root_fake_test --load ./checkpoints/$project_name/$run_name_BDSD/checkpoint_step40000.pth --save_path ./output/$project_name/$run_name_real/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
