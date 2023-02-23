@@ -151,15 +151,15 @@ def train_net(net,
                         if args.modality == 'class':
                             true = train_set.class_to_color(true_masks.unsqueeze(1)).float().cpu()[0]
                             pred = train_set.class_to_color(torch.softmax(masks_pred, dim=1).argmax(dim=1).unsqueeze(1))[0].float().cpu()
-                            conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
+                            # conf = torch.softmax(masks_pred, dim=1).max(dim=1)[0][0].float().cpu()
                         elif args.modality == 'normals' or args.modality == 'depth':
                             true = true_masks[0].float().cpu()
                             pred = masks_pred[0].float().cpu()
-                            conf = masks_pred[0].float().cpu()
+                            # conf = masks_pred[0].float().cpu()
                         else:
                             true = true_masks[0].float().cpu()
                             pred = torch.softmax(masks_pred[0], dim=0)[1].float().cpu()
-                            conf = torch.softmax(masks_pred[0], dim=0)[1].float().cpu()
+                            # conf = torch.softmax(masks_pred[0], dim=0)[1].float().cpu()
 
                         # logging.info('Validation Dice score: {}'.format(val_score))
                         experiment.log({
@@ -168,8 +168,8 @@ def train_net(net,
                             'images': wandb.Image(images[0].cpu()),
                             'masks': {
                                 'true': wandb.Image(true),
-                                'pred': wandb.Image(pred),
-                                'conf': wandb.Image(conf)
+                                'pred': wandb.Image(pred)
+                                # 'conf': wandb.Image(conf)
                             },
                             **histograms
                         })
