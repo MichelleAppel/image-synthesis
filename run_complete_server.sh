@@ -35,7 +35,7 @@ model_step=30000
 
 # # Edge detection on NYUD dataset
 # ## Train
-python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_NYUD --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_ArchVizPro_train --gpu $1 --steps $steps
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_NYUD --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_NYUD_train --gpu $1 --steps $steps
 
 # ### Test
 # python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_NYUD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_ArchVizPro_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_step$model_step.pth --save_path ./output/$project_name/$run_name_real/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
