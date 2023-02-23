@@ -134,7 +134,7 @@ class SynthesisDataset(Dataset):
                 images_dict['img'] = self.domain_transfer(self.normalize((images_dict['img'])))
             if mod == 'img':
                 # images_dict['img'] = self.normalize(images_dict['img'])
-                print(images_dict['img'].min(), images_dict.max())
+                print(images_dict['img'].min(), images_dict['img'].max())
                 images_dict['img'] = 1 - images_dict['img']
 
         return images_dict
