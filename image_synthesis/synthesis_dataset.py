@@ -73,6 +73,9 @@ class SynthesisDataset(Dataset):
         # transformations
         self.toTensor = transforms.ToTensor() # from PIL image to Tensor
         self.toPilImage = transforms.ToPILImage() # Tensor to Pil Image
+        # self.normalize_beforecycleGAN = transforms.Normalize(
+        #     mean=[0.5, 0.5, 0.5],
+        #     std=[0.5, 0.5, 0.5])
         self.normalize = transforms.Normalize(
             mean=[0.485, 0.456, 0.406],
             std=[0.229, 0.224, 0.225])
@@ -133,9 +136,7 @@ class SynthesisDataset(Dataset):
             if mod == 'img' and self.do_domain_transfer:
                 images_dict['img'] = self.domain_transfer(self.normalize((images_dict['img'])))
             if mod == 'img':
-                # images_dict['img'] = self.normalize(images_dict['img'])
-                print(images_dict['img'].min(), images_dict['img'].max())
-                images_dict['img'] = 1 - images_dict['img']
+                images_dict['img'] = self.normalize(images_dict['img'])
 
         return images_dict
 
