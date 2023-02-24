@@ -38,8 +38,8 @@ model_step=30000
 # python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_NYUD --batch_size $batch_size --modality outlines --n_classes 2 --mode train --data_root $data_root_NYUD_train --gpu $1 --steps $steps
 
 # ### Test
-python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_NYUD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_ArchVizPro_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_step$model_step.pth --save_path ./output/$project_name/$run_name_real/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
-python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_NYUD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_NYUD_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_step$model_step.pth --save_path ./output/$project_name/$run_name_real/real/ --gpu $1
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_NYUD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_ArchVizPro_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_step$model_step.pth --save_path ./output/$project_name/$run_name_NYUD/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_NYUD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_NYUD_test --load ./checkpoints/$project_name/$run_name_real/checkpoint_step$model_step.pth --save_path ./output/$project_name/$run_name_NYUD/real/ --gpu $1
 
 
 # Edge detection on BDSD dataset
@@ -47,8 +47,8 @@ python ./image_synthesis/train.py --project_name $project_name --run_name $run_n
 # python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_BDSD --batch_size $batch_size --modality outlines --n_classes 2 --mode train --crop 320 --data_root $data_root_BDSD_train --gpu $1 --steps $steps
 
 # # ### Test
-python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_BDSD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_ArchVizPro_test --load ./checkpoints/$project_name/$run_name_BDSD/checkpoint_step$model_step.pth --save_path ./output/$project_name/$run_name_real/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
-python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_BDSD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --crop 320 --data_root $data_root_NYUD_test --load ./checkpoints/$project_name/$run_name_BDSD/checkpoint_step$model_step.pth --save_path ./output/$project_name/$run_name_real/real/ --gpu $1
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_BDSD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --data_root $data_root_ArchVizPro_test --load ./checkpoints/$project_name/$run_name_BDSD/checkpoint_step$model_step.pth --save_path ./output/$project_name/$run_name_BDSD/fake/ --gpu $1 # --domain_transfer True --net_G_path $net_G_path
+python ./image_synthesis/train.py --project_name $project_name --run_name $run_name_BDSD --batch_size $batch_size --modality outlines --n_classes 2 --mode test --crop 320 --data_root $data_root_NYUD_test --load ./checkpoints/$project_name/$run_name_BDSD/checkpoint_step$model_step.pth --save_path ./output/$project_name/$run_name_BDSD/real/ --gpu $1
 
 
 ## Edge detection on fake dataset w/o domain transfer
