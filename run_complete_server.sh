@@ -27,7 +27,7 @@ data_root_BDSD_test=$root'/labeled_BDSD_test'
 
 batch_size=10
 steps=40000
-model_step=35000
+model_step=30000
 
 ## Train cycleGAN
 # python ./cyclegan/train.py --dataroot $root --use_wandb --name $cycleGANrun_name --batch_size 1 --load_size 448 --crop_size 256 --gpu_ids $1 --netG unet_256
