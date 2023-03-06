@@ -45,7 +45,7 @@ def train_net(net,
     # 3. Create data loaders
     loader_args = dict(batch_size=batch_size, num_workers=4, pin_memory=True)
     train_loader = DataLoader(train_set, shuffle=False, **loader_args)
-    val_loader = DataLoader(val_set, shuffle=False, drop_last=True, **loader_args)
+    # val_loader = DataLoader(val_set, shuffle=False, drop_last=True, **loader_args)
 
     # (Initialize logging)
     
@@ -234,7 +234,7 @@ def test_net(net,
             count += 1
             save_image(images[i], os.path.join(save_path,'{}-{}_img.png'.format(step, i)))
             save_image(true_masks[i].float(), os.path.join(save_path,'{}-{}_truemask.png'.format(step, i)))
-            save_image(torch.softmax(masks_pred[i], dim=0)[1], os.path.join(save_path,'{}-{}_predmask.png'.format(step, i)))
+            save_image(torch.softmax(masks_pred[i], dim=0)[1].float().cpu(), os.path.join(save_path,'{}-{}_predmask.png'.format(step, i)))
         
         if count > args.save_n_images:
             break
