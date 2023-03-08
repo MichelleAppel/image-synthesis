@@ -213,6 +213,7 @@ def test_net(net,
     count = 0
     for step, batch in tqdm(enumerate(test_loader)):
         images = batch['img']
+        print(images.min(), images.max())
         true_masks = batch[args.modality]
         if args.modality in ['outlines', 'class']:
             true_masks = true_masks[:, 0, :, :]
@@ -228,7 +229,7 @@ def test_net(net,
         true_masks = true_masks.to(device=device, dtype=type)
 
         with torch.cuda.amp.autocast(enabled=amp):
-            masks_pred = net(images).detach()
+            masks_pred = net(images)#.detach()
 
         for i in range(len(images)):
             count += 1
