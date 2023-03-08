@@ -135,8 +135,8 @@ class SynthesisDataset(Dataset):
 
             if mod == 'img' and self.do_domain_transfer:
                 images_dict['img'] = self.domain_transfer(self.normalize((images_dict['img'])))
-            # if mod == 'img':
-            #     images_dict['img'] = self.normalize(images_dict['img'])
+            if mod == 'img':
+                images_dict['img'] = self.normalize(images_dict['img'])
 
         return images_dict
 
